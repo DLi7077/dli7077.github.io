@@ -1,0 +1,95 @@
+body{
+    background-image:url(images/golembackground.jpg);
+    background-repeat:no-repeat;
+    background-size: cover; 
+    overflow: hidden;
+    white-space:nowrap;
+    background-repeat:no-repeat;
+    background-size: cover; 
+    overflow: hidden;
+}
+
+/* body{
+    background-image:    url(images/golembackground.jpg);
+    background-size:     cover;                
+    background-repeat:   no-repeat;
+    overflow: hidden;
+}*/
+.title{
+    margin-left:11px;
+    font-size: 75px;
+    color:skyblue;
+    background-color: rgb(0, 0, 0,.5);
+    width:600px;
+    /* position: static;
+    display:inline; */
+    white-space: nowrap;
+    /* overflow: hidden; */
+
+}
+.minitext{
+    color:white;
+    background-color: rgb(255, 166, 0,0.5);
+    width:600px;
+    font-size:40px;
+    margin-left:11px;
+
+}
+label{
+    color:rgb(0, 255, 255);
+    font-size:25px;
+
+}
+select{
+    color:red;
+    font-size: 25px;
+}
+option{
+    color:red;
+    font-size:25px;
+}
+input{
+    font-size:25px;
+}
+.subtitle{
+    font-size: 40px;
+    text-align: center;
+    background-color: rgb(0, 255, 255, .5);
+    padding:10px;
+}
+.stats{
+    float:left;
+    display: inline-block;
+    white-space: nowrap;
+    background-color: rgb(255, 0, 0,0.3);
+    margin-left: 10px;
+    padding: 11px;
+    
+}
+button{
+    font-size: 25px;
+}
+.output{
+    float:left;
+}
+.output_log{
+    background-color: black;
+    color:white;
+    font-size:20px;
+    width:500px;
+    white-space: pre-line;
+    float:center;
+    /* allows new line \n */
+}
+.buff{
+    width:500px;
+
+}
+input.box{
+    margin-left:50px;
+    transform:scale(3);
+
+}
+.mini{
+    width:250px;
+}
