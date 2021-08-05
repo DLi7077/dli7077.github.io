@@ -36,16 +36,18 @@ var ReactionBonus=1+ElementalReaction(SkillElement,ElementTarget,VapMelt);
     //play around with this dmg is about 10% off if EnemyLevel+[200]
     
 //buffs
+    var bennetBase=parseFloat(document.getElementById('bennetBase').value);
+    var bennetBonus=parseFloat(document.getElementById('%bonus').value)*.01;
     if(document.getElementById('bennet').checked){
-        TotalAttack+=parseFloat(document.getElementById('bennetBase').value)
-        *parseFloat(document.getElementById('%bonus'));
+        TotalAttack+=bennetBase*bennetBonus;
     }
     if(document.getElementById('noblesse').checked){
         DmgScaling+=.2;
     }
-    if(document.getElementById('obama').checked);
+    if(document.getElementById('4noblesse').checked){
+        TotalAttack+=.2*BaseAttack;
+    }
     
-
 //final calculation
     var ResShred=parseFloat(document.getElementById("resShred").value)*.01;//count resistance shred like 4pc VV
     var ResPercent=Resistance-ResShred;//final resistance
