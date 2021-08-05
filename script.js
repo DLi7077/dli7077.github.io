@@ -36,7 +36,14 @@ var ReactionBonus=1+ElementalReaction(SkillElement,ElementTarget,VapMelt);
     //play around with this dmg is about 10% off if EnemyLevel+[200]
     
 //buffs
-    
+    if(document.getElementById('bennet').checked){
+        TotalAttack+=parseFloat(document.getElementById('bennetBase').value)
+        *parseFloat(document.getElementById('%bonus'));
+    }
+    if(document.getElementById('noblesse').checked){
+        DmgScaling+=.2;
+    }
+    if(document.getElementById(''))
     
 
 //final calculation
