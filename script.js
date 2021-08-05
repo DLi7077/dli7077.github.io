@@ -43,7 +43,7 @@ var ReactionBonus=1+ElementalReaction(SkillElement,ElementTarget,VapMelt);
     if(document.getElementById('noblesse').checked){
         DmgScaling+=.2;
     }
-    if(document.getElementById(''))
+    if(document.getElementById('obama').checked);
     
 
 //final calculation
