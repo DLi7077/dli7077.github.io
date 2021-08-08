@@ -20,8 +20,9 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
 if(document.getElementById("4witch").checked){
     VapMelt+=.15;
 }
-var ReactionBonus=1+ElementalReaction(SkillElement,ElementTarget,VapMelt);
+var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
 // problem here^^
+//identified problem: melt undercalculates dmg, needs boost
     
 //enemy stats
     var EnemyLevel=parseFloat(document.getElementById("eLv").value);
@@ -88,19 +89,19 @@ var ReactionBonus=1+ElementalReaction(SkillElement,ElementTarget,VapMelt);
 
 function ElementalReaction(skill, target, VapMelt){
     if (skill==='Pyro'&&target==='Cryo'){
-        return 1+VapMelt;
+        return 2*(1+VapMelt);
     }
     else if(skill==='Cryo'&&target==='Pyro'){
-        return .5+VapMelt;
+        return 1.5*(1+VapMelt);
     }
     else if(skill==='Pyro'&&target==='Hydro'){
-        return .5+VapMelt;
+        return 1.5*(1+VapMelt);
     }
     else if(skill==='Hydro'&&target==='Pyro'){
-        return 1+VapMelt;
+        return 2*(1+VapMelt);
     }
     else{
-        return 0;
+        return 1;
     }
     
 }
