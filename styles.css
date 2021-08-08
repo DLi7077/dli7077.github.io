@@ -49,7 +49,7 @@ option{
     font-size:25px;
 }
 input{
-    font-size:25px;
+    font-size:20px;
 }
 .subtitle{
     font-size: 40px;
@@ -62,8 +62,8 @@ input{
     display: inline-block;
     white-space: nowrap;
     background-color: rgb(255, 0, 0,0.3);
-    margin-left: 10px;
-    padding: 11px;
+    padding: 10px;
+    width: auto;
     
 }
 button{
@@ -79,6 +79,7 @@ button{
     width:500px;
     white-space: pre-line;
     float:center;
+    font-size: 25px;
     /* allows new line \n */
 }
 .buff{
