@@ -43,7 +43,7 @@ var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
         TotalAttack+=bennetBase*bennetBonus;
     }
     if(document.getElementById('noblesse').checked){
-        DmgScaling+=.2;
+        DmgBonus+=.2;
     }
     if(document.getElementById('4noblesse').checked){
         TotalAttack+=.2*BaseAttack;
@@ -55,6 +55,10 @@ var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
     var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
     var OtherBoosts=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
     DmgBonus+=OtherBoosts;
+//bug w/ other dmg bonuses, hutao w/ 0 is good
+// diluc w/ 15% is .18% off
+//chongyun w/ 60% is 9.6%
+//found out why: noblesse is meant to be in dmg bonus, not dmg scaling
     var OutgoingDamage=TotalAttack*DmgScaling*(1+DmgBonus);
     var IncomingDmg= OutgoingDamage*DefMultiplier*ResMultiplier*ReactionBonus;
     var IncomingCrit=IncomingDmg*CritDamage;
