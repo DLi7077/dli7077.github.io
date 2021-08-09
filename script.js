@@ -5,22 +5,17 @@ function calculate(){
     var CharacterLevel= parseFloat(document.getElementById("lv").value);//character level
     var BaseAttack= parseInt(document.getElementById("BATK").value);//base attack for bonuses
     var TotalAttack= parseFloat(document.getElementById("FATK").value);//total attack
-    var EM= parseFloat(document.getElementById("EM").value);//Elemental Mastery
-    var VapMelt= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
+
+    
 //crit
     var CritRate=parseFloat(document.getElementById("CR").value)*.01;
     var CritDamage=parseFloat(document.getElementById("CD").value)*.01+1;
 
-//elemental reaction related
-    var SkillElement=document.getElementById("DmgELE").value;//element of the skill
-    var ElementTarget=document.getElementById("AELE").value;//element on target
+
 //dmg bonuses
 var DmgBonus=parseFloat(document.getElementById("DMGBonus").value)*.01;//damage bonus
 var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage scaling
-if(document.getElementById("4witch").checked){
-    VapMelt+=.15;
-}
-var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
+
 // problem here^^
 //identified problem: melt undercalculates dmg, needs boost
     
@@ -34,9 +29,38 @@ var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
     // var Atest=parseFloat(document.getElementById("Atest").value);
     var DMGReduction=EnemyDefense/(EnemyDefense+(5*CharacterLevel)+500);
     var DefMultiplier=1-DMGReduction;
-    //play around with this dmg is about 10% off if EnemyLevel+[200]
+
+    //enemy Defense
+    var ResShred=parseFloat(document.getElementById("resShred").value)*.01;//count resistance shred like 4pc VV
     
-//buffs
+    if(document.getElementById('4VV').checked){
+        ResShred+=.4
+    }
+    var ResPercent=Resistance-ResShred;//final resistance
+    var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
+    var OtherBoosts=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
+    
+    //elemental reaction 
+    var SkillElement=document.getElementById("DmgELE").value;//element of the skill
+    var ElementTarget=document.getElementById("AELE").value;//element on target
+
+    var EM= parseFloat(document.getElementById("EM").value);//Elemental Mastery
+    var VapMelt=0;
+    if(document.getElementById("4witch").checked){
+        VapMelt+=.15;
+    }
+    //sucrose em buff
+    if(document.getElementById('Sucrose').checked){
+        if(document.getElementById('MollisFavonius').checked){
+            EM+=.2*parseFloat(document.getElementById('SucroseEM').value);
+        }
+    }
+    //final em calculation
+    VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
+    var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
+
+
+    //character buffs
     var bennetBase=parseFloat(document.getElementById('bennetBase').value);
     var bennetBonus=parseFloat(document.getElementById('%bonus').value)*.01;
     if(document.getElementById('bennet').checked){
@@ -49,11 +73,17 @@ var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
         TotalAttack+=.2*BaseAttack;
     }
     
+    //something might be wrong with geoResonance, test it.
+    if(document.getElementById('geoRes').checked){
+        DmgBonus+=.15;
+    }
+
+    if(document.getElementById('thrillingTales').checked){
+        TotalAttack+=.48*BaseAttack;
+    }
+    
 //final calculation
-    var ResShred=parseFloat(document.getElementById("resShred").value)*.01;//count resistance shred like 4pc VV
-    var ResPercent=Resistance-ResShred;//final resistance
-    var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
-    var OtherBoosts=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
+    
     DmgBonus+=OtherBoosts;
 //bug w/ other dmg bonuses, hutao w/ 0 is good
 // diluc w/ 15% is .18% off
