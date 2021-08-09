@@ -70,18 +70,21 @@ var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
 
     //detailed console calculation
     document.getElementById("console").textContent=
-    'Character level:\t'+CharacterLevel+
-    '\nAttack:\t'+TotalAttack+'\nElemental Mastery:\t'+EM
+    'Character level:\t\t'+CharacterLevel+
+    '\nAttack:\t\t\t\t'+TotalAttack+'\nElemental Mastery:\t\t'+EM
     +'\nMelt/ Vaporize Bonus:\t'+(VapMelt*100).toFixed(1)+'%'
-    +'\nCrit Rate:\t'+(CritRate*100).toFixed(1)+'%\nCrit Damage:\t'+((CritDamage-1)*100).toFixed(1)+'%'
+    +'\nCrit Rate:\t\t\t'+(CritRate*100).toFixed(1)+'%\nCrit Damage:\t\t\t'+((CritDamage-1)*100).toFixed(1)+'%'
     +'\nTarget is affected by: \t'+ElementTarget+'\nDamage Element is: \t'+SkillElement
-    +'\nDamage Scaling:\t'+(DmgScaling*100).toFixed(1)+'%\nExisting Damage Bonus:\t'+(DmgBonus*100).toFixed(1)+'%'
-    +'\nReactionBonus:\t'+ReactionBonus.toFixed(2)
-    +'\nEnemy Level:\t'+EnemyLevel+'\nEnemy Defense:\t'+EnemyDefense.toFixed(1)+'\nResistance Multiplier:\t'+ResMultiplier.toFixed(1)
-    +'\nOutgoing Damage:\t'+OutgoingDamage.toFixed(1)+"\nDMG Reduction:\t"+DMGReduction
-    +'\nDEF Multiplier:\t'+DefMultiplier
-    +'\n\nnon-crit hit:\t'+ IncomingDmg.toFixed(0)
-    +'\nCrit Hit:\t'+IncomingCrit.toFixed(0);
+    +'\nDamage Scaling:\t\t'+(DmgScaling*100).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
+    +'\nReactionBonus:\t\t'+ReactionBonus.toFixed(2)
+    +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(1)+'\nResistance Multiplier:\t'+ResMultiplier.toFixed(1)
+    +'\nOutgoing Damage:\t\t'+OutgoingDamage.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction
+    +'\nDEF Multiplier:\t\t'+DefMultiplier;
+    document.getElementById("dmgout").textContent=
+    'non-crit hit:\t'+ IncomingDmg.toFixed(0)
+    +'\nCrit Hit:\t\t'+IncomingCrit.toFixed(0);
+
+    
     
     // var elements=document.getElementById("Characters").elements;
 

@@ -55,7 +55,7 @@
             <div class="stats">
             <div class="subtitle">
                 Enemy Stats:
-            </div>
+            </div><br>
             <label for="eLv">Enemy Level</label>
             <input type="number" id="eLv" oninput="calculate();"><br><br>
             <label for="AELE">Enemy affected by:</label>
@@ -80,10 +80,10 @@
                 <!-- IMPLEMENT THIS -->
                 <!-- sucrose bennet mona zhongli shield, geo res, etc. -->
                 Buffs 
-            </div>
-            <label for="noblesse">2pc Noblesse Oblige (+20% Burst DMG)</label>
+            </div><br>
+            <label for="noblesse">2pc Noblesse(+20% Burst DMG)</label>
             <input type="checkbox" class= box id="noblesse"oninput="calculate();"><br><br>
-            <label for="noblesse">4pc Noblesse Oblige (+20% ATK)</label>
+            <label for="noblesse">4pc Noblesse (+20% ATK)</label>
             <input type="checkbox" class= box id="4noblesse"oninput="calculate();"><br><br>
             <label for="bennet">Fantastic Voyage</label>
             <input type="checkbox" class= box id="bennet" oninput="calculate();"><br><br>
@@ -93,13 +93,29 @@
             <label for="%bonus">Attack Bonus%</label>
             <input type="number" id= "%bonus" oninput="calculate();"><br><br>
             <!-- put this into 1 box -->
+
+            <!-- Implement all this -->
+            <label for="Sucrose">Sucrose</label>
+            <input type="checkbox" class= box id="Sucrose" oninput="calculate();"><br><br>
+            <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
+            <input type="number" id="SucroseEM"  oninput="calculate();"><br><br>
+            <label for="MollisFavonius"> Mollis Favonius</label>
+            <input type="checkbox" class=box id= "MollisFavonius" oninput="calculate();"><br><br>
+
             <label for="resShred"> Resistance Shred</label>
             <input type="number" id="resShred"oninput="calculate();"><br><br>
-            <label for="4witch"> 4pc witch</label>
+
+            <label for="geoRes">Geo Team Resonance</label>
+            <input type="checkbox" class= box id="geoRes" oninput="calculate();"><br><br>
+            <label for="4VV">4pc Viridescent Venerer </label>
+            <input type="checkbox" class= box id="4VV" oninput="calculate();"><br><br>
+            <label for="4witch"> 4pc Crimson Witch of Flames</label>
             <input type="checkbox" class=box id="4witch"oninput="calculate();"><br><br>
+            <label for="thrillingTales">Thrilling Tales[R5](+48%)</label>
+            <input type="checkbox" class= box id="thrillingTales" oninput="calculate();"><br><br>
             <label for="other">other DMGBoost%:</label>
-            <input type="number" id="other"oninput="calculate();">
-            <label type="4 VV" id= 
+            <input type="number" id="other"oninput="calculate();"><br><br>
+            <!-- implement all this -->
 
         </div>
         
@@ -111,7 +127,9 @@
                 Console: 
             </div>
             <div class="output_log">
-                <p id="console"> </p>
+                <p id="console"> <br>
+                </p>
+                <p id="dmgout"></p>
             </div>
             
         </div>

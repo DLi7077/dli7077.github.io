@@ -2,13 +2,8 @@ body{
     background-image:url(\images/151368.jpg);
     background-repeat:no-repeat;
     background-size: cover; 
-    overflow: hidden;
-    white-space:nowrap;
-    background-repeat:no-repeat;
     background-size: cover; 
-    overflow: hidden;
 }
-
 /* body{
     background-image:    url(images/golembackground.jpg);
     background-size:     cover;                
@@ -37,7 +32,7 @@ body{
 }
 label{
     color:rgb(0, 255, 255);
-    font-size:25px;
+    font-size:20px;
 
 }
 select{
@@ -49,10 +44,13 @@ option{
     font-size:25px;
 }
 input{
+    float:right;
     font-size:20px;
+    width:200px;
+
 }
 .subtitle{
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     background-color: rgb(0, 255, 255, .5);
     padding:10px;
@@ -63,10 +61,12 @@ input{
     white-space: nowrap;
     background-color: rgb(255, 0, 0,0.3);
     padding: 10px;
-    width: auto;
+    width: 420px;
+    margin:5px;
     
 }
 button{
+    float:left;
     font-size: 25px;
 }
 .output{
@@ -76,18 +76,23 @@ button{
     background-color: black;
     color:white;
     font-size:20px;
-    width:500px;
+    width:420px;
     white-space: pre-line;
+    white-space:pre;
     float:center;
-    font-size: 25px;
+    font-size: 20px;
     /* allows new line \n */
 }
+#dmgout{
+    font-size: 30px;
+}
+
+
 .buff{
-    width:500px;
+    width:480px;
 
 }
 input.box{
-    margin-left:50px;
-    transform:scale(3);
+    transform:scale(2.5);
 
 }
