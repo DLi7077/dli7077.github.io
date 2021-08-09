@@ -62,6 +62,9 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
         if(document.getElementById('MollisFavonius').checked){
             EM+=.2*parseFloat(document.getElementById('SucroseEM').value);
         }
+        if(document.getElementById('CatalystConversion').checked){
+            EM+=50;
+        }
     }
     //final em calculation
     VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
@@ -89,7 +92,10 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
     if(document.getElementById('thrillingTales').checked){
         TotalAttack+=.48*BaseAttack;
     }
-    
+    if(document.getElementById('omenDebuff').checked){
+        DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
+    }
+
 //final calculation
     
     DmgBonus+=OtherBoosts;
