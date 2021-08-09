@@ -44,6 +44,14 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
     var SkillElement=document.getElementById("DmgELE").value;//element of the skill
     var ElementTarget=document.getElementById("AELE").value;//element on target
 
+    //background change
+    var bg=document.getElementById('charac').style.backgroundColor="ffffff";
+
+
+
+
+
+
     var EM= parseFloat(document.getElementById("EM").value);//Elemental Mastery
     var VapMelt=0;
     if(document.getElementById("4witch").checked){
@@ -151,4 +159,12 @@ function ResistanceCalc(res){
         return 1-res;
     }
     return 1-(res/2);
+}
+
+//big brain stuff here
+//sets div image based on what element is selected
+function changeBG(ElementName,divId){
+    var url="images/Element_"+ElementName+".png";
+    var div= document.getElementById(divId);
+    div.style.backgroundImage=`url(${url})`;
 }
