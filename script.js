@@ -170,7 +170,7 @@ function ResistanceCalc(res){
 //big brain stuff here
 //sets div image based on what element is selected
 function changeBG(ElementName,divId){
-    var url="images/Element_"+ElementName+".png";
+    var url=`images/Element_${ElementName}.png`;
     var div= document.getElementById(divId);
     div.style.backgroundImage=`url(${url})`;
 }
