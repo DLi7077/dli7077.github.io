@@ -174,3 +174,13 @@ function changeBG(ElementName,divId){
     var div= document.getElementById(divId);
     div.style.backgroundImage=`url(${url})`;
 }
+function show(id,divId){
+    var div= document.getElementById(divId);
+    if(document.getElementById(id).checked){
+        div.style.display="contents";
+        // div.style.backgroundImage=`url(\images/sucrose_BG.png)`;
+    }
+    if(!document.getElementById(id).checked){
+        div.style.display="none";
+    }
+}
