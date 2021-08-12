@@ -45,8 +45,11 @@ option{
     font-size:25px;
 }
 input{
-    float:right;
+    
+    color:rgb(0, 255, 255);
     font-size:20px;
+    background-color: rgba(0,0,0,.5);
+    float:right;
     width:200px;
 
 }
