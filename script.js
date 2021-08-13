@@ -66,15 +66,31 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
             EM+=50;
         }
     }
+    var KazuEM=parseFloat(document.getElementById('KazEM').value);
+
+    if(document.getElementById('Kazuha').checked){
+        if(document.getElementById('PoF').checked){
+            if(SkillElement==='Anemo'||SkillElement==='Geo'){
+            }
+            else{
+                DmgBonus+=KazuEM*.0004;
+            }
+            
+        }
+        if(document.getElementById('C2').checked){
+            EM+=200;
+        }
+    }
+
     //final em calculation
     VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
     var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
 
 
     //character buffs
-    var bennetBase=parseFloat(document.getElementById('bennetBase').value);
+    var bennetBase=parseFloat(document.getElementById('bennettBase').value);
     var bennetBonus=parseFloat(document.getElementById('%bonus').value)*.01;
-    if(document.getElementById('bennet').checked){
+    if(document.getElementById('bennett').checked){
         TotalAttack+=bennetBase*bennetBonus;
     }
     if(document.getElementById('noblesse').checked){
@@ -115,7 +131,7 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
     //detailed console calculation
     document.getElementById("console").textContent=
     'Character level:\t\t'+CharacterLevel+
-    '\nAttack:\t\t\t\t'+TotalAttack+'\nElemental Mastery:\t\t'+EM
+    '\nAttack:\t\t\t\t'+TotalAttack.toFixed(1)+'\nElemental Mastery:\t\t'+EM
     +'\nMelt/ Vaporize Bonus:\t'+(VapMelt*100).toFixed(1)+'%'
     +'\nCrit Rate:\t\t\t'+(CritRate*100).toFixed(1)+'%\nCrit Damage:\t\t\t'+((CritDamage-1)*100).toFixed(1)+'%'
     +'\nTarget is affected by: \t'+ElementTarget+'\nDamage Element is: \t'+SkillElement
@@ -178,7 +194,6 @@ function show(id,divId){
     var div= document.getElementById(divId);
     if(document.getElementById(id).checked){
         div.style.display="contents";
-        // div.style.backgroundImage=`url(\images/sucrose_BG.png)`;
     }
     if(!document.getElementById(id).checked){
         div.style.display="none";
