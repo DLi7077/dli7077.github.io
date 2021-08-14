@@ -122,6 +122,7 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
     var OutgoingDamage=TotalAttack*DmgScaling*(1+DmgBonus);
     var IncomingDmg= OutgoingDamage*DefMultiplier*ResMultiplier*ReactionBonus;
     var IncomingCrit=IncomingDmg*CritDamage;
+    var avg=IncomingDmg*(1-CritRate)+IncomingCrit*CritRate;
 
     // document.getElementById("output").textContent='non-crit hit:\t'
     // + IncomingDmg.toFixed(0)
@@ -142,7 +143,8 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
     +'\nDEF Multiplier:\t\t'+DefMultiplier;
     document.getElementById("dmgout").textContent=
     'non-crit hit:\t'+ IncomingDmg.toFixed(0)
-    +'\nCrit Hit:\t\t'+IncomingCrit.toFixed(0);
+    +'\nCrit Hit:\t\t'+IncomingCrit.toFixed(0)
+    +'\nAverage:\t\t'+avg.toFixed(0);
 
     
     
