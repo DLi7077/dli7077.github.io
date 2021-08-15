@@ -14,7 +14,8 @@ function calculate(){
 
 //dmg bonuses
 var DmgBonus=parseFloat(document.getElementById("DMGBonus").value)*.01;//damage bonus
-var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage scaling
+var SkillScaling=parseFloat(document.getElementById("SkillScaling").value)/100;//skill scaling
+var BurstScaling=parseFloat(document.getElementById("BurstScaling").value)/100;//burst scaling
 
 // problem here^^
 //identified problem: melt undercalculates dmg, needs boost
@@ -38,14 +39,12 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
     }
     var ResPercent=Resistance-ResShred;//final resistance
     var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
-    var OtherBoosts=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
-    
+    var OtherBonus=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
+    var SkillBonus=parseFloat(document.getElementById("otherS").value)*.01;
+    var BurstBonus=parseFloat(document.getElementById("otherB").value)*.01;
     //elemental reaction 
     var SkillElement=document.getElementById("DmgELE").value;//element of the skill
     var ElementTarget=document.getElementById("AELE").value;//element on target
-
-    //background change
-    var bg=document.getElementById('charac').style.backgroundColor="ffffff";
 
 
 
@@ -86,7 +85,6 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
     VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
     var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
 
-
     //character buffs
     var bennetBase=parseFloat(document.getElementById('bennettBase').value);
     var bennetBonus=parseFloat(document.getElementById('%bonus').value)*.01;
@@ -94,7 +92,7 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
         TotalAttack+=bennetBase*bennetBonus;
     }
     if(document.getElementById('noblesse').checked){
-        DmgBonus+=.2;
+        BurstBonus+=.2;
     }
     if(document.getElementById('4noblesse').checked){
         TotalAttack+=.2*BaseAttack;
@@ -114,37 +112,50 @@ var DmgScaling=parseFloat(document.getElementById("Scaling").value)/100;//damage
 
 //final calculation
     
-    DmgBonus+=OtherBoosts;
+    DmgBonus+=OtherBonus;
 //bug w/ other dmg bonuses, hutao w/ 0 is good
 // diluc w/ 15% is .18% off
 //chongyun w/ 60% is 9.6%
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
-    var OutgoingDamage=TotalAttack*DmgScaling*(1+DmgBonus);
-    var IncomingDmg= OutgoingDamage*DefMultiplier*ResMultiplier*ReactionBonus;
-    var IncomingCrit=IncomingDmg*CritDamage;
-    var avg=IncomingDmg*(1-CritRate)+IncomingCrit*CritRate;
+  
+    var DMGreduce=DefMultiplier*ResMultiplier*ReactionBonus;
+    var DMGoutput=DMGreduce*TotalAttack;//excluding dmg scaling
+    var SkillOut=DMGoutput*(1+DmgBonus+SkillBonus)*SkillScaling;
+    var SkillCrit=SkillOut*(CritDamage);
+    var Skillavg=SkillOut*(1-CritRate)+SkillCrit*CritRate;
+
+    var BurstOut=DMGoutput*(1+DmgBonus+BurstBonus)*BurstScaling;
+    var BurstCrit=BurstOut*(CritDamage);
+    var Burstavg=BurstOut*(1-CritRate)+BurstCrit*CritRate;
+
+
 
     // document.getElementById("output").textContent='non-crit hit:\t'
     // + IncomingDmg.toFixed(0)
     // +'\nCrit Hit:\t'+IncomingCrit.toFixed(0);
 
 
-    //detailed console calculation
+    // //detailed console calculation
     document.getElementById("console").textContent=
     'Character level:\t\t'+CharacterLevel+
     '\nAttack:\t\t\t\t'+TotalAttack.toFixed(1)+'\nElemental Mastery:\t\t'+EM
     +'\nMelt/ Vaporize Bonus:\t'+(VapMelt*100).toFixed(1)+'%'
     +'\nCrit Rate:\t\t\t'+(CritRate*100).toFixed(1)+'%\nCrit Damage:\t\t\t'+((CritDamage-1)*100).toFixed(1)+'%'
     +'\nTarget is affected by: \t'+ElementTarget+'\nDamage Element is: \t'+SkillElement
-    +'\nDamage Scaling:\t\t'+(DmgScaling*100).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
+    +'\nDamage Scaling:\t\t'+(SkillScaling*100).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
     +'\nReactionBonus:\t\t'+ReactionBonus.toFixed(2)
     +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(1)+'\nResistance Multiplier:\t'+ResMultiplier.toFixed(1)
-    +'\nOutgoing Damage:\t\t'+OutgoingDamage.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction
+    +'\nSkill Out:\t\t'+SkillOut.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction
     +'\nDEF Multiplier:\t\t'+DefMultiplier;
     document.getElementById("dmgout").textContent=
-    'non-crit hit:\t'+ IncomingDmg.toFixed(0)
-    +'\nCrit Hit:\t\t'+IncomingCrit.toFixed(0)
-    +'\nAverage:\t\t'+avg.toFixed(0);
+    'non-crit hit:\t'+ SkillOut.toFixed(0)
+    +'\nCrit Hit:\t\t'+SkillCrit.toFixed(0)
+    +'\nAverage:\t\t'+Skillavg.toFixed(0);
+
+    document.getElementById("dmgout2").textContent=
+    'non-crit hit:\t'+ BurstOut.toFixed(0)
+    +'\nCrit Hit:\t\t'+BurstCrit.toFixed(0)
+    +'\nAverage:\t\t'+Burstavg.toFixed(0);
 
     
     
