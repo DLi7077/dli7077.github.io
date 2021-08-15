@@ -1,21 +1,24 @@
-function calculate(){
+function calculate(ID,num){
     // alert("Character level is: "+document.getElementById("BATK").value);
     // all variables needed for calculation
 //front stats
-    var CharacterLevel= parseFloat(document.getElementById("lv").value);//character level
-    var BaseAttack= parseInt(document.getElementById("BATK").value);//base attack for bonuses
-    var TotalAttack= parseFloat(document.getElementById("FATK").value);//total attack
+// alert(document.querySelector(`.${ID} > #lv`).value);
+    
+
+    var CharacterLevel= parseFloat(document.querySelector(`.${ID} > #lv`).value);//character level
+    var BaseAttack= parseInt(document.querySelector(`.${ID} > #BATK`).value);//base attack for bonuses
+    var TotalAttack= parseFloat(document.querySelector(`.${ID} > #FATK`).value);//total attack
 
     
 //crit
-    var CritRate=parseFloat(document.getElementById("CR").value)*.01;
-    var CritDamage=parseFloat(document.getElementById("CD").value)*.01+1;
+    var CritRate=parseFloat(document.querySelector(`.${ID} > #CR`).value)*.01;
+    var CritDamage=parseFloat(document.querySelector(`.${ID} > #CD`).value)*.01+1;
 
 
 //dmg bonuses
-var DmgBonus=parseFloat(document.getElementById("DMGBonus").value)*.01;//damage bonus
-var SkillScaling=parseFloat(document.getElementById("SkillScaling").value)/100;//skill scaling
-var BurstScaling=parseFloat(document.getElementById("BurstScaling").value)/100;//burst scaling
+var DmgBonus=parseFloat(document.querySelector(`.${ID} > #DMGBonus`).value)*.01;//damage bonus
+var SkillScaling=parseFloat(document.querySelector(`.${ID} > #SkillScaling`).value)/100;//skill scaling
+var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).value)/100;//burst scaling
 
 // problem here^^
 //identified problem: melt undercalculates dmg, needs boost
@@ -51,7 +54,7 @@ var BurstScaling=parseFloat(document.getElementById("BurstScaling").value)/100;/
 
 
 
-    var EM= parseFloat(document.getElementById("EM").value);//Elemental Mastery
+    var EM= parseFloat(document.querySelector(`.${ID} > #EM`).value);//Elemental Mastery
     var VapMelt=0;
     if(document.getElementById("4witch").checked){
         VapMelt+=.15;
@@ -136,7 +139,7 @@ var BurstScaling=parseFloat(document.getElementById("BurstScaling").value)/100;/
 
 
     // //detailed console calculation
-    document.getElementById("console").textContent=
+    document.querySelector(`#console${num}`).innerHTML=
     'Character level:\t\t'+CharacterLevel+
     '\nAttack:\t\t\t\t'+TotalAttack.toFixed(1)+'\nElemental Mastery:\t\t'+EM
     +'\nMelt/ Vaporize Bonus:\t'+(VapMelt*100).toFixed(1)+'%'
@@ -147,16 +150,19 @@ var BurstScaling=parseFloat(document.getElementById("BurstScaling").value)/100;/
     +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(1)+'\nResistance Multiplier:\t'+ResMultiplier.toFixed(1)
     +'\nSkill Out:\t\t'+SkillOut.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction
     +'\nDEF Multiplier:\t\t'+DefMultiplier;
-    document.getElementById("dmgout").textContent=
-    'non-crit hit:\t'+ SkillOut.toFixed(0)
+
+    document.querySelector(`#skill${num}`).innerHTMLt=
+    'SKILL DAMAGE\nnon-crit hit:\t'+ SkillOut.toFixed(0)
     +'\nCrit Hit:\t\t'+SkillCrit.toFixed(0)
     +'\nAverage:\t\t'+Skillavg.toFixed(0);
 
-    document.getElementById("dmgout2").textContent=
-    'non-crit hit:\t'+ BurstOut.toFixed(0)
+    document.querySelector(`#burst${num}`).innerHTML=
+    'BURST DAMAGE\nnon-crit hit:\t'+ BurstOut.toFixed(0)
     +'\nCrit Hit:\t\t'+BurstCrit.toFixed(0)
     +'\nAverage:\t\t'+Burstavg.toFixed(0);
-
+    // document.getElementById('console2').style.display='inline-block';
+    // document.getElementById('skill2').style.display='inline-block';
+    // document.getElementById('burst2').style.display='inline-block';
     
     
     // var elements=document.getElementById("Characters").elements;
@@ -165,6 +171,12 @@ var BurstScaling=parseFloat(document.getElementById("BurstScaling").value)/100;/
     //     if (element.type === "text" && element.value === "")
     //         alert("some inputs are empty");
     // }
+
+    //fix it so that each box updates ONLY its corresponding console box
+
+
+
+
 }
 
 function ElementalReaction(skill, target, VapMelt){
@@ -198,6 +210,10 @@ function ResistanceCalc(res){
 
 //big brain stuff here
 //sets div image based on what element is selected
+
+
+
+
 function changeBG(ElementName,divId){
     var url=`images/Element_${ElementName}.png`;
     var div= document.getElementById(divId);
@@ -211,4 +227,8 @@ function show(id,divId){
     if(!document.getElementById(id).checked){
         div.style.display="none";
     }
+}
+
+function test(num){
+    document.querySelector(`#console${num}`).innerHTML="CHANGED";
 }

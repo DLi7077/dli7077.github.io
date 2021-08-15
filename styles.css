@@ -9,6 +9,7 @@ body{
     background-repeat:   no-repeat;
     overflow: hidden;
 }*/
+
 .title{
     margin-left:11px;
     font-size: 75px;
@@ -61,6 +62,7 @@ input{
 }
 .stats{
     float:left;
+    clear:none;
     display: inline-block;
     white-space: nowrap;
     background-color: rgba(0, 124, 161, 0.3);
@@ -76,8 +78,7 @@ input{
     background-size:cover;
 }
 .enemy{
-    float:left;
-    clear:both;
+    clear:left;
     background-color: rgba(0, 124, 161, 0.3);
     background-repeat:no-repeat;
     background-size:cover; 
@@ -91,20 +92,32 @@ select{
     
     background-color: black;
     color:white;
-    position:absolute;
+    position:relative;
     right:0px;
     bottom:0px;
-    width:1000px;
+    width:1600px;
+    display:inline-block;
     
 }
 .output_log{
-    float: left;
+    float:left;
+    clear:none;
+    padding:10px;
     font-size:20px;
     white-space: pre-line;
     white-space:  pre;
     white-space: pre-wrap;
+    border-style: solid;
+    border-color: skyblue 1px;
+    margin:4px;
     /* allows new line \n */
 }
+
+.view{
+    font-size:20px;
+    align-content: center;
+}
+
 #dmgout{
     padding-right:50px;
     font-size: 30px;
