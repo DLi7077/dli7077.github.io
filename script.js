@@ -151,7 +151,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     +'\nSkill Out:\t\t'+SkillOut.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction
     +'\nDEF Multiplier:\t\t'+DefMultiplier;
 
-    document.querySelector(`#skill${num}`).innerHTMLt=
+    document.querySelector(`#skill${num}`).innerHTML=
     'SKILL DAMAGE\nnon-crit hit:\t'+ SkillOut.toFixed(0)
     +'\nCrit Hit:\t\t'+SkillCrit.toFixed(0)
     +'\nAverage:\t\t'+Skillavg.toFixed(0);

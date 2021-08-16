@@ -8,7 +8,7 @@
     <body>
        
         <div class='title'>
-            Damage Calculator (v1.4)
+            Damage Calculator (v1.5)
             
         </div>
         <div class="minitext">
@@ -43,11 +43,11 @@
                 <option value="Anemo">Anemo</option>
             </select><br><br>
             <label for="DMGBonus">Damage Bonus</label>
-            <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character',1); calculate('character2');;"><br><br>
+            <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character',1);"><br><br>
             <label for="Scaling">Skill Damage Scaling</label>
-            <input type="number" id="SkillScaling" value=326 oninput="calculate('character',1); calculate('character2');;"><br><br>
+            <input type="number" id="SkillScaling" value=326 oninput="calculate('character',1);"><br><br>
             <label for="Scaling">Burst Damage Scaling</label>
-            <input type="number" id="BurstScaling" value=303 oninput="calculate('character',1); calculate('character2');;"><br><br>
+            <input type="number" id="BurstScaling" value=303 oninput="calculate('character',1);"><br><br>
         </div>
         
         <div class="character2 stats" id= "charac2">
@@ -91,7 +91,7 @@
             <label for="eLv">Enemy Level</label>
             <input type="number" id="eLv" value=90 oninput="calculate('character',1); calculate('character2',2);"><br><br>
             <label for="AELE">Enemy affected by:</label>
-            <select name="AELE" id="AELE" oninput="calculate('character',1); calculate('character2',2);" changeBG(value,'enemy');">
+            <select name="AELE" id="AELE" oninput="calculate('character',1); calculate('character2',2); changeBG(value,'enemy');">
                 <option value="None">None </option>
                 <option value="Pyro">Pyro</option>
                 <option value="Cryo">Cryo</option>
@@ -229,25 +229,27 @@
             <div class= "subtitle">
                 Console: 
             </div>
-            <div>
-                <div class="console output_log" id='console1'></div>
-            </div>
-            <div class= view id=view>
+
+            <div class="split">
+                <div class="consTitle"> Character 1</div>
                 
-                <div>Character 1<br>
-                <div class="output_log" id='skill1'> <br></div>
-                <div class="burst output_log" id='burst1'></div>
+                <div>
+                    <div class="console output_log" id='console1'>Console 1</div>
+                    <div class="output_log" id='skill1'> Skill<br></div>
+                    <div class="output_log" id='burst1'>Burst</div>
+                </div>
             </div>
-            </div>
-            <div>
-                <div class="console output_log" id='console2'></div>
-            </div>
-            <div class= view id=view>
+
+
+
+            <div class="split">
+                <div class="consTitle"> Character 2</div>
                 
-                <div>Character 2<br>
-                <div class="output_log" id='skill2'> <br></div>
-                <div class="output_log" id='burst2'></div>
-            </div>
+                <div>
+                    <div class="console output_log" id='console2'>Console 2</div>
+                    <div class="output_log" id='skill2'> Skill2<br></div>
+                    <div class="output_log" id='burst2'>Burst2</div>
+                </div>
             </div>
             
             

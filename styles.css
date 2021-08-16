@@ -77,6 +77,11 @@ input{
     background-repeat:no-repeat;
     background-size:cover;
 }
+.character2{
+    /* background-image:url('images/Element_Pyro.png'); */
+    background-repeat:no-repeat;
+    background-size:cover;
+}
 .enemy{
     clear:left;
     background-color: rgba(0, 124, 161, 0.3);
@@ -89,53 +94,46 @@ select{
     clear:right;
 }
 .c{
-    
+    float:none;
     background-color: black;
     color:white;
     position:relative;
     right:0px;
     bottom:0px;
-    width:1600px;
-    display:inline-block;
+    width:1400px;
+    
     
 }
+.split{
+    float:left;
+    
+    border-style: solid;
+    border-color: skyblue 1px;
+}
+.consTitle{
+    text-align:center;
+    font-size: 20px;
+}
+
 .output_log{
     float:left;
-    clear:none;
     padding:10px;
     font-size:20px;
     white-space: pre-line;
     white-space:  pre;
     white-space: pre-wrap;
-    border-style: solid;
-    border-color: skyblue 1px;
     margin:4px;
     /* allows new line \n */
 }
-
-.view{
-    font-size:20px;
-    align-content: center;
+.console{
+    font-size:12px;
 }
-
-#dmgout{
-    padding-right:50px;
-    font-size: 30px;
-}
-#dmgout2{
-    padding-right:50px;
-    font-size: 30px;
-}
-
-
 .buff{
     display:inline-block;
-    vertical-align: top;
-    float:none;
-    clear:left;
+    position: absolute;
+    top:0%;
+    right:0%;
     width:400px;
-
-
 }
 input.box{
     transform:scale(2);
