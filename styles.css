@@ -94,13 +94,13 @@ select{
     clear:right;
 }
 .c{
-    float:none;
+    float:left;
     background-color: black;
     color:white;
     position:relative;
     right:0px;
     bottom:0px;
-    width:1400px;
+    width:auto;
     
     
 }
@@ -118,7 +118,7 @@ select{
 .output_log{
     float:left;
     padding:10px;
-    font-size:20px;
+    font-size:24px;
     white-space: pre-line;
     white-space:  pre;
     white-space: pre-wrap;
