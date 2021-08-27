@@ -109,9 +109,12 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     if(document.getElementById('thrillingTales').checked){
         TotalAttack+=.48*BaseAttack;
     }
-    if(document.getElementById('omenDebuff').checked){
-        DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
+    if(document.getElementById('Mona').checked){
+        if(document.getElementById('omenDebuff').checked){
+            DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
+        }
     }
+    
 
 //final calculation
     
@@ -211,9 +214,6 @@ function ResistanceCalc(res){
 //big brain stuff here
 //sets div image based on what element is selected
 
-
-
-
 function changeBG(ElementName,divId){
     var url=`images/Element_${ElementName}.png`;
     var div= document.getElementById(divId);
@@ -232,3 +232,18 @@ function show(id,divId){
 function test(num){
     document.querySelector(`#console${num}`).innerHTML="CHANGED";
 }
+/*
+function copyOver(from,to){//WIP 
+    document.querySelector(`.${to} > #lv`).value=parseFloat(document.querySelector(`.${from} > #lv`).value);
+    document.querySelector(`.${to} > #BATK`).value=parseFloat(document.querySelector(`.${from} > #BATK`).value);
+    document.querySelector(`.${to} > #FATK`).value=parseFloat(document.querySelector(`.${from} > #FATK`).value);
+    document.querySelector(`.${to} > #EM`).value=parseFloat(document.querySelector(`.${from} > #EM`).value);
+    document.querySelector(`.${to} > #CR`).value=parseFloat(document.querySelector(`.${from} > #CR`).value);
+    document.querySelector(`.${to} > #CD`).value=parseFloat(document.querySelector(`.${from} > #CD`).value);
+    document.querySelector(`.${to} > #DMGBonus`).value=parseFloat(document.querySelector(`.${from} > #DMGBonus`).value);
+
+    document.querySelector(`.${to} > #DmgELE`).value=document.querySelector(`.${from} > #DmgELE`).value;
+    
+    document.querySelector(`.${to} > #SkillScaling`).value=parseFloat(document.querySelector(`.${from} > #SkillScaling`).value);
+    document.querySelector(`.${to} > #BurstScaling`).value=parseFloat(document.querySelector(`.${from} > #BurstScaling`).value);
+}*/

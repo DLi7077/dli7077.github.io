@@ -72,10 +72,17 @@ input{
     position:relative;
     overflow:hidden;
 }
+
+.copyOver{
+    font-size: 20px;
+    width:auto;
+    height:30px;
+}
 .character{
     /* background-image:url('images/Element_Pyro.png'); */
     background-repeat:no-repeat;
     background-size:cover;
+    background-
 }
 .character2{
     /* background-image:url('images/Element_Pyro.png'); */
