@@ -49,7 +49,11 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     var SkillElement=document.getElementById("DmgELE").value;//element of the skill
     var ElementTarget=document.getElementById("AELE").value;//element on target
 
+    //change background
+    //change class name to div id somehow
 
+    //done
+    changeBG(SkillElement,document.querySelector(`.${ID}`).id);
 
 
 
@@ -232,18 +236,18 @@ function show(id,divId){
 function test(num){
     document.querySelector(`#console${num}`).innerHTML="CHANGED";
 }
-/*
-function copyOver(from,to){//WIP 
-    document.querySelector(`.${to} > #lv`).value=parseFloat(document.querySelector(`.${from} > #lv`).value);
-    document.querySelector(`.${to} > #BATK`).value=parseFloat(document.querySelector(`.${from} > #BATK`).value);
-    document.querySelector(`.${to} > #FATK`).value=parseFloat(document.querySelector(`.${from} > #FATK`).value);
-    document.querySelector(`.${to} > #EM`).value=parseFloat(document.querySelector(`.${from} > #EM`).value);
-    document.querySelector(`.${to} > #CR`).value=parseFloat(document.querySelector(`.${from} > #CR`).value);
-    document.querySelector(`.${to} > #CD`).value=parseFloat(document.querySelector(`.${from} > #CD`).value);
-    document.querySelector(`.${to} > #DMGBonus`).value=parseFloat(document.querySelector(`.${from} > #DMGBonus`).value);
+
+function copyOver(from,to){//think it works?
+    document.querySelector(`.${to} > #lv`).value=document.querySelector(`.${from} > #lv`).value;
+    document.querySelector(`.${to} > #BATK`).value=document.querySelector(`.${from} > #BATK`).value;
+    document.querySelector(`.${to} > #FATK`).value=document.querySelector(`.${from} > #FATK`).value;
+    document.querySelector(`.${to} > #EM`).value=document.querySelector(`.${from} > #EM`).value;
+    document.querySelector(`.${to} > #CR`).value=document.querySelector(`.${from} > #CR`).value;
+    document.querySelector(`.${to} > #CD`).value=document.querySelector(`.${from} > #CD`).value;
+    document.querySelector(`.${to} > #DMGBonus`).value=document.querySelector(`.${from} > #DMGBonus`).value;
 
     document.querySelector(`.${to} > #DmgELE`).value=document.querySelector(`.${from} > #DmgELE`).value;
     
-    document.querySelector(`.${to} > #SkillScaling`).value=parseFloat(document.querySelector(`.${from} > #SkillScaling`).value);
-    document.querySelector(`.${to} > #BurstScaling`).value=parseFloat(document.querySelector(`.${from} > #BurstScaling`).value);
-}*/
+    document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
+    document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;
+}

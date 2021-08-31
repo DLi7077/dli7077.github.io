@@ -82,12 +82,13 @@ input{
     /* background-image:url('images/Element_Pyro.png'); */
     background-repeat:no-repeat;
     background-size:cover;
-    background-
 }
 .character2{
     /* background-image:url('images/Element_Pyro.png'); */
     background-repeat:no-repeat;
     background-size:cover;
+    background-image: url('images/Element_Physical.png');
+    
 }
 .enemy{
     clear:left;
