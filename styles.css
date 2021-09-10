@@ -124,6 +124,9 @@ select{
     font-size: 20px;
 }
 
+.separate{
+    float:left;
+}
 .output_log{
     float:left;
     padding:10px;
@@ -179,6 +182,10 @@ input.box{
 .mona{
     border-color:skyblue;
     background-image: url('images/mona_gacha_splash.png');
+}
+.sara{
+    border-color: purple; 
+    background-image: url('images/sara_gacha_splash.png');
 }
 .artifact{
     float:none;

@@ -118,6 +118,15 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
             DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
         }
     }
+    if(document.getElementById('Sara').checked){
+        TotalAttack+=parseFloat(document.getElementById('SaraBase').value)*
+        parseFloat(document.getElementById('sara%bonus').value)*.01;
+        if(document.getElementById('SaraC6').checked){
+            if(SkillElement=='Electro'){
+                CritDamage+=.6;
+            }
+        }
+    }
     
 
 //final calculation
