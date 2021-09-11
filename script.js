@@ -24,22 +24,32 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 //identified problem: melt undercalculates dmg, needs boost
     
 //enemy stats
+    
     var EnemyLevel=parseFloat(document.getElementById("eLv").value);
     var EnemyDefense=5*EnemyLevel+500;
     var Resistance= parseFloat(document.getElementById("resist").value)*.01;
+    var DefReduce=parseFloat(document.getElementById('DefShred').value)*.01;
     
     
     // var Btest=parseFloat(document.getElementById("Btest").value);
     // var Atest=parseFloat(document.getElementById("Atest").value);
-    var DMGReduction=EnemyDefense/(EnemyDefense+(5*CharacterLevel)+500);
+    var DMGReduction=(CharacterLevel+100)/(CharacterLevel+EnemyLevel+200);
+    if(DefReduce>0){
+        EnemyDefense-=DefReduce*EnemyDefense;
+        DMGReduction=EnemyDefense/(EnemyDefense+5*CharacterLevel+500);
+    }
     var DefMultiplier=1-DMGReduction;
+    
+
+    //var DefMultiplier=1-DMGReduction;  not sure if this is right
 
     //enemy Defense
     var ResShred=parseFloat(document.getElementById("resShred").value)*.01;//count resistance shred like 4pc VV
     
     if(document.getElementById('4VV').checked){
-        ResShred+=.4
+        ResShred+=.4;
     }
+    
     var ResPercent=Resistance-ResShred;//final resistance
     var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
     var OtherBonus=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
@@ -136,7 +146,6 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 // diluc w/ 15% is .18% off
 //chongyun w/ 60% is 9.6%
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
-  
     var DMGreduce=DefMultiplier*ResMultiplier*ReactionBonus;
     var DMGoutput=DMGreduce*TotalAttack;//excluding dmg scaling
     var SkillOut=DMGoutput*(1+DmgBonus+SkillBonus)*SkillScaling;
