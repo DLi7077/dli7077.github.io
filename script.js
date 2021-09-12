@@ -63,7 +63,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     //change class name to div id somehow
 
     //done
-    changeBG(SkillElement,document.querySelector(`.${ID}`).id);
+    //changeBG(SkillElement,document.querySelector(`.${ID}`).id);
 
 
 
@@ -268,4 +268,6 @@ function copyOver(from,to){//think it works?
     
     document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
     document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;
+    changeBG(document.querySelector(`.${to} > #DmgELE`).value,document.querySelector(`.${to}`).id);
+
 }

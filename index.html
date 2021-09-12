@@ -20,8 +20,7 @@
             <div class="subtitle">
                 Character Stats:
                 
-            <button class='copyOver' onclick="copyOver('character','character2');calculate('character2','2');">Copy Over--></button>
-                <!--<button class= 'copyOver' id='copyOver' onclick="copyOver('character','character2');">Copy Over-></button>-->
+            <button class='copyOver' onclick="copyOver('character','character2');calculate('character2','2');">Copy Over&rarr;</button>
             </div><br>
             <label for="lv">Character Level</label>
             <input type="number" id="lv" value=90 onchange="calculate('character',1);"/><br><br>
@@ -55,6 +54,7 @@
         
         <div class="character2 stats" id= "charac2">
             <div class="subtitle">
+                <button class='copyOver' onclick="copyOver('character2','character');calculate('character','1');"> &larr;Copy Over</button>
                 Character Stats:
             </div><br>
             <label for="lv">Character Level</label>

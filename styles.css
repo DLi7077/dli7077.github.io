@@ -75,8 +75,9 @@ input{
 
 .copyOver{
     font-size: 20px;
-    width:auto;
+    width:150px;
     height:30px;
+    background-color:lightcoral;
 }
 .character{
     /* background-image:url('images/Element_Pyro.png'); */
