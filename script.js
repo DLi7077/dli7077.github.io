@@ -34,11 +34,13 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     // var Btest=parseFloat(document.getElementById("Btest").value);
     // var Atest=parseFloat(document.getElementById("Atest").value);
     var DMGReduction=(CharacterLevel+100)/(CharacterLevel+EnemyLevel+200);
+    var DefMultiplier=DMGReduction;
     if(DefReduce>0){
         EnemyDefense-=DefReduce*EnemyDefense;
         DMGReduction=EnemyDefense/(EnemyDefense+5*CharacterLevel+500);
+        DefMultiplier=1-DMGReduction;
     }
-    var DefMultiplier=1-DMGReduction;
+    
     
 
     //var DefMultiplier=1-DMGReduction;  not sure if this is right
