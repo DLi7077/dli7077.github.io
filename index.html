@@ -70,7 +70,7 @@
             <label for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" oninput="calculate('character2',2);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select name="DmgELE" id="DmgELE" onchange="calculate('character2',2); changeBG(value,'charac2');">
+            <select name="DmgELE" id="DmgELE" oninput="calculate('character2',2); changeBG(value,'charac2');">
                 <option value="Physical">Physical</option>
                 <option value="Pyro">Pyro</option>
                 <option value="Cryo">Cryo</option>

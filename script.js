@@ -58,7 +58,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     var SkillBonus=parseFloat(document.getElementById("otherS").value)*.01;
     var BurstBonus=parseFloat(document.getElementById("otherB").value)*.01;
     //elemental reaction 
-    var SkillElement=document.getElementById("DmgELE").value;//element of the skill
+    var SkillElement=document.querySelector(`.${ID}> #DmgELE`).value;//element of the skill
     var ElementTarget=document.getElementById("AELE").value;//element on target
 
     //change background
@@ -242,6 +242,7 @@ function changeBG(ElementName,divId){
     var url=`images/Element_${ElementName}.png`;
     var div= document.getElementById(divId);
     div.style.backgroundImage=`url(${url})`;
+    
 }
 function show(id,divId){
     var div= document.getElementById(divId);
