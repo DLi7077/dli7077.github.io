@@ -140,65 +140,7 @@
             
             
             <!-- implement all this -->    
-
-        <div class="enemy stats" id='enemy'>
-            <div class="subtitle">
-                Enemy Stats:
-            </div><br>
-            <label for="eLv">Enemy Level</label>
-            <input type="number" id="eLv" value=90 oninput="calculate('character',1); calculate('character2',2);"><br><br>
-            <label for="AELE">Enemy affected by:</label>
-            <select name="AELE" id="AELE" oninput="calculate('character',1); calculate('character2',2); changeBG(value,'enemy');">
-                <option value="None">None </option>
-                <option value="Pyro">Pyro</option>
-                <option value="Cryo">Cryo</option>
-                <option value="Hydro">Hydro</option>
-                <option value="Electro">Electro</option>
-            </select><br><br>
-            <label for="resist">Damage Resistance%</label>
-            <input type="number" id="resist" value=10 oninput="calculate('character',1); calculate('character2',2);">
-        </div>
-
-
-        <!-- <label for="Btest">B Test</label>
-        <input type="number" id="Btest" oninput="calculate('character',1); calculate('character2',2);"><br><br>
-        <label for="Atest">A Test</label>
-        <input type="number" id="Atest" oninput="calculate('character',1); calculate('character2',2);"> -->
-
-        <div class="c stats"> 
-            <div class= "subtitle">
-                Console: 
-            </div>
-
-            <div class="split">
-                <div class="consTitle"> Character 1</div>
-                
-                <div>
-                    <div class="console output_log" id='console1'>Console 1</div>
-                    <div class="separate" id= 'sep'>
-                        <div class="output_log" id='skill1'> Skill<br></div><br>
-                        <div class="output_log" id='burst1'>Burst</div>
-                    </div>
-                </div>
-            </div>
-
-
-
-            <div class="split">
-                <div class="consTitle"> Character 2</div>
-                
-                <div>
-                    <div class="console output_log" id='console2'>Console 2</div>
-                    <div class="separate" id= 'sep'>
-                    <div class="output_log" id='skill2'> Skill2<br></div><br>
-                    <div class="output_log" id='burst2'>Burst2</div>
-                </div>
-                </div>
-            </div>
-            
-        </div>
-    </div>
-        <div class="buff stats">
+<div class="buff stats">
             <div class="subtitle">
                 <!-- IMPLEMENT THIS -->
                 <!-- sucrose bennet mona zhongli shield, geo res, etc. -->
@@ -296,6 +238,64 @@
             
             
         </div>
+        <div class="enemy stats" id='enemy'>
+            <div class="subtitle">
+                Enemy Stats:
+            </div><br>
+            <label for="eLv">Enemy Level</label>
+            <input type="number" id="eLv" value=90 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <label for="AELE">Enemy affected by:</label>
+            <select name="AELE" id="AELE" oninput="calculate('character',1); calculate('character2',2); changeBG(value,'enemy');">
+                <option value="None">None </option>
+                <option value="Pyro">Pyro</option>
+                <option value="Cryo">Cryo</option>
+                <option value="Hydro">Hydro</option>
+                <option value="Electro">Electro</option>
+            </select><br><br>
+            <label for="resist">Damage Resistance%</label>
+            <input type="number" id="resist" value=10 oninput="calculate('character',1); calculate('character2',2);">
+        </div>
+
+
+        <!-- <label for="Btest">B Test</label>
+        <input type="number" id="Btest" oninput="calculate('character',1); calculate('character2',2);"><br><br>
+        <label for="Atest">A Test</label>
+        <input type="number" id="Atest" oninput="calculate('character',1); calculate('character2',2);"> -->
+
+        <div class="c stats"> 
+            <div class= "subtitle">
+                Console: 
+            </div>
+
+            <div class="split">
+                <div class="consTitle"> Character 1</div>
+                
+                <div>
+                    <div class="console output_log" id='console1'>Console 1</div>
+                    <div class="separate" id= 'sep'>
+                        <div class="output_log" id='skill1'> Skill<br></div><br>
+                        <div class="output_log" id='burst1'>Burst</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="split">
+                <div class="consTitle"> Character 2</div>
+                
+                <div>
+                    <div class="console output_log" id='console2'>Console 2</div>
+                    <div class="separate" id= 'sep'>
+                    <div class="output_log" id='skill2'> Skill2<br></div><br>
+                    <div class="output_log" id='burst2'>Burst2</div>
+                </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+        
         
         
 
