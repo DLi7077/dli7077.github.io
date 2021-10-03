@@ -2,9 +2,8 @@ function calculate(ID,num){
     // alert("Character level is: "+document.getElementById("BATK").value);
     // all variables needed for calculation
 //front stats
-// alert(document.querySelector(`.${ID} > #lv`).value);
+// alert(document.querySelector(`.${ID} > #lv`).value); 
     
-
     var CharacterLevel= parseFloat(document.querySelector(`.${ID} > #lv`).value);//character level
     var BaseAttack= parseInt(document.querySelector(`.${ID} > #BATK`).value);//base attack for bonuses
     var TotalAttack= parseFloat(document.querySelector(`.${ID} > #FATK`).value);//total attack
