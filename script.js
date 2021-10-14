@@ -19,7 +19,7 @@ var DmgBonus=parseFloat(document.querySelector(`.${ID} > #DMGBonus`).value)*.01;
 var SkillScaling=parseFloat(document.querySelector(`.${ID} > #SkillScaling`).value)/100;//skill scaling
 var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).value)/100;//burst scaling
 var AddBonus=parseFloat(document.querySelector(`.${ID} > #otherAdd`).value);
-var addPercent=parseFloat(document.querySelector(`.${ID} > #AddPercent`).value)/100;
+var AddPercent=parseFloat(document.querySelector(`.${ID} > #AddPercent`).value)/100;
 
 // problem here^^
 //identified problem: melt undercalculates dmg, needs boost
@@ -151,7 +151,7 @@ var addPercent=parseFloat(document.querySelector(`.${ID} > #AddPercent`).value)/
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
     var DMGoutput=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
 
-    var ScaleTotal=TotalAttack+(AddBonus*addPercent);
+    var ScaleTotal=TotalAttack+(AddBonus*AddPercent);
 
     var SkillOut=ScaleTotal*DMGoutput*(1+DmgBonus+SkillBonus+CharSkill)*SkillScaling;
     var SkillCrit=SkillOut*(CritDamage);
@@ -171,7 +171,7 @@ var addPercent=parseFloat(document.querySelector(`.${ID} > #AddPercent`).value)/
     // //detailed console calculation
     document.querySelector(`#console${num}`).innerHTML=
     'Character level:\t\t'+CharacterLevel+
-    '\nAttack:\t\t\t\t'+(TotalAttack.toFixed(1)||0)+'\nElemental Mastery:\t\t'+EM
+    '\nAttack:\t\t\t\t'+(TotalAttack.toFixed(1)||0)+'\nAdditive Damage:\t\t'+AddBonus*AddPercent+'\nElemental Mastery:\t\t'+EM
     +'\nMelt/ Vaporize Bonus:\t'+((VapMelt*100).toFixed(1)||0)+'%'
     +'\nCrit Rate:\t\t\t'+(CritRate*100).toFixed(1)+'%\nCrit Damage:\t\t\t'+((CritDamage-1)*100).toFixed(1)+'%'
     +'\nTarget is affected by: \t'+ElementTarget+'\nDamage Element is: \t'+SkillElement
