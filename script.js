@@ -18,6 +18,8 @@ function calculate(ID,num){
 var DmgBonus=parseFloat(document.querySelector(`.${ID} > #DMGBonus`).value)*.01;//damage bonus
 var SkillScaling=parseFloat(document.querySelector(`.${ID} > #SkillScaling`).value)/100;//skill scaling
 var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).value)/100;//burst scaling
+var AddBonus=parseFloat(document.querySelector(`.${ID} > #otherAdd`).value);
+var addPercent=parseFloat(document.querySelector(`.${ID} > #AddPercent`).value)/100;
 
 // problem here^^
 //identified problem: melt undercalculates dmg, needs boost
@@ -147,13 +149,15 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 // diluc w/ 15% is .18% off
 //chongyun w/ 60% is 9.6%
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
-    var DMGreduce=DefMultiplier*ResMultiplier*ReactionBonus;
-    var DMGoutput=DMGreduce*TotalAttack;//excluding dmg scaling
-    var SkillOut=DMGoutput*(1+DmgBonus+SkillBonus+CharSkill)*SkillScaling;
+    var DMGoutput=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
+
+    var ScaleTotal=TotalAttack+(AddBonus*addPercent);
+
+    var SkillOut=ScaleTotal*DMGoutput*(1+DmgBonus+SkillBonus+CharSkill)*SkillScaling;
     var SkillCrit=SkillOut*(CritDamage);
     var Skillavg=SkillOut*(1-CritRate)+SkillCrit*CritRate;
 
-    var BurstOut=DMGoutput*(1+DmgBonus+BurstBonus+CharBurst)*BurstScaling;
+    var BurstOut=ScaleTotal*DMGoutput*(1+DmgBonus+BurstBonus+CharBurst)*BurstScaling;
     var BurstCrit=BurstOut*(CritDamage);
     var Burstavg=BurstOut*(1-CritRate)+BurstCrit*CritRate;
 
@@ -167,8 +171,8 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     // //detailed console calculation
     document.querySelector(`#console${num}`).innerHTML=
     'Character level:\t\t'+CharacterLevel+
-    '\nAttack:\t\t\t\t'+TotalAttack.toFixed(1)+'\nElemental Mastery:\t\t'+EM
-    +'\nMelt/ Vaporize Bonus:\t'+(VapMelt*100).toFixed(1)+'%'
+    '\nAttack:\t\t\t\t'+(TotalAttack.toFixed(1)||0)+'\nElemental Mastery:\t\t'+EM
+    +'\nMelt/ Vaporize Bonus:\t'+((VapMelt*100).toFixed(1)||0)+'%'
     +'\nCrit Rate:\t\t\t'+(CritRate*100).toFixed(1)+'%\nCrit Damage:\t\t\t'+((CritDamage-1)*100).toFixed(1)+'%'
     +'\nTarget is affected by: \t'+ElementTarget+'\nDamage Element is: \t'+SkillElement
     +'\nDamage Scaling:\t\t'+(SkillScaling*100).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
@@ -234,6 +238,8 @@ function ResistanceCalc(res){
     return 1-(res/2);
 }
 
+
+
 //big brain stuff here
 //sets div image based on what element is selected
 
@@ -271,5 +277,6 @@ function copyOver(from,to){//think it works?
     document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
     document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;
     changeBG(document.querySelector(`.${to} > #DmgELE`).value,document.querySelector(`.${to}`).id);
-
+    document.querySelector(`.${to} > #otherxS`).value=document.querySelector(`.${from} > #otherxS`).value;
+    document.querySelector(`.${to} > #otherxB`).value=document.querySelector(`.${from} > #otherxB`).value;
 }

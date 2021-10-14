@@ -12,7 +12,7 @@ body{
 
 .title{
     margin-left:11px;
-    font-size: 75px;
+    font-size: 67px;
     color:skyblue;
     background-color: rgb(0, 0, 0,.5);
     width:790px;
@@ -26,48 +26,47 @@ body{
     color:white;
     background-color: rgb(255, 166, 0,0.5);
     width:680px;
-    font-size:40px;
+    font-size:36px;
     margin-left:11px;
 
 }
 label{
     color:rgb(0, 255, 255);
-    font-size:20px;
+    font-size:18px;
     background-color: rgba(0,0,0,.8);
     
 
 }
 select{
     color:red;
-    font-size: 25px;
+    font-size: 22px;
 }
 option{
     color:red;
-    font-size:25px;
+    font-size:22px;
 }
 input{
     color:rgb(0, 255, 255);
-    font-size:20px;
+    font-size:18px;
     background-color: rgba(0,0,0,0.5);
     float:right;
-    width:100px;
+    width:90px;
 
 }
 .subtitle{
-    font-size: 30px;
+    font-size:25px;
     text-align: center;
     color: white;
     background-color: rgb(0, 145, 145);
-    padding:10px;
+    padding:8px;
 }
 .stats{
     float:left;
     clear:none;
-    display: inline-block;
     white-space: nowrap;
     background-color: rgba(0, 0, 0, 0.3);
-    padding:5px;
-    width:360px;
+    padding:4px;
+    width:320px;
     margin:5px;
     position:relative;
     overflow:hidden;
@@ -145,7 +144,7 @@ select{
 }
 .output_log{
     float:left;
-    padding:10px;
+    padding:5px;
     font-size:24px;
     white-space: pre-line;
     white-space:  pre;
@@ -159,7 +158,6 @@ select{
 .buff{
     background-color:rgb(0, 0, 0,.5);
     float:right;
-    display:inline-block;
     width:680px;
 }
 input.box{
