@@ -153,7 +153,7 @@
             
             
             <!-- implement all this -->    
-<div class="buff stats">
+        <div class="buff stats">
             <div class="subtitle">
                 <!-- IMPLEMENT THIS -->
                 <!-- sucrose bennet mona zhongli shield, geo res, etc. -->
@@ -161,91 +161,94 @@
             </div><br>
             <div class="atk split">
                 <label for="bennett">Bennett<img src='images/Element_Pyro.png' width=18px></label>
-            <input type="checkbox" class= box id="bennett" oninput="show('bennett','bb');calculate('character',1); calculate('character2',2);">
-            <div class='cbuffs stats' id=bb>
-                <div class='bennet bg'>
-                    <div class='contents'>
-                        <br>
-                        <!-- put this into 1 box under Fantastic voyayage -->
-                        <label for="bennetBase">Bennett's Base ATK</label>
-                        <input type="number" id= "bennettBase" value= 865 oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                        <label for="%bonus">Attack Bonus%</label>
-                        <input type="number" id= "%bonus" value= 139 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                <input type="checkbox" class= box id="bennett" oninput="show('bennett','bb');calculate('character',1); calculate('character2',2);">
+                <div class='cbuffs stats' id=bb>
+                    <div class='bennet bg'>
+                        <div class='contents'>
+                            <br>
+                            <!-- put this into 1 box under Fantastic voyayage -->
+                            <label for="bennetBase">Bennett's Base ATK</label>
+                            <input type="number" id= "bennettBase" value= 865 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <label for="%bonus">Attack Bonus%</label>
+                            <input type="number" id= "%bonus" value= 139 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <br>
-            <br>
-            <label for="Sara">Sara<img src='images/Element_Electro.png' width=18px></label>
-            <input type="checkbox" class= box id="Sara" oninput="show('Sara','sarab');calculate('character',1); calculate('character2',2);">
-            <div class='cbuffs stats' id=sarab>
-                <div class='sara bg'>
-                    <div class='contents'>
-                        <!-- put this into 1 box under Fantastic voyayage -->
-                        <label for="SaraBase">Sara's Base ATK</label>
-                        <input type="number" id= "SaraBase" value= 781 oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                        <label for="sara%bonus">Attack Bonus%</label>
-                        <input type="number" id= "sara%bonus" value=81.62 oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                        <label for="SaraC6"> Sin of Pride (C6) </label>
-                        <input type="checkbox" class= box id="SaraC6" oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                    </div>
-                </div><br>
-            </div>
+                <br>
+                <br>
+                <label for="Sara">Sara<img src='images/Element_Electro.png' width=18px></label>
+                <input type="checkbox" class= box id="Sara" oninput="show('Sara','sarab');calculate('character',1); calculate('character2',2);">
+                <div class='cbuffs stats' id=sarab>
+                    <div class='sara bg'>
+                        <div class='contents'>
+                            <br>
+                            <!-- put this into 1 box under Fantastic voyayage -->
+                            <label for="SaraBase">Sara's Base ATK</label>
+                            <input type="number" id= "SaraBase" value= 781 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <label for="sara%bonus">Attack Bonus%</label>
+                            <input type="number" id= "sara%bonus" value=81.62 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <label for="SaraC6"> Sin of Pride (C6) </label>
+                            <input type="checkbox" class= box id="SaraC6" oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                        </div>
+                    </div><br>
+                </div>
             </div>
             <div class="bonus split">
     <!-- put this into 1 box -->
                 <!---put sucrose details into 1 box-->
                 <label for="Sucrose">Sucrose<img src='images/Element_Anemo.png' width=18px></label>
                 <input type="checkbox" class= box id="Sucrose" oninput="show('Sucrose','sb'); calculate('character',1); calculate('character2',2);">
-                <div class='cbuffs stats' id =sb>
-                    <div class="sucrose bg">
-                        <div class= 'contents'>
-                            <br>
-                            <label for="MollisFavonius"> Mollis Favonius</label>
-                            <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                            <label for="CatalystConversion">Catalyst Conversion</label>
-                            <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                            <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
-                            <input type="number" id="SucroseEM" value=922 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                    <div class='cbuffs stats' id =sb>
+                        <div class="sucrose bg">
+                            <div class= 'contents'>
+                                <br>
+                                <label for="MollisFavonius"> Mollis Favonius</label>
+                                <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <label for="CatalystConversion">Catalyst Conversion</label>
+                                <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
+                                <input type="number" id="SucroseEM" value=922 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br><br>
-                <label for="Kazuha">Kazuha<img src='images/Element_Anemo.png' width=18px></label>
-                <input type="checkbox" class =box id="Kazuha" value=953 oninput="show('Kazuha','kb');calculate('character',1); calculate('character2',2);">
-                <div class='cbuffs stats' id=kb>
-                    <div class="kazuha bg">
-                        <div class='contents'>
-                            <br>
-                            <label for="PoF">Poetics of Fuubutsu</label>
-                            <input type="checkbox" class= box id="PoF" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                            <label for="KazEM">Kazuha's EM</label>
-                            <input type="number" id=KazEM value=953 oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                            <label for="C2"> Yamaarashi Tailwind (C2)</label>
-                            <input type="checkbox" class=box id='C2' oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                            
+                    <br><br>
+                    <label for="Kazuha">Kazuha<img src='images/Element_Anemo.png' width=18px></label>
+                    <input type="checkbox" class =box id="Kazuha" value=953 oninput="show('Kazuha','kb');calculate('character',1); calculate('character2',2);">
+                    <div class='cbuffs stats' id=kb>
+                        <div class="kazuha bg">
+                            <div class='contents'>
+                                <br>
+                                <label for="PoF">Poetics of Fuubutsu</label>
+                                <input type="checkbox" class= box id="PoF" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <label for="KazEM">Kazuha's EM</label>
+                                <input type="number" id=KazEM value=953 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <label for="C2"> Yamaarashi Tailwind (C2)</label>
+                                <input type="checkbox" class=box id='C2' oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                
+                            </div>
                         </div>
                     </div>
-                </div>
-                <br><br>
+                    <br><br>
 
-                <label for="Mona">Mona<img src='images/Element_Hydro.png' width=18px></label>
-                <input type="checkbox" class =box id="Mona" oninput="show('Mona','mb');calculate('character',1); calculate('character2',2);">
-                <div class='cbuffs stats' id=mb>
-                    <div class="mona bg">
-                        <div class='contents'>
-                            <br>
-                            <label for="omenDebuff">Mona's Omen Debuff</label>
-                            <input type="checkbox" class=box id="omenDebuff" oninput="calculate('character',1); calculate('character2',2);"><br><br>
-                            <label for="omen%"> Omen Debuff% </label>
-                            <input type="number" id="omen%" value= 56 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                    <label for="Mona">Mona<img src='images/Element_Hydro.png' width=18px></label>
+                    <input type="checkbox" class =box id="Mona" oninput="show('Mona','mb');calculate('character',1); calculate('character2',2);">
+                    <div class='cbuffs stats' id=mb>
+                        <div class="mona bg">
+                            <div class='contents'>
+                                <br>
+                                <label for="omenDebuff">Mona's Omen Debuff</label>
+                                <input type="checkbox" class=box id="omenDebuff" oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <label for="omen%"> Omen Debuff% </label>
+                                <input type="number" id="omen%" value= 56 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            </div>
                         </div>
-                    </div>
-                </div><br>
+                    </div><br>
             </div>
-            
+                
             
         </div>
+
+
         <div class="enemy stats" id='enemy'>
             <div class="subtitle">
                 Enemy Stats:

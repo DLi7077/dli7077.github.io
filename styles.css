@@ -2,6 +2,7 @@ body{
     background-image:url(\images/element\ dark\ background.png);
     background-repeat:no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 /* body{
     background-image:    url(images/golembackground.jpg);
@@ -157,8 +158,9 @@ select{
 }
 .buff{
     background-color:rgb(0, 0, 0,.5);
-    float:right;
-    width:680px;
+    margin-left: 1300px;
+    width:900px;
+    position: absolute;
 }
 input.box{
     transform:scale(2);
