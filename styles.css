@@ -62,22 +62,22 @@ input{
     padding:8px;
 }
 .stats{
-    float:left;
-    clear:none;
+
     white-space: nowrap;
     background-color: rgba(0, 0, 0, 0.3);
     padding:4px;
     width:320px;
     margin:5px;
-    position:relative;
+    position:absolute;
     overflow:hidden;
 }
 
 .copyOver{
     font-size: 20px;
-    width:150px;
+    width:140px;
     height:30px;
     background-color:lightcoral;
+    border-radius: 2px;
 }
 .character{
     /* background-image:url('images/Element_Pyro.png'); */
@@ -87,15 +87,15 @@ input{
     background-position: 40%;
 }
 .character2{
+    left:359px;
     /* background-image:url('images/Element_Pyro.png'); */
     background-repeat:no-repeat;
     background-size:cover;
     background-position: 40%;
     background-image: url('images/Element_Physical.png');
-    
 }
 .enemy{
-    clear:left;
+    top:800px;
     background-color: rgba(0, 0, 0, 0.3);
     background-repeat:no-repeat;
     background-size:cover;
@@ -107,10 +107,11 @@ select{
     clear:right;
 }
 .c{
-    float:left;
+    top:800px;
+    left:330px;
     background-color: black;
     color:white;
-    width:auto;
+    width:727px;
     
     
 }
@@ -158,8 +159,8 @@ select{
 }
 .buff{
     background-color:rgb(0, 0, 0,.5);
-    margin-left: 1300px;
-    width:900px;
+    left: 1055px;
+    width:680px;
     position: absolute;
 }
 input.box{
@@ -210,6 +211,5 @@ input.box{
     background-position-y:50%;
 }
 .artifact{
-    float:left;
-    overflow:hidden;
+    left:708px;
 }
