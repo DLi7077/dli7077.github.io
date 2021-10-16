@@ -94,8 +94,13 @@ input{
     background-position: 40%;
     background-image: url('images/Element_Physical.png');
 }
+
+.collapsible{
+    display: none;
+}
 .enemy{
-    top:800px;
+    top:720px;
+    left:20px;
     background-color: rgba(0, 0, 0, 0.3);
     background-repeat:no-repeat;
     background-size:cover;
@@ -107,8 +112,9 @@ select{
     clear:right;
 }
 .c{
-    top:800px;
-    left:330px;
+    float:left;
+    top:720px;
+    left:360px;
     background-color: black;
     color:white;
     width:auto;
