@@ -181,7 +181,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     +'\nTarget is affected by: \t'+ElementTarget+'\nDamage Element is: \t'+SkillElement
     +'\nDamage Scaling:\t\t'+(SkillScaling*100).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
     +'\nReactionBonus:\t\t'+ReactionBonus.toFixed(2)
-    +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(1)+'\nResistance Multiplier:\t'+ResMultiplier.toFixed(1)
+    +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(2)+'\nResistance Multiplier:\t'+ResMultiplier.toFixed(2)
     +'\nSkill Out:\t\t'+SkillOut.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction.toFixed(3)
     +'\nDEF Multiplier:\t\t'+DefMultiplier.toFixed(3);
 
