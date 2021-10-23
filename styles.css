@@ -1,9 +1,14 @@
+@font-face {
+    font-family: genshinFont;
+    src: url(ja-jp.ttf);
+}
 body{
     background-image:url(\images/element\ dark\ background.png);
     background-repeat:no-repeat;
     background-size: cover;
     background-attachment: fixed;
     height: 2000px;
+    font-family: genshinFont;
 }
 /* body{
     background-image:    url(images/golembackground.jpg);
@@ -14,7 +19,7 @@ body{
 
 .title{
     margin-left:11px;
-    font-size: 67px;
+    font-size: 60px;
     color:skyblue;
     background-color: rgb(0, 0, 0,.5);
     width:790px;
@@ -30,7 +35,7 @@ body{
     color:white;
     background-color: rgb(255, 166, 0,0.5);
     width:680px;
-    font-size:36px;
+    font-size:30px;
     margin-left:11px;
 
 }
@@ -45,10 +50,12 @@ select{
 }
 option{
     color:red;
+    font-family: genshinFont;
     font-size:22px;
 }
 input{
-    color:rgb(0, 255, 255);
+    color:rgb(255, 255, 255);
+    font-family: genshinFont;
     font-size:18px;
     background-color: rgba(0,0,0,0.5);
     float:right;
@@ -63,8 +70,8 @@ input{
     padding:8px;
 }
 .stats{
-
     white-space: nowrap;
+    font-size:15px;
     background-color: rgba(0, 0, 0, 0.3);
     width:320px;
     padding:10px;
@@ -81,7 +88,7 @@ input{
     background-color:lightcoral;
     border-radius: 2px;
 }
-.character{
+.character1{
     /* background-image:url('images/Element_Pyro.png'); */
     background-repeat:no-repeat;
     background-size:cover;
@@ -123,6 +130,7 @@ input{
 select{
     float:right;
     clear:right;
+    font-family: genshinFont;
 }
 .c{
     position: absolute;
@@ -133,7 +141,7 @@ select{
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); */
     background-color: black;
-    color:white;
+    color:rgb(0, 225, 255);
     width:auto;
 
 }
@@ -146,6 +154,7 @@ select{
 .split{
     float:left;
     border-style: solid;
+    color:white;
 }
 .atk{/* for bennett and sara */
     border-style:none;

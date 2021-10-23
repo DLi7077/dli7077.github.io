@@ -131,9 +131,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         TotalAttack+=.48*BaseAttack;
     }
     if(document.getElementById('Mona').checked){
-        if(document.getElementById('omenDebuff').checked){
-            DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
-        }
+        DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
     }
     if(document.getElementById('Sara').checked){
         TotalAttack+=parseFloat(document.getElementById('SaraBase').value)*
@@ -242,7 +240,32 @@ function ResistanceCalc(res){
     }
     return 1-(res/2);
 }
+function ChangeFontColor(Element,cons){
+    var fontColor=document.querySelector(`#char${cons}DMG`);
+    
+    if(Element=='Pyro'){
+        fontColor.style.color='#fd9a00';
+    }
+    if(Element=='Cryo'){
+        fontColor.style.color='#87effa';
+    }
+    if(Element=='Hydro'){
+        fontColor.style.color='#36cdff';
+    }
+    if(Element=='Electro'){
+        fontColor.style.color='#dd9dfd';
+    }
+    if(Element=='Anemo'){
+        fontColor.style.color='#5dffd9';
+    }
+    if(Element=='Geo'){
+        fontColor.style.color='#ffca64';
+    }
+    // else{
+    //     fontColor.style.color="white";
+    // }//why is that this is the first priority??
 
+}
 
 
 //big brain stuff here
@@ -252,6 +275,7 @@ function changeBG(ElementName,divId){
     var url=`images/Element_${ElementName}.png`;
     var div= document.getElementById(divId);
     div.style.backgroundImage=`url(${url})`;
+    
     
 }
 function show(id,divId){
@@ -277,11 +301,17 @@ function copyOver(from,to){//think it works?
     document.querySelector(`.${to} > #CD`).value=document.querySelector(`.${from} > #CD`).value;
     document.querySelector(`.${to} > #DMGBonus`).value=document.querySelector(`.${from} > #DMGBonus`).value;
 
-    document.querySelector(`.${to} > #DmgELE`).value=document.querySelector(`.${from} > #DmgELE`).value;
+    var element=document.querySelector(`.${from} > #DmgELE`).value;
+    document.querySelector(`.${to} > #DmgELE`).value=element;
+    changeBG(document.querySelector(`.${to} > #DmgELE`).value,document.querySelector(`.${to}`).id);
     
+    ChangeFontColor(element,String(to)[9])
+
+
+
     document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
     document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;
-    changeBG(document.querySelector(`.${to} > #DmgELE`).value,document.querySelector(`.${to}`).id);
+
     document.querySelector(`.${to} > #otherxS`).value=document.querySelector(`.${from} > #otherxS`).value;
     document.querySelector(`.${to} > #otherxB`).value=document.querySelector(`.${from} > #otherxB`).value;
 }

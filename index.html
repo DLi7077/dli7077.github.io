@@ -16,26 +16,26 @@
         </div>
         
     <div>
-        <div class="character stats" id= 'charac'>
+        <div class="character1 stats" id= 'charac'>
             <div class="subtitle">
                 Character Stats:
                 
-            <button class='copyOver' onclick="copyOver('character','character2');calculate('character2','2');">Copy Over&rarr;</button>
+            <button class='copyOver' onclick="copyOver('character1','character2');calculate('character2','2');">Copy Over&rarr;</button>
             </div><br>
             <label for="lv">Character Level</label>
-            <input type="number" id="lv" value=90 onchange="calculate('character',1);"/><br><br>
+            <input type="number" id="lv" value=90 onchange="calculate('character1',1);"/><br><br>
             <label for="BATK">Base Attack</label>
-            <input type="number" id="BATK" oninput="calculate('character',1);"><br><br>
+            <input type="number" id="BATK" oninput="calculate('character1',1);"><br><br>
             <label for="FATK">Total Attack</label>
-            <input type="number" id="FATK" oninput="calculate('character',1);"><br><br>
+            <input type="number" id="FATK" oninput="calculate('character1',1);"><br><br>
             <label for="EM">Elemental Mastery</label>
-            <input type="number" id="EM" value=0 oninput="calculate('character',1);"><br><br>
+            <input type="number" id="EM" value=0 oninput="calculate('character1',1);"><br><br>
             <label for="CR"> Crit Rate %</label>
-            <input type="number" id= "CR" value=50 oninput="calculate('character',1);"><br><br>
+            <input type="number" id= "CR" value=50 oninput="calculate('character1',1);"><br><br>
             <label for="CD"> Crit Damage %</label>
-            <input type="number" id= "CD" value=100 oninput="calculate('character',1);"><br><br>
+            <input type="number" id= "CD" value=100 oninput="calculate('character1',1);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select name="DmgELE" id="DmgELE" onchange="calculate('character',1);changeBG(value,'charac');">
+            <select name="DmgELE" id="DmgELE" onchange="calculate('character1',1);changeBG(value,'charac');ChangeFontColor(value,1);">
                 <option value="Physical">Physical</option>
                 <option value="Pyro">Pyro</option>
                 <option value="Cryo">Cryo</option>
@@ -45,27 +45,27 @@
                 <option value="Anemo">Anemo</option>
             </select><br><br>
             <label for="DMGBonus">Damage Bonus</label>
-            <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character',1);"><br><br>
+            <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character1',1);"><br><br>
             <label for="SkillScaling">Skill Damage Scaling</label>
-            <input type="number" id="SkillScaling" value=326 oninput="calculate('character',1);"><br><br>
+            <input type="number" id="SkillScaling" value=326 oninput="calculate('character1',1);"><br><br>
             <label for="BurstScaling">Burst Damage Scaling</label>
-            <input type="number" id="BurstScaling" value=302.6 oninput="calculate('character',1);"><br><br>
-            <label for="otherx">general other DMGBonus%:</label>
-            <input type="number" id="otherx" value=0 oninput="calculate('character',1);"><br><br>
+            <input type="number" id="BurstScaling" value=302.6 oninput="calculate('character1',1);"><br><br>
+            <label for="otherx">other DMGBonus%:</label>
+            <input type="number" id="otherx" value=0 oninput="calculate('character1',1);"><br><br>
             <label for="otherxS">other SKILLBonus%:</label>
-            <input type="number" id="otherxS" value=0 oninput="calculate('character',1);"><br><br>
+            <input type="number" id="otherxS" value=0 oninput="calculate('character1',1);"><br><br>
             <label for="otherxB">other BURSTBonus%:</label>
-            <input type="number" id="otherxB" value=0 oninput="calculate('character',1);"><br><br>
+            <input type="number" id="otherxB" value=0 oninput="calculate('character1',1);"><br><br>
 
                 <!-- <label for="otherAdd">other Additive Scaling</label>
-                <input type="number" id="otherAdd" value=0 oninput="calculate('character',1);"><br><br>
+                <input type="number" id="otherAdd" value=0 oninput="calculate('character1',1);"><br><br>
                 <label for="AddPercent">Additive%</label>
-                <input type="number" id="AddPercent" value=0 oninput="calculate('character',1);"> -->
+                <input type="number" id="AddPercent" value=0 oninput="calculate('character1',1);"> -->
         </div>
         
         <div class="character2 stats" id= "charac2">
             <div class="subtitle">
-                <button class='copyOver' onclick="copyOver('character2','character');calculate('character','1');"> &larr;Copy Over</button>
+                <button class='copyOver' onclick="copyOver('character2','character1');calculate('character1','1');"> &larr;Copy Over</button>
                 Character Stats:
             </div><br>
             <label for="lv">Character Level</label>
@@ -81,7 +81,7 @@
             <label for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" value=100 oninput="calculate('character2',2);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select name="DmgELE" id="DmgELE" oninput="calculate('character2',2); changeBG(value,'charac2');">
+            <select name="DmgELE" id="DmgELE" oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
                 <option value="Physical">Physical</option>
                 <option value="Pyro">Pyro</option>
                 <option value="Cryo">Cryo</option>
@@ -96,17 +96,17 @@
             <input type="number" id="SkillScaling" value=326 oninput="calculate('character2',2);"><br><br>
             <label for="Scaling">Burst Damage Scaling</label>
             <input type="number" id="BurstScaling" value=302.6 oninput="calculate('character2',2);"><br><br>
-            <label for="other">general other DMGBonus%:</label>
-            <input type="number" id="otherx" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <label for="other">other DMGBonus%:</label>
+            <input type="number" id="otherx" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="other">other SKILLBonus%:</label>
-            <input type="number" id="otherxS" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="otherxS" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="other">other BURSTBonus%:</label>
-            <input type="number" id="otherxB" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="otherxB" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
                 <!-- <label for="otherAdd">other Additive Scaling</label>
-                <input type="number" id="otherAdd" value=0 oninput="calculate('character',1);"><br><br>
+                <input type="number" id="otherAdd" value=0 oninput="calculate('character1',1);"><br><br>
                 <label for="AddPercent">Additive%</label>
-                <input type="number" id="AddPercent" value=0 oninput="calculate('character',1);"> -->
+                <input type="number" id="AddPercent" value=0 oninput="calculate('character1',1);"> -->
             </div>
             
         </div>
@@ -116,42 +116,42 @@
                 Artifact Buffs
             </div>
             <br>
-            <label for="noblesse">2pc Noblesse(+20% Burst DMG)</label>
-            <input type="checkbox" class= box id="noblesse"oninput="calculate('character',1); calculate('character2',2);"><br><br>
-            <label for="noblesse">4pc Noblesse (+20% ATK)</label>
-            <input type="checkbox" class= box id="4noblesse"oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <label for="noblesse">2pc Noblesse (Burst+20%)</label>
+            <input type="checkbox" class= box id="noblesse"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            <label for="noblesse">4pc Noblesse (ATK+20%)</label>
+            <input type="checkbox" class= box id="4noblesse"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="4VV">4pc Viridescent Venerer </label>
-            <input type="checkbox" class= box id="4VV" oninput="calculate('character',1); calculate('character2',2);"><br><br>
-            <label for="4witch"> 4pc Crimson Witch of Flames</label>
-            <input type="checkbox" class=box id="4witch"oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="checkbox" class= box id="4VV" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            <label for="4witch"> 4pc Crimson Witch</label>
+            <input type="checkbox" class=box id="4witch"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="thrillingTales">Thrilling Tales[R5](+48%)</label>
-            <input type="checkbox" class= box id="thrillingTales" oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="checkbox" class= box id="thrillingTales" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="DefShred"> Defense Shred</label>
-            <input type="number" id="DefShred" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="DefShred" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="resShred"> Resistance Shred</label>
-            <input type="number" id="resShred" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="resShred" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="geoRes">Geo Team Resonance</label>
-            <input type="checkbox" class= box id="geoRes" oninput="calculate('character',1); calculate('character2',2);"><br><br>
-            <label for="other">general other DMGBonus%:</label>
-            <input type="number" id="other" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="checkbox" class= box id="geoRes" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            <label for="other">other DMGBonus%:</label>
+            <input type="number" id="other" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="otherS">other SKILLBonus%:</label>
-            <input type="number" id="otherSkill" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="otherSkill" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="otherB">other BURSTBonus%:</label>
-            <input type="number" id="otherBurst" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="otherBurst" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="otherAtk">other ATK%:</label>
-            <input type="number" id="otherAtk" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="otherAtk" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="otherEM">other EM:</label>
-            <input type="number" id="otherEM" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="otherEM" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
         </div>
 
         <!-- <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
-        <input type="number" id="SucroseEM" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+        <input type="number" id="SucroseEM" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
         <label for="CatalystConversion">Catalyst Conversion</label>
-        <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+        <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
         <label for="MollisFavonius"> Mollis Favonius</label>
-        <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+        <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
         <label for="4VV">4pc Viridescent Venerer </label>
-        <input type="checkbox" class= box id="4VV" oninput="calculate('character',1); calculate('character2',2);"><br><br> -->
+        <input type="checkbox" class= box id="4VV" oninput="calculate('character1',1); calculate('character2',2);"><br><br> -->
         
             
             
@@ -164,34 +164,34 @@
             </div><br>
             <div class="atk split">
                 <label for="bennett">Bennett<img src='images/Element_Pyro.png' width=18px></label>
-                <input type="checkbox" class= box id="bennett" oninput="show('bennett','bb');calculate('character',1); calculate('character2',2);">
+                <input type="checkbox" class= box id="bennett" oninput="show('bennett','bb');calculate('character1',1); calculate('character2',2);">
                 <div class='cbuffs stats' id=bb>
                     <div class='bennet bg'>
                         <div class='contents'>
                             <br>
                             <!-- put this into 1 box under Fantastic voyayage -->
                             <label for="bennetBase">Bennett's Base ATK</label>
-                            <input type="number" id= "bennettBase" value= 865 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <input type="number" id= "bennettBase" value= 865 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             <label for="%bonus">Attack Bonus%</label>
-                            <input type="number" id= "%bonus" value= 139 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <input type="number" id= "%bonus" value= 139 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                         </div>
                     </div>
                 </div>
                 <br>
                 <br>
                 <label for="Sara">Sara<img src='images/Element_Electro.png' width=18px></label>
-                <input type="checkbox" class= box id="Sara" oninput="show('Sara','sarab');calculate('character',1); calculate('character2',2);">
+                <input type="checkbox" class= box id="Sara" oninput="show('Sara','sarab');calculate('character1',1); calculate('character2',2);">
                 <div class='cbuffs stats' id=sarab>
                     <div class='sara bg'>
                         <div class='contents'>
                             <br>
                             <!-- put this into 1 box under Fantastic voyayage -->
                             <label for="SaraBase">Sara's Base ATK</label>
-                            <input type="number" id= "SaraBase" value= 781 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <input type="number" id= "SaraBase" value= 781 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             <label for="sara%bonus">Attack Bonus%</label>
-                            <input type="number" id= "sara%bonus" value=81.62 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <input type="number" id= "sara%bonus" value=81.62 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             <label for="SaraC6"> Sin of Pride (C6) </label>
-                            <input type="checkbox" class= box id="SaraC6" oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                            <input type="checkbox" class= box id="SaraC6" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                         </div>
                     </div><br>
                 </div>
@@ -200,33 +200,33 @@
         <!-- put this into 1 box -->
                 <!---put sucrose details into 1 box-->
                 <label for="Sucrose">Sucrose<img src='images/Element_Anemo.png' width=18px></label>
-                <input type="checkbox" class= box id="Sucrose" oninput="show('Sucrose','sb'); calculate('character',1); calculate('character2',2);">
+                <input type="checkbox" class= box id="Sucrose" oninput="show('Sucrose','sb'); calculate('character1',1); calculate('character2',2);">
                     <div class='cbuffs stats' id =sb>
                         <div class="sucrose bg">
                             <div class= 'contents'>
                                 <br>
                                 <label for="MollisFavonius"> Mollis Favonius</label>
-                                <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <label for="CatalystConversion">Catalyst Conversion</label>
-                                <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
-                                <input type="number" id="SucroseEM" value=922 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <input type="number" id="SucroseEM" value=922 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             </div>
                         </div>
                     </div>
                     <br><br>
                     <label for="Kazuha">Kazuha<img src='images/Element_Anemo.png' width=18px></label>
-                    <input type="checkbox" class =box id="Kazuha" value=953 oninput="show('Kazuha','kb');calculate('character',1); calculate('character2',2);">
+                    <input type="checkbox" class =box id="Kazuha" value=953 oninput="show('Kazuha','kb');calculate('character1',1); calculate('character2',2);">
                     <div class='cbuffs stats' id=kb>
                         <div class="kazuha bg">
                             <div class='contents'>
                                 <br>
                                 <label for="PoF">Poetics of Fuubutsu</label>
-                                <input type="checkbox" class= box id="PoF" checked oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <input type="checkbox" class= box id="PoF" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <label for="KazEM">Kazuha's EM</label>
-                                <input type="number" id=KazEM value=953 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <input type="number" id=KazEM value=953 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <label for="C2"> Yamaarashi Tailwind (C2)</label>
-                                <input type="checkbox" class=box id='C2' oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <input type="checkbox" class=box id='C2' oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 
                             </div>
                         </div>
@@ -234,15 +234,13 @@
                     <br><br>
 
                     <label for="Mona">Mona<img src='images/Element_Hydro.png' width=18px></label>
-                    <input type="checkbox" class =box id="Mona" oninput="show('Mona','mb');calculate('character',1); calculate('character2',2);">
+                    <input type="checkbox" class =box id="Mona" oninput="show('Mona','mb');calculate('character1',1); calculate('character2',2);">
                     <div class='cbuffs stats' id=mb>
                         <div class="mona bg">
                             <div class='contents'>
                                 <br>
-                                <label for="omenDebuff">Mona's Omen Debuff</label>
-                                <input type="checkbox" class=box id="omenDebuff" oninput="calculate('character',1); calculate('character2',2);"><br><br>
                                 <label for="omen%"> Omen Debuff% </label>
-                                <input type="number" id="omen%" value= 56 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+                                <input type="number" id="omen%" value= 56 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             </div>
                         </div>
                     </div><br>
@@ -257,9 +255,9 @@
                 Enemy Stats:
             </div><br>
             <label for="eLv">Enemy Level</label>
-            <input type="number" id="eLv" value=90 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <input type="number" id="eLv" value=90 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="AELE">Enemy affected by:</label>
-            <select name="AELE" id="AELE" oninput="calculate('character',1); calculate('character2',2); changeBG(value,'enemy');">
+            <select name="AELE" id="AELE" oninput="calculate('character1',1); calculate('character2',2); changeBG(value,'enemy');">
                 <option value="None">None </option>
                 <option value="Pyro">Pyro</option>
                 <option value="Cryo">Cryo</option>
@@ -267,24 +265,23 @@
                 <option value="Electro">Electro</option>
             </select><br><br>
             <label for="resist">Damage Resistance%</label>
-            <input type="number" id="resist" value=10 oninput="calculate('character',1); calculate('character2',2);">
+            <input type="number" id="resist" value=10 oninput="calculate('character1',1); calculate('character2',2);">
         </div>
 
 
         <!-- <label for="Btest">B Test</label>
-        <input type="number" id="Btest" oninput="calculate('character',1); calculate('character2',2);"><br><br>
+        <input type="number" id="Btest" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
         <label for="Atest">A Test</label>
-        <input type="number" id="Atest" oninput="calculate('character',1); calculate('character2',2);"> -->
+        <input type="number" id="Atest" oninput="calculate('character1',1); calculate('character2',2);"> -->
 
 
 
         <div class="c stats" id= "console"> 
-            <div class="header" id="consoleheader">MOVE ME BRO</div>
             <div class= "subtitle">
                 Console: 
             </div>
 
-            <div class="split" id="coords">
+            <div class="split" id="char1DMG">
                 
                 <div class="consTitle"> Character 1</div>
                 
@@ -299,7 +296,7 @@
 
             
 
-            <div class="split">
+            <div class="split" id="char2DMG">
                 <div class="consTitle"> Character 2</div>
                 
                 <div>
