@@ -6,14 +6,13 @@
         <title>Calculator</title>
     </head>
     
-       
+    <div class= "space" id= 'space'>
         <div class='title'>
             Damage Calculator (v1.8)
-            <div class="minitext">
-                refer to enemy stats in 
-                <a href= "https://genshin.honeyhunterworld.com/db/enemy/?lang=EN" target="_blank"> HONEY IMPACT</a>
-            </div>
-            
+        </div>
+        <div class="minitext">
+            refer to enemy stats in 
+            <a href= "https://genshin.honeyhunterworld.com/db/enemy/?lang=EN" target="_blank"> HONEY IMPACT</a>
         </div>
         
     <div>
@@ -32,9 +31,9 @@
             <label for="EM">Elemental Mastery</label>
             <input type="number" id="EM" value=0 oninput="calculate('character',1);"><br><br>
             <label for="CR"> Crit Rate %</label>
-            <input type="number" id= "CR" oninput="calculate('character',1);"><br><br>
+            <input type="number" id= "CR" value=50 oninput="calculate('character',1);"><br><br>
             <label for="CD"> Crit Damage %</label>
-            <input type="number" id= "CD" oninput="calculate('character',1);"><br><br>
+            <input type="number" id= "CD" value=100 oninput="calculate('character',1);"><br><br>
             <label for="DmgELE">Damage Element</label>
             <select name="DmgELE" id="DmgELE" onchange="calculate('character',1);changeBG(value,'charac');">
                 <option value="Physical">Physical</option>
@@ -78,9 +77,9 @@
             <label for="EM">Elemental Mastery</label>
             <input type="number" id="EM" value=0 oninput="calculate('character2',2);"><br><br>
             <label for="CR"> Crit Rate %</label>
-            <input type="number" id= "CR" oninput="calculate('character2',2);"><br><br>
+            <input type="number" id= "CR" value=50 oninput="calculate('character2',2);"><br><br>
             <label for="CD"> Crit Damage %</label>
-            <input type="number" id= "CD" oninput="calculate('character2',2);"><br><br>
+            <input type="number" id= "CD" value=100 oninput="calculate('character2',2);"><br><br>
             <label for="DmgELE">Damage Element</label>
             <select name="DmgELE" id="DmgELE" oninput="calculate('character2',2); changeBG(value,'charac2');">
                 <option value="Physical">Physical</option>
@@ -135,10 +134,14 @@
             <input type="checkbox" class= box id="geoRes" oninput="calculate('character',1); calculate('character2',2);"><br><br>
             <label for="other">general other DMGBonus%:</label>
             <input type="number" id="other" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
-            <label for="other">other SKILLBonus%:</label>
-            <input type="number" id="otherS" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
-            <label for="other">other BURSTBonus%:</label>
-            <input type="number" id="otherB" value=0 oninput="calculate('character',1); calculate('character2',2);">
+            <label for="otherS">other SKILLBonus%:</label>
+            <input type="number" id="otherSkill" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <label for="otherB">other BURSTBonus%:</label>
+            <input type="number" id="otherBurst" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <label for="otherAtk">other ATK%:</label>
+            <input type="number" id="otherAtk" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
+            <label for="otherEM">other EM:</label>
+            <input type="number" id="otherEM" value=0 oninput="calculate('character',1); calculate('character2',2);"><br><br>
         </div>
 
         <!-- <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
@@ -194,7 +197,7 @@
                 </div>
             </div>
             <div class="bonus split">
-    <!-- put this into 1 box -->
+        <!-- put this into 1 box -->
                 <!---put sucrose details into 1 box-->
                 <label for="Sucrose">Sucrose<img src='images/Element_Anemo.png' width=18px></label>
                 <input type="checkbox" class= box id="Sucrose" oninput="show('Sucrose','sb'); calculate('character',1); calculate('character2',2);">
@@ -273,12 +276,16 @@
         <label for="Atest">A Test</label>
         <input type="number" id="Atest" oninput="calculate('character',1); calculate('character2',2);"> -->
 
-        <div class="c stats"> 
+
+
+        <div class="c stats" id= "console"> 
+            <div class="header" id="consoleheader">MOVE ME BRO</div>
             <div class= "subtitle">
                 Console: 
             </div>
 
-            <div class="split">
+            <div class="split" id="coords">
+                
                 <div class="consTitle"> Character 1</div>
                 
                 <div>
@@ -290,7 +297,7 @@
                 </div>
             </div>
 
-
+            
 
             <div class="split">
                 <div class="consTitle"> Character 2</div>
@@ -305,7 +312,54 @@
             </div>
             
         </div>
+<!-- 
+        <script>
+            //Make the DIV element draggagle:
+            dragElement(document.getElementById("console"));
+            
+            function dragElement(elmnt) {
+              var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+              
+              if (document.getElementById(elmnt.id + "header")) {
+                /* if present, the header is where you move the DIV from:*/
+                document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+              } else {
+                /* otherwise, move the DIV from anywhere inside the DIV:*/
+                elmnt.onmousedown = dragMouseDown;
+                
+
+              }
+            
+              function dragMouseDown(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // get the mouse cursor position at startup:
+                document.onmouseup = closeDragElement;
+                // call a function whenever the cursor moves:
+                document.onmousemove = elementDrag;
+              }
+            
+              function elementDrag(e) {
+                e = e || window.event;
+                e.preventDefault();
+                // calculate the new cursor position:
+                // set the element's new position:
+                elmnt.style.top = (e.clientY) + "px";
+                elmnt.style.left = (e.clientX-(document.getElementById('console').clientWidth)/2)+ "px";
+                document.querySelector(`#coords`).innerHTML='X=='+e.clientX+"width"+document.getElementById('console').clientWidth+ '\nY=='+e.clientY;
+              }
+            
+              function closeDragElement() {
+                /* stop moving when mouse button is released:*/
+                document.onmouseup = null;
+                document.onmousemove = null;
+              }
+            }
+            </script> -->
+
+
     </div>
+</div>
         
     </body>
     <script src="script.js"></script>

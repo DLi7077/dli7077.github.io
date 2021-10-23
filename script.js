@@ -55,11 +55,13 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     var ResPercent=Resistance-ResShred;//final resistance
     var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
     var OtherBonus=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
-    var SkillBonus=parseFloat(document.getElementById("otherS").value)*.01;
-    var BurstBonus=parseFloat(document.getElementById("otherB").value)*.01;
+    var SkillBonus=parseFloat(document.getElementById("otherSkill").value)*.01;
+    var BurstBonus=parseFloat(document.getElementById("otherBurst").value)*.01;
     var CharOther=parseFloat(document.querySelector(`.${ID}> #otherx`).value)*.01;
     var CharSkill=parseFloat(document.querySelector(`.${ID}> #otherxS`).value)*.01;
     var CharBurst=parseFloat(document.querySelector(`.${ID}> #otherxB`).value)*.01;
+    var AtkBonus=parseFloat(document.querySelector(`#otherAtk`).value)*.01;
+    var EMBonus=parseFloat(document.querySelector(`#otherEM`).value);
         //elemental reaction 
     var SkillElement=document.querySelector(`.${ID}> #DmgELE`).value;//element of the skill
     var ElementTarget=document.getElementById("AELE").value;//element on target
@@ -73,7 +75,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 
 
 
-    var EM= parseFloat(document.querySelector(`.${ID} > #EM`).value);//Elemental Mastery
+    var EM= parseFloat(document.querySelector(`.${ID} > #EM`).value)+EMBonus;//Elemental Mastery
     var VapMelt=0;
     if(document.getElementById("4witch").checked){
         VapMelt+=.15;
@@ -151,15 +153,14 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 // diluc w/ 15% is .18% off
 //chongyun w/ 60% is 9.6%
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
-    var DMGoutput=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
+    var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
 
-    var ScaleTotal=TotalAttack//+(AddBonus*AddPercent);
-
-    var SkillOut=ScaleTotal*DMGoutput*(1+DmgBonus+SkillBonus+CharSkill)*SkillScaling;
+    var ScaleTotal=TotalAttack+AtkBonus*BaseAttack;
+    var SkillOut=ScaleTotal*DMGreduced*(1+DmgBonus+SkillBonus+CharSkill)*SkillScaling;
     var SkillCrit=SkillOut*(CritDamage);
     var Skillavg=SkillOut*(1-CritRate)+SkillCrit*CritRate;
 
-    var BurstOut=ScaleTotal*DMGoutput*(1+DmgBonus+BurstBonus+CharBurst)*BurstScaling;
+    var BurstOut=ScaleTotal*DMGreduced*(1+DmgBonus+BurstBonus+CharBurst)*BurstScaling;
     var BurstCrit=BurstOut*(CritDamage);
     var Burstavg=BurstOut*(1-CritRate)+BurstCrit*CritRate;
 
