@@ -247,7 +247,7 @@ function ChangeFontColor(Element,cons){
         fontColor.style.color='#fd9a00';
     }
     if(Element=='Cryo'){
-        fontColor.style.color='#87effa';
+        fontColor.style.color='#36cdff';
     }
     if(Element=='Hydro'){
         fontColor.style.color='#36cdff';
