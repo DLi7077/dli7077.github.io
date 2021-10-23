@@ -247,7 +247,7 @@ function ChangeFontColor(Element,cons){
         fontColor.style.color='#fd9a00';
     }
     if(Element=='Cryo'){
-        fontColor.style.color='#36cdff';
+        fontColor.style.color='#9bfdfe';
     }
     if(Element=='Hydro'){
         fontColor.style.color='#36cdff';
@@ -260,6 +260,9 @@ function ChangeFontColor(Element,cons){
     }
     if(Element=='Geo'){
         fontColor.style.color='#ffca64';
+    }
+    if(Element=='Physical'){
+        fontColor.style.color='#ffffff';
     }
     // else{
     //     fontColor.style.color="white";
