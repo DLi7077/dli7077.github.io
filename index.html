@@ -6,21 +6,24 @@
         <title>Calculator</title>
     </head>
     
-    <div class= "space" id= 'space'>
-        <div class='title'>
-            Damage Calculator (v1.8)
-        </div>
-        <div class="minitext">
-            refer to enemy stats in 
-            <a href= "https://genshin.honeyhunterworld.com/db/enemy/?lang=EN" target="_blank"> HONEY IMPACT</a>
-        </div>
-        
+<div class= "space" id= 'space'>
+    <div class='title'>
+        Damage Calculator (v1.9)
+    </div>
+    
+    <!-- <a href="https://genshin.honeyhunterworld.com/db/char/characters/" target="_blank">Genshin Database</a> -->
     <div>
+
+
+        <div class="food stats">
+        </div>
+
+
         <div class="character1 stats" id= 'charac'>
             <div class="subtitle">
-                Character Stats:
+                Character 1:
                 
-            <button class='copyOver' onclick="copyOver('character1','character2');calculate('character2','2');">Copy Over&rarr;</button>
+            <button class='copyOver' onclick="copyOver('character1','character2');calculate('character2','2');">&rarr;</button>
             </div><br>
             <label for="lv">Character Level</label>
             <input type="number" id="lv" value=90 onchange="calculate('character1',1);"/><br><br>
@@ -65,8 +68,8 @@
         
         <div class="character2 stats" id= "charac2">
             <div class="subtitle">
-                <button class='copyOver' onclick="copyOver('character2','character1');calculate('character1','1');"> &larr;Copy Over</button>
-                Character Stats:
+                <button class='copyOver' onclick="copyOver('character2','character1');calculate('character1','1');"> &larr;</button>
+                Character 2:
             </div><br>
             <label for="lv">Character Level</label>
             <input type="number" id="lv" value=90 onchange="calculate('character2',2);"/><br><br>
@@ -113,24 +116,43 @@
         
         <div class='artifact stats' id= 'as'>
             <div class="subtitle">
-                Artifact Buffs
+                Artifact/ Weapon Buffs
             </div>
             <br>
-            <label style="color: #3a89ff;" for="noblesse">2pc Noblesse (Burst+20%)</label>
-            <input type="checkbox" class= box id="noblesse"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label style="color: #3a89ff;" for="4noblesse">4pc Noblesse (ATK+20%)</label>
+            <label style="color: #3a89ff;" for="noblesse">
+                <img class="artipic" src="images/Noblesse_Mask.png">
+                2pc Noblesse (Burst+20%)
+            </label>
+            <input type="checkbox" class= box id="noblesse" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            
+            <label style="color: #3a89ff;" for="4noblesse">
+                <img class="artipic" src="images/Noblesse_Flower.png">
+                <img class="artipic" src="images/Noblesse_Mask.png">
+                4pc Noblesse (ATK+20%)
+            </label>
             <input type="checkbox" class= box id="4noblesse"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label style="color: #00ffc3;" for="4VV">4pc Viridescent Venerer </label>
+            
+            <label style="color: #00ffc3;" for="4VV">
+                <img class="artipic" src="images/Viridescent_Goblet.png">
+                4pc Viridescent Venerer 
+            </label>
             <input type="checkbox" class= box id="4VV" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label style="color:#fd9a00;" for="4witch"> 4pc Crimson Witch</label>
+            <label style="color:#fd9a00;" for="4witch"> 
+                <img class="artipic" src="images/Crimson_Feather.png"> 
+                4pc Crimson Witch
+            </label>
             <input type="checkbox" class=box id="4witch"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label style="color: #36cdff;"for="thrillingTales">Thrilling Tales[R5](+48%)</label>
+            <label style="color: #36cdff;"for="thrillingTales">
+                <img class="artipic" src="images/thrilling_tales.png">
+                Thrilling Tales[R5](+48%)</label>
             <input type="checkbox" class= box id="thrillingTales" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label style="color:#dd9dfd;" for="DefShred"> Defense Shred</label>
             <input type="number" id="DefShred" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="resShred"> Resistance Shred</label>
             <input type="number" id="resShred" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label style="color:#ffca64;" for="geoRes">Geo Team Resonance</label>
+            <label style="color:#ffca64;" for="geoRes">
+                <img class="artipic" src="images/Element_Geo.png">
+                Geo Team Resonance</label>
             <input type="checkbox" class= box id="geoRes" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="other">other DMGBonus%:</label>
             <input type="number" id="other" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
@@ -160,7 +182,7 @@
             <div class="subtitle">
                 <!-- IMPLEMENT THIS -->
                 <!-- sucrose bennet mona zhongli shield, geo res, etc. -->
-                Buffs 
+                Support Buffs 
             </div><br>
             <div class="atk split">
                 <label for="bennett">Bennett<img src='images/Element_Pyro.png' width=18px></label>
@@ -187,9 +209,9 @@
                             <br>
                             <!-- put this into 1 box under Fantastic voyayage -->
                             <label for="SaraBase">Sara's Base ATK</label>
-                            <input type="number" id= "SaraBase" value= 781 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                            <input type="number" id= "SaraBase" value= 803 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             <label for="sara%bonus">Attack Bonus%</label>
-                            <input type="number" id= "sara%bonus" value=81.62 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                            <input type="number" id= "sara%bonus" value=91.29 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             <label for="SaraC6"> Sin of Pride (C6) </label>
                             <input type="checkbox" class= box id="SaraC6" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                         </div>
@@ -206,10 +228,11 @@
                             <div class= 'contents'>
                                 <br>
                                 <label for="MollisFavonius"> Mollis Favonius</label>
-                                <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                                <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);">
+                                <br><br><br><br><br><br><br><br>
                                 <label for="CatalystConversion">Catalyst Conversion</label>
                                 <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-                                <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
+                                <label for="SucroseEM">Elemental Mastery</label>
                                 <input type="number" id="SucroseEM" value=922 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             </div>
                         </div>

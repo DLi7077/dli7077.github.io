@@ -30,17 +30,9 @@ body{
     float:left;
 
 }
-.minitext{
-    float:left;
-    color:white;
-    background-color: rgb(255, 166, 0,0.5);
-    width:680px;
-    font-size:30px;
-    margin-left:11px;
-
-}
 label{
-    color:rgb(0, 255, 255);
+    /* color:rgb(0, 255, 255); */
+    color:white;
     font-size:18px;
     background-color: rgba(0,0,0,.6);
 }
@@ -60,6 +52,7 @@ input{
     background-color: rgba(0,0,0,0.5);
     float:right;
     width:90px;
+    
 
 }
 .subtitle{
@@ -82,11 +75,13 @@ input{
 }
 
 .copyOver{
+    font-family: genshinFont;
     font-size: 20px;
-    width:140px;
+    width:100px;
     height:30px;
     background-color:lightcoral;
-    border-radius: 2px;
+    border-radius: 12px;
+    border:3px solid rgb(0, 0, 0);
 }
 .character1{
     /* background-image:url('images/Element_Pyro.png'); */
@@ -106,7 +101,19 @@ input{
 
 .artifact{
     left:720px;
-    width:400px;
+    width:380px;
+}
+
+.artipic{
+    vertical-align:top;
+    height:25px;
+}
+input.box{
+    transform:scale(2);
+    width:15px;
+    margin-right: 9%;
+    vertical-align: bottom;
+    position:relative;
 }
 
 .buff{
@@ -191,12 +198,6 @@ select{
     font-size:10px;
 }
 
-input.box{
-    transform:scale(2);
-    width:20px;
-    margin-right: 7%;
-
-}
 .cbuffs{/*for characters*/
     display:none;
     border-color:black 1px;

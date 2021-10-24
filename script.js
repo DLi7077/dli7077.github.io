@@ -41,7 +41,15 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         DefMultiplier=1-DMGReduction;
     }
     
-    
+    var OtherBonus=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
+    var SkillBonus=parseFloat(document.getElementById("otherSkill").value)*.01;
+    var BurstBonus=parseFloat(document.getElementById("otherBurst").value)*.01;
+    var CharOther=parseFloat(document.querySelector(`.${ID}> #otherx`).value)*.01;
+    var CharSkill=parseFloat(document.querySelector(`.${ID}> #otherxS`).value)*.01;
+    var CharBurst=parseFloat(document.querySelector(`.${ID}> #otherxB`).value)*.01;
+    var AtkBonus=parseFloat(document.querySelector(`#otherAtk`).value)*.01;
+    var EMBonus=parseFloat(document.querySelector(`#otherEM`).value);
+        //elemental reaction 
 
     //var DefMultiplier=1-DMGReduction;  not sure if this is right
 
@@ -52,19 +60,6 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         ResShred+=.4;
     }
     
-    var ResPercent=Resistance-ResShred;//final resistance
-    var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
-    var OtherBonus=parseFloat(document.getElementById("other").value)*.01;//adding other boosts ex: from constellations
-    var SkillBonus=parseFloat(document.getElementById("otherSkill").value)*.01;
-    var BurstBonus=parseFloat(document.getElementById("otherBurst").value)*.01;
-    var CharOther=parseFloat(document.querySelector(`.${ID}> #otherx`).value)*.01;
-    var CharSkill=parseFloat(document.querySelector(`.${ID}> #otherxS`).value)*.01;
-    var CharBurst=parseFloat(document.querySelector(`.${ID}> #otherxB`).value)*.01;
-    var AtkBonus=parseFloat(document.querySelector(`#otherAtk`).value)*.01;
-    var EMBonus=parseFloat(document.querySelector(`#otherEM`).value);
-        //elemental reaction 
-    var SkillElement=document.querySelector(`.${ID}> #DmgELE`).value;//element of the skill
-    var ElementTarget=document.getElementById("AELE").value;//element on target
 
     //change background
     //change class name to div id somehow
@@ -72,8 +67,9 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     //done
     //changeBG(SkillElement,document.querySelector(`.${ID}`).id);
 
-
-
+    //element of skill and target
+    var SkillElement=document.querySelector(`.${ID}> #DmgELE`).value;//element of the skill
+    var ElementTarget=document.getElementById("AELE").value;//element on target
 
     var EM= parseFloat(document.querySelector(`.${ID} > #EM`).value)+EMBonus;//Elemental Mastery
     var VapMelt=0;
@@ -125,6 +121,9 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     //something might be wrong with geoResonance, test it.
     if(document.getElementById('geoRes').checked){
         DmgBonus+=.15;
+        if(SkillElement=="Geo"){
+            ResShred+=.2;
+        }
     }
 
     if(document.getElementById('thrillingTales').checked){
@@ -142,6 +141,11 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
             }
         }
     }
+    
+    var ResPercent=Resistance-ResShred;//final resistance
+    var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
+    
+    
     
 
 //final calculation
