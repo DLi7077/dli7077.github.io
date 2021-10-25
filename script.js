@@ -7,7 +7,7 @@ function calculate(ID,num){
     var CharacterLevel= parseFloat(document.querySelector(`.${ID} > #lv`).value);//character level
     var BaseAttack= parseInt(document.querySelector(`.${ID} > #BATK`).value);//base attack for bonuses
     var TotalAttack= parseFloat(document.querySelector(`.${ID} > #FATK`).value);//total attack
-
+    var EnergyRecharge=parseInt(document.querySelector(`.${ID} > #ER`).value);//energy recharge
     
 //crit
     var CritRate=parseFloat(document.querySelector(`.${ID} > #CR`).value)*.01;
@@ -117,7 +117,24 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     if(document.getElementById('4noblesse').checked){
         TotalAttack+=.2*BaseAttack;
     }
-    
+    if(document.getElementById('emblem').checked){
+        if(EnergyRecharge>=300){
+            BurstBonus+=.75;
+        }
+        else{
+            BurstBonus+=.25*EnergyRecharge*.01;
+        }
+    }
+    if(document.getElementById('archaic').checked){
+        DmgBonus+=.35;
+    }
+    if(document.getElementById('adeptus').checked){
+        TotalAttack+=371;
+        CritRate+=.12;
+    }
+    if(document.getElementById('potion').checked){
+        DmgBonus+=.25;
+    }
     //something might be wrong with geoResonance, test it.
     if(document.getElementById('geoRes').checked){
         DmgBonus+=.15;
@@ -178,25 +195,25 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     'Character level:\t\t'+CharacterLevel+
     '\nAttack:\t\t\t\t'+(TotalAttack.toFixed(1)||0)+
     //'\nAdditive Damage:\t\t'+AddBonus*AddPercent+
-    '\nElemental Mastery:\t\t'+EM
-    +'\nMelt/ Vaporize Bonus:\t'+((VapMelt*100).toFixed(1)||0)+'%'
+    '\nElemental Mastery:\t'+EM
+    +'\nMelt/ Vaporize Bonus:'+((VapMelt*100).toFixed(1)||0)+'%'
     +'\nCrit Rate:\t\t\t'+(CritRate*100).toFixed(1)+'%\nCrit Damage:\t\t\t'+((CritDamage-1)*100).toFixed(1)+'%'
     +'\nTarget is affected by: \t'+ElementTarget+'\nDamage Element is: \t'+SkillElement
-    +'\nDamage Scaling:\t\t'+(SkillScaling*100).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
+    +'\nEnergyRecharge%:\t'+(EnergyRecharge).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
     +'\nReactionBonus:\t\t'+ReactionBonus.toFixed(2)
-    +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(2)+'\nResistance Multiplier:\t'+ResMultiplier.toFixed(2)
-    +'\nSkill Out:\t\t'+SkillOut.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction.toFixed(3)
+    +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(2)+'\nResistance Multiplier:'+ResMultiplier.toFixed(2)
+    +'\nSkill Out:\t\t\t'+SkillOut.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction.toFixed(3)
     +'\nDEF Multiplier:\t\t'+DefMultiplier.toFixed(3);
 
     document.querySelector(`#skill${num}`).innerHTML=
-    'SKILL DAMAGE\nnon-crit hit:\t'+ SkillOut.toFixed(0)
+    'SKILL DAMAGE\nNon-Crit:\t'+ SkillOut.toFixed(0)
     +'\nCrit Hit:\t\t'+SkillCrit.toFixed(0)
     +'\nAverage:\t\t'+Skillavg.toFixed(0);
 
     document.querySelector(`#burst${num}`).innerHTML=
-    'BURST DAMAGE\nnon-crit hit:\t'+ BurstOut.toFixed(0)
-    +'\nCrit Hit:\t\t'+BurstCrit.toFixed(0)
-    +'\nAverage:\t\t'+Burstavg.toFixed(0);
+    'BURST DAMAGE\nNon-Crit:  \t'+ BurstOut.toFixed(0)
+    +'\nCrit Hit:  \t'+BurstCrit.toFixed(0)
+    +'\nAverage:  \t'+Burstavg.toFixed(0);
     // document.getElementById('console2').style.display='inline-block';
     // document.getElementById('skill2').style.display='inline-block';
     // document.getElementById('burst2').style.display='inline-block';
