@@ -166,13 +166,17 @@
                 <img class="artipic" src="images/Adeptus.png"> 
                 Adeptus Temptation
             </label>
-            <input type="checkbox" class=box id="adeptus"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            <input type="checkbox" class=box id="adeptus"oninput="unCheck('NoTomorrow');calculate('character1',1); calculate('character2',2);"><br><br>
             <label style="color:#9bfdfe;" for="potion"> 
                 <img class="artipic" src="images/Cryo_Potion.png"> 
                 Elemental Potion
             </label>
             <input type="checkbox" class=box id="potion"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-
+            <label for="NoTomorrow"> 
+                <img class="artipic" src="images/Item_No_Tomorrow.png"> 
+                No Tomorrow
+            </label>
+            <input type="checkbox" class=box id="NoTomorrow"onchange="unCheck('adeptus');calculate('character1',1); calculate('character2',2);"><br><br>
         </div>
 
         <div class='weapon stats'>

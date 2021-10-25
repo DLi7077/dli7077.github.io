@@ -132,8 +132,13 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         TotalAttack+=371;
         CritRate+=.12;
     }
+        
     if(document.getElementById('potion').checked){
         DmgBonus+=.25;
+    }
+    if(document.getElementById('NoTomorrow').checked){
+        CritRate+=.2;
+        CritDamage+=.2;
     }
     //something might be wrong with geoResonance, test it.
     if(document.getElementById('geoRes').checked){
@@ -231,6 +236,10 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 
 
 
+}
+
+function unCheck(checkbox){
+    document.getElementById(checkbox).checked=false;
 }
 
 function ElementalReaction(skill, target, VapMelt){
