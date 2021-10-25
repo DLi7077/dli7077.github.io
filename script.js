@@ -330,6 +330,7 @@ function copyOver(from,to){//think it works?
     document.querySelector(`.${to} > #BATK`).value=document.querySelector(`.${from} > #BATK`).value;
     document.querySelector(`.${to} > #FATK`).value=document.querySelector(`.${from} > #FATK`).value;
     document.querySelector(`.${to} > #EM`).value=document.querySelector(`.${from} > #EM`).value;
+    document.querySelector(`.${to} > #ER`).value=document.querySelector(`.${from} > #ER`).value;
     document.querySelector(`.${to} > #CR`).value=document.querySelector(`.${from} > #CR`).value;
     document.querySelector(`.${to} > #CD`).value=document.querySelector(`.${from} > #CD`).value;
     document.querySelector(`.${to} > #DMGBonus`).value=document.querySelector(`.${from} > #DMGBonus`).value;
@@ -344,7 +345,7 @@ function copyOver(from,to){//think it works?
 
     document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
     document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;
-
+    document.querySelector(`.${to} > #otherx`).value=document.querySelector(`.${from} > #otherx`).value;
     document.querySelector(`.${to} > #otherxS`).value=document.querySelector(`.${from} > #otherxS`).value;
     document.querySelector(`.${to} > #otherxB`).value=document.querySelector(`.${from} > #otherxB`).value;
 }
