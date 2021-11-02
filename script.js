@@ -117,6 +117,11 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     if(document.getElementById('4noblesse').checked){
         TotalAttack+=.2*BaseAttack;
     }
+
+    if(document.getElementById('Totm').checked){
+        TotalAttack+=.2*BaseAttack;
+    }
+
     if(document.getElementById('emblem').checked){
         if(EnergyRecharge>=300){
             BurstBonus+=.75;
@@ -128,6 +133,17 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     if(document.getElementById('archaic').checked){
         DmgBonus+=.35;
     }
+    if(document.getElementById('Lavawalk').checked){
+        if(ElementTarget=='Pyro'){ 
+            DmgBonus+=.35;
+        }
+    }
+    if(document.getElementById('thunderSooth').checked){
+        if(ElementTarget=='Electro'){ 
+            DmgBonus+=.35;
+        }
+    }
+    
     if(document.getElementById('adeptus').checked){
         TotalAttack+=371;
         CritRate+=.12;
@@ -140,6 +156,11 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         CritRate+=.2;
         CritDamage+=.2;
     }
+
+    if(document.getElementById('thrillingTales').checked){
+        TotalAttack+=.48*BaseAttack;
+    }
+
     //something might be wrong with geoResonance, test it.
     if(document.getElementById('geoRes').checked){
         DmgBonus+=.15;
@@ -147,10 +168,12 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
             ResShred+=.2;
         }
     }
-
-    if(document.getElementById('thrillingTales').checked){
-        TotalAttack+=.48*BaseAttack;
+    if(document.getElementById('supcon').checked){
+        if(SkillElement=='Physical'){
+            ResShred+=.4;
+        }
     }
+
     if(document.getElementById('Mona').checked){
         DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
     }

@@ -128,7 +128,7 @@ input.box{
     display: none;
 }
 .enemy{
-    top:630px;
+    top:680px;
     background-color: rgba(0, 0, 0, 0.3);
     background-repeat:no-repeat;
     background-size:cover;
@@ -142,7 +142,7 @@ select{
 }
 .c{
     position: absolute;
-    top: 630px;
+    top: 680px;
     left: 340px;
     /* 
     this keeps div at position even after dimension change

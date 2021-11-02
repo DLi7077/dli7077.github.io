@@ -135,6 +135,12 @@
                 4pc N.O. (ATK+20%)
             </label>
             <input type="checkbox" class= box id="4noblesse"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+
+            <label style="color: #ffca64;" for="Totm">
+                <img class="artipic" src="images/TotM circlet.png">
+                4pc Tenacity (ATK+20%)
+            </label>
+            <input type="checkbox" class= box id="Totm" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             
             <label style="color: #00ffc3;" for="4VV">
                 <img class="artipic" src="images/Viridescent_Goblet.png">
@@ -152,11 +158,25 @@
                 4pc Severed Fate
             </label>
             <input type="checkbox" class=box id="emblem"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+
             <label style="color:#ffca64;" for="archaic"> 
-                <img class="artipic" src="images/Archaic_Sand.png"> 
+                <img class="artipic" src="images/Archaic_Sand.png">
                 4pc Archaic
             </label>
             <input type="checkbox" class=box id="archaic"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            
+            <label style="color:#fd9a00;" for="LavaWalk"> 
+                <img class="artipic" src="images/Lavawalker Flower.png">
+                4pc Lavawalker
+            </label>
+            <input type="checkbox" class=box id="Lavawalk"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+
+            <label style="color:#dd9dfd;" for="thunderSooth"> 
+                <img class="artipic" src="images/Thundersoother Flower.png">4pc Thundersoother
+            </label>
+            <input type="checkbox" class=box id="thunderSooth"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+
+            
             
             <div class="subtitle">
                 Food
@@ -194,11 +214,16 @@
                 Geo Resonance</label>
             <input type="checkbox" class= box id="geoRes" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
+            <label style="color:#9bfdfe;" for="supcon"> Superconduct</label>
+            <input type="checkbox" class= box id="supcon" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+
             <label style="color:#dd9dfd;" for="DefShred"> Defense Shred</label>
             <input type="number" id="DefShred" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             
             <label for="resShred"> Resistance Shred</label>
             <input type="number" id="resShred" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+
+            
             
             <label for="other">O. DMGBonus%:</label>
             <input type="number" id="other" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
@@ -274,11 +299,12 @@
                         <div class="sucrose bg">
                             <div class= 'contents'>
                                 <br>
-                                <label for="MollisFavonius"> Mollis Favonius</label>
-                                <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);">
-                                <br><br><br><br><br><br><br><br>
                                 <label for="CatalystConversion">Catalyst Conversion</label>
                                 <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                                <br><br><br><br><br><br>
+                                <label for="MollisFavonius"> Mollis Favonius</label>
+                                <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);">
+                                <br><br>
                                 <label for="SucroseEM">Elemental Mastery</label>
                                 <input type="number" id="SucroseEM" value=922 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             </div>
