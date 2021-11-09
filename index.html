@@ -27,11 +27,11 @@
             </div><br>
             <label for="lv">Character Level</label>
             <input type="number" id="lv" value=90 onchange="calculate('character1',1);"/><br><br>
-            <label style="color:#ffca64;" for="BATK">Base Attack</label>
+            <label style="color:#ffca64; width:40px;" for="BATK">Base Attack</label>
             <input type="number" id="BATK" oninput="calculate('character1',1);"><br><br>
             <label style="color:#fd9a00;"for="FATK">Total Attack</label>
             <input type="number" id="FATK" oninput="calculate('character1',1);"><br><br>
-            <label style="color:#00ffc3;" for="EM">Elemental Mastery</label>
+            <label style="color:#00ffc3; width:40px;" for="EM">Elemental Mastery</label>
             <input type="number" id="EM" value=0 oninput="calculate('character1',1);"><br><br>
             <label style="color:#dd9dfd;"for="ER">Energy Recharge %:</label>
             <input type="number" id="ER" value=100 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
@@ -51,9 +51,9 @@
             </select><br><br>
             <label style="color:#9bfdfe;"for="DMGBonus">Damage Bonus%</label>
             <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character1',1);"><br><br>
-            <label style="color:#fb88ff;" for="SkillScaling">Skill Damage %</label>
+            <label style="color:#fb88ff; width:40px;" for="SkillScaling">Skill Damage %</label>
             <input type="number" id="SkillScaling" value=326 oninput="calculate('character1',1);"><br><br>
-            <label style="color:#ff0000;" for="BurstScaling">Burst Damage %</label>
+            <label style="color:#ff0000; width:40px;" for="BurstScaling">Burst Damage %</label>
             <input type="number" id="BurstScaling" value=302.6 oninput="calculate('character1',1);"><br><br>
             <label for="otherx">O .DMGBonus%:</label>
             <input type="number" id="otherx" value=0 oninput="calculate('character1',1);"><br><br>
@@ -75,13 +75,13 @@
             </div><br>
             <label for="lv">Character Level</label>
             <input type="number" id="lv" value=90 onchange="calculate('character2',2);"/><br><br>
-            <label style="color:#ffca64;" for="BATK">Base Attack</label>
+            <label style="color:#ffca64; width:40px;" for="BATK">Base Attack</label>
             <input type="number" id="BATK" oninput="calculate('character2',2);"><br><br>
             <label style="color:#fd9a00;"for="FATK">Total Attack</label>
             <input type="number" id="FATK" oninput="calculate('character2',2);"><br><br>
-            <label style="color:#00ffc3;" for="EM">Elemental Mastery</label>
+            <label style="color:#00ffc3; width:40px;" for="EM">Elemental Mastery</label>
             <input type="number" id="EM" value=0 oninput="calculate('character2',2);"><br><br>
-            <label style="color:#dd9dfd;" for="ER">Energy Recharge %:</label>
+            <label style="color:#dd9dfd; width:40px;" for="ER">Energy Recharge %:</label>
             <input type="number" id="ER" value=100 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label style="color:#ff8989;"for="CR"> Crit Rate %</label>
             <input type="number" id= "CR" value=50 oninput="calculate('character2',2);"><br><br>
@@ -123,80 +123,66 @@
                 Artifact Buffs
             </div>
             <br>
-            <label style="color: #3a89ff;" for="noblesse">
+            <label style="color: #3a89ff; width:40px;" for="noblesse">
                 <img class="artipic" src="images/Noblesse_Mask.png">
                 2pc N.O. (Burst+20%)
             </label>
             <input type="checkbox" class= box id="noblesse" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             
-            <label style="color: #3a89ff;" for="4noblesse">
+            <label style="color: #3a89ff; width:40px;" for="4noblesse">
                 <img class="artipic" src="images/Noblesse_Flower.png">
                 <img class="artipic" src="images/Noblesse_Mask.png">
                 4pc N.O. (ATK+20%)
             </label>
             <input type="checkbox" class= box id="4noblesse"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
-            <label style="color: #ffca64;" for="Totm">
+            <label style="color: #ffca64; width:40px;" for="Totm">
                 <img class="artipic" src="images/TotM circlet.png">
                 4pc Tenacity (ATK+20%)
             </label>
             <input type="checkbox" class= box id="Totm" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             
-            <label style="color: #00ffc3;" for="4VV">
+            <label style="color: #00ffc3; width:40px;" for="4VV">
                 <img class="artipic" src="images/Viridescent_Goblet.png">
                 4pc Viridescent
             </label>
             <input type="checkbox" class= box id="4VV" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label style="color:#fd9a00;" for="4witch"> 
+            <label style="color:#fd9a00; width:40px;" for="4witch"> 
                 <img class="artipic" src="images/Crimson_Feather.png"> 
                 4pc Crimson Witch
             </label>
             <input type="checkbox" class=box id="4witch"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
-            <label style="color:#dd9dfd;" for="emblem"> 
+            <label style="color:#dd9dfd; width:40px;" for="emblem"> 
                 <img class="artipic" src="images/Emblem_Flower.png"> 
                 4pc Severed Fate
             </label>
             <input type="checkbox" class=box id="emblem"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
-            <label style="color:#ffca64;" for="archaic"> 
+            <label style="color:#ffca64; width:40px;" for="archaic"> 
                 <img class="artipic" src="images/Archaic_Sand.png">
                 4pc Archaic
             </label>
             <input type="checkbox" class=box id="archaic"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             
-            <label style="color:#fd9a00;" for="LavaWalk"> 
+            <label style="color:#fd9a00; width:40px;" for="LavaWalk"> 
                 <img class="artipic" src="images/Lavawalker Flower.png">
                 4pc Lavawalker
             </label>
             <input type="checkbox" class=box id="Lavawalk"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
-            <label style="color:#dd9dfd;" for="thunderSooth"> 
+            <label style="color:#dd9dfd;width:40px; width:40px;" for="thunderSooth"> 
                 <img class="artipic" src="images/Thundersoother Flower.png">4pc Thundersoother
             </label>
             <input type="checkbox" class=box id="thunderSooth"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
+            <label style="color:#9bfdfe; width:40px; width:40px;" for="4instructor">
+                <img class="artipic" src='images/InstructorFlower.png'>4pc Instructor
+            </label>
+            <input type="checkbox" class= box id= "4instructor" oninput="calculate('character1',1);calculate('character2',2);"><br><br>
             
             
-            <div class="subtitle">
-                Food
-            </div>
-            <br>
-            <label style="color:#fd9a00;" for="adeptus"> 
-                <img class="artipic" src="images/Adeptus.png"> 
-                Adeptus Temptation
-            </label>
-            <input type="checkbox" class=box id="adeptus"oninput="unCheck('NoTomorrow');calculate('character1',1); calculate('character2',2);"><br><br>
-            <label style="color:#9bfdfe;" for="potion"> 
-                <img class="artipic" src="images/Cryo_Potion.png"> 
-                Elemental Potion
-            </label>
-            <input type="checkbox" class=box id="potion"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label for="NoTomorrow"> 
-                <img class="artipic" src="images/Item_No_Tomorrow.png"> 
-                No Tomorrow
-            </label>
-            <input type="checkbox" class=box id="NoTomorrow"onchange="unCheck('adeptus');calculate('character1',1); calculate('character2',2);"><br><br>
+           
         </div>
 
         <div class='weapon stats'>
@@ -209,15 +195,15 @@
                 Thrilling Tales</label>
             <input type="checkbox" class= box id="thrillingTales" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             
-            <label style="color:#ffca64;" for="geoRes">
+            <label style="color:#ffca64; width:40px;" for="geoRes">
                 <img class="artipic" src="images/Element_Geo.png">
                 Geo Resonance</label>
             <input type="checkbox" class= box id="geoRes" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
-            <label style="color:#9bfdfe;" for="supcon"> Superconduct</label>
+            <label style="color:#9bfdfe; width:40px;" for="supcon"> Superconduct</label>
             <input type="checkbox" class= box id="supcon" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
-            <label style="color:#dd9dfd;" for="DefShred"> Defense Shred</label>
+            <label style="color:#dd9dfd; width:40px;" for="DefShred"> Defense Shred</label>
             <input type="number" id="DefShred" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             
             <label for="resShred"> Resistance Shred</label>
@@ -236,6 +222,26 @@
             <input type="number" id="otherAtk" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="otherEM">Bonus EM:</label>
             <input type="number" id="otherEM" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+
+            <div class="subtitle">
+                Food
+            </div>
+            <br>
+            <label style="color:#fd9a00; width:40px;" for="adeptus"> 
+                <img class="artipic" src="images/Adeptus.png"> 
+                Adeptus Temptation
+            </label>
+            <input type="checkbox" class=box id="adeptus"oninput="unCheck('NoTomorrow');calculate('character1',1); calculate('character2',2);"><br><br>
+            <label style="color:#9bfdfe; width:40px;" for="potion"> 
+                <img class="artipic" src="images/Cryo_Potion.png"> 
+                Elemental Potion
+            </label>
+            <input type="checkbox" class=box id="potion"oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            <label for="NoTomorrow"> 
+                <img class="artipic" src="images/Item_No_Tomorrow.png"> 
+                No Tomorrow
+            </label>
+            <input type="checkbox" class=box id="NoTomorrow"onchange="unCheck('adeptus');calculate('character1',1); calculate('character2',2);"><br><br>
         </div>
 
         <!-- <label for="SucroseEM"> Sucrose's Elemental Mastery</label>

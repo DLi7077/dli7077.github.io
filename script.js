@@ -88,22 +88,20 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     var KazuEM=parseFloat(document.getElementById('KazEM').value);
 
     if(document.getElementById('Kazuha').checked){
+        if(document.getElementById('C2').checked){
+            KazuEM+=200;
+            EM+=200;
+        }
         if(document.getElementById('PoF').checked){
-            if(SkillElement==='Anemo'||SkillElement==='Geo'){
+            if(SkillElement==='Anemo'||SkillElement==='Geo'||SkillElement==='Physical'){
             }
             else{
                 DmgBonus+=KazuEM*.0004;
             }
-            
         }
-        if(document.getElementById('C2').checked){
-            EM+=200;
-        }
+        
     }
 
-    //final em calculation
-    VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
-    var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
 
     //character buffs
     var bennetBase=parseFloat(document.getElementById('bennettBase').value);
@@ -143,7 +141,10 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
             DmgBonus+=.35;
         }
     }
-    
+    if(document.getElementById('4instructor').checked){
+        EM+=120;
+    }
+
     if(document.getElementById('adeptus').checked){
         TotalAttack+=371;
         CritRate+=.12;
@@ -187,6 +188,12 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         }
     }
     
+    
+    //final em calculation
+    VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
+    var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
+
+
     var ResPercent=Resistance-ResShred;//final resistance
     var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
     
