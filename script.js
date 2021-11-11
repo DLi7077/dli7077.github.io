@@ -48,6 +48,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     var CharSkill=parseFloat(document.querySelector(`.${ID}> #otherxS`).value)*.01;
     var CharBurst=parseFloat(document.querySelector(`.${ID}> #otherxB`).value)*.01;
     var AtkBonus=parseFloat(document.querySelector(`#otherAtk`).value)*.01;
+    TotalAttack+=AtkBonus;
     var EMBonus=parseFloat(document.querySelector(`#otherEM`).value);
         //elemental reaction 
 
@@ -213,7 +214,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
     var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
 
-    var ScaleTotal=TotalAttack+AtkBonus*BaseAttack;
+    var ScaleTotal=TotalAttack*BaseAttack;
     var SkillOut=ScaleTotal*DMGreduced*(1+DmgBonus+SkillBonus+CharSkill)*SkillScaling;
     var SkillCrit=SkillOut*(CritDamage);
     var Skillavg=SkillOut*(1-CritRate)+SkillCrit*CritRate;
