@@ -57,7 +57,11 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     var ResShred=parseFloat(document.getElementById("resShred").value)*.01;//count resistance shred like 4pc VV
     
     if(document.getElementById('4VV').checked){
-        ResShred+=.4;
+        if(SkillElement==='Anemo'||SkillElement==='Geo'||SkillElement==='Physical'){
+        }
+        else{
+            ResShred+=.4;
+        }
     }
     
 
