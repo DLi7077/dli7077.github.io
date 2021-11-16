@@ -7,7 +7,7 @@ body{
     background-repeat:no-repeat;
     background-size: cover;
     background-attachment: fixed;
-    height: 2000px;
+    height: auto;
     font-family: genshinFont;
 }
 /* body{
