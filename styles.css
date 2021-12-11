@@ -239,6 +239,12 @@ select{
     background-image: url('images/sara_gacha_splash.png');
     background-position-y:50%;
 }
+
+.ShenHe{
+    border-color: cyan; 
+    background-image: url('images/shenhe_gacha_splash.png');
+    background-position-y:50%;
+}
 .Pyro{
     color:'#fd9a00';
 }
