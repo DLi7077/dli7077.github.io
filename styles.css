@@ -1,0 +1,16 @@
+@font-face {
+    font-family: genshinFont;
+    src: url(ja-jp.ttf);
+}
+body{
+	background-image: url(00d5520f2e2e4e2c81e4f10d.jpg);
+	background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height: auto;
+    font-family: genshinFont;
+}
+.mainheading{
+    text-align: center;
+    font-size: 60px;
+}
