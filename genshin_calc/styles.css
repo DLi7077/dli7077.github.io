@@ -16,18 +16,15 @@ body{
     background-repeat:   no-repeat;
     overflow: hidden;
 }*/
-
 .dividers{
-    text-align: center;
     font-size: 55px;
     margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     color:white;
-    float:left;
-    clear:none;
 }
 .title{
+    display: inline-flex;
     margin-left:11px;
     font-size: 55px;
     color:skyblue;
