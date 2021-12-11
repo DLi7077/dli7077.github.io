@@ -212,13 +212,23 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 //chongyun w/ 60% is 9.6%
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
     var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
+    TotalAttack+=AtkBonus*BaseAttack;
+    var SkillTotal=TotalAttack*SkillScaling;
+    var BurstTotal=TotalAttack*BurstScaling;
+    if(document.getElementById('ShenHe').checked){
+        if(SkillElement==='Cryo'){
+            var ShenHeATK=parseFloat(document.getElementById('ShenHeATK').value);
+            var ShenHeScale=parseFloat(document.getElementById('ShenHe%Bonus').value)*.01;
+            SkillTotal+=ShenHeATK*ShenHeScale;
+            BurstTotal+=ShenHeATK*ShenHeScale;
+        }
+    }
 
-    var ScaleTotal=TotalAttack+AtkBonus*BaseAttack;
-    var SkillOut=ScaleTotal*DMGreduced*(1+DmgBonus+SkillBonus+CharSkill)*SkillScaling;
+    var SkillOut=SkillTotal*DMGreduced*(1+DmgBonus+SkillBonus+CharSkill);
     var SkillCrit=SkillOut*(CritDamage);
     var Skillavg=SkillOut*(1-CritRate)+SkillCrit*CritRate;
 
-    var BurstOut=ScaleTotal*DMGreduced*(1+DmgBonus+BurstBonus+CharBurst)*BurstScaling;
+    var BurstOut=BurstTotal*DMGreduced*(1+DmgBonus+BurstBonus+CharBurst);
     var BurstCrit=BurstOut*(CritDamage);
     var Burstavg=BurstOut*(1-CritRate)+BurstCrit*CritRate;
 
