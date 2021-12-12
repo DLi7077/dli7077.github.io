@@ -39,14 +39,14 @@
             <label style="color:#ff4848;"for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" value=100 oninput="calculate('character1',1);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select name="DmgELE" id="DmgELE" onchange="calculate('character1',1);changeBG(value,'charac');ChangeFontColor(value,1);">
-                <option value="Physical">Physical</option>
-                <option value="Pyro">Pyro</option>
-                <option value="Cryo">Cryo</option>
-                <option value="Hydro">Hydro</option>
-                <option value="Electro">Electro</option>
-                <option value="Geo">Geo</option>
-                <option value="Anemo">Anemo</option>
+            <select class= "elements" name="DmgELE" id="DmgELE" style= "color:white"onchange="calculate('character1',1);changeBG(value,'charac');ChangeFontColor(value,1);">
+                <option value="Physical"style="color:#999999;">Physical</option>
+                <option value="Pyro"style="color:#ff4848;">Pyro</option>
+                <option value="Cryo"style="color:#9bfdfe;">Cryo</option>
+                <option value="Hydro"style="color: #36cdff;">Hydro</option>
+                <option value="Electro"style="color:#dd9dfd;">Electro</option>
+                <option value="Geo"style="color: #ffca64;">Geo</option>
+                <option value="Anemo"style="color: #00ffc3;">Anemo</option>
             </select><br><br>
             <label style="color:#9bfdfe;"for="DMGBonus">Damage Bonus%</label>
             <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character1',1);"><br><br>
@@ -74,7 +74,7 @@
             </div><br>
             <label for="lv">Character Level</label>
             <input type="number" id="lv" value=90 onchange="calculate('character2',2);"/><br><br>
-            <label style="color:#ffca64; width:40px;" for="BATK">Base Attack</label>
+            <label style="color:#ffca64;" for="BATK">Base Attack</label>
             <input type="number" id="BATK" oninput="calculate('character2',2);"><br><br>
             <label style="color:#fd9a00;"for="FATK">Total Attack</label>
             <input type="number" id="FATK" oninput="calculate('character2',2);"><br><br>
@@ -87,14 +87,14 @@
             <label style="color:#ff4848;"for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" value=100 oninput="calculate('character2',2);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select name="DmgELE" id="DmgELE" oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
-                <option value="Physical">Physical</option>
-                <option value="Pyro">Pyro</option>
-                <option value="Cryo">Cryo</option>
-                <option value="Hydro">Hydro</option>
-                <option value="Electro">Electro</option>
-                <option value="Geo">Geo</option>
-                <option value="Anemo">Anemo</option>
+            <select class="elements" name="DmgELE" id="DmgELE" style= "color:white"oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
+                <option value="Physical"style="color:#999999;">Physical</option>
+                <option value="Pyro"style="color:Pyro;">Pyro</option>
+                <option value="Cryo"style="color:;">Cryo</option>
+                <option value="Hydro"style="color: #36cdff;">Hydro</option>
+                <option value="Electro"style="color:#dd9dfd;">Electro</option>
+                <option value="Geo"style="color: #ffca64;">Geo</option>
+                <option value="Anemo"style="color: #00ffc3;">Anemo</option>
             </select><br><br>
             <label style="color:#9bfdfe;"for="DMGBonus">Damage Bonus%</label>
             <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character2',2);"><br><br>

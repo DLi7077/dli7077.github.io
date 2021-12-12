@@ -277,9 +277,6 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
 
     //fix it so that each box updates ONLY its corresponding console box
 
-
-
-
 }
 
 function unCheck(checkbox){
@@ -353,7 +350,6 @@ function changeBG(ElementName,divId){
     var div= document.getElementById(divId);
     div.style.backgroundImage=`url(${url})`;
     
-    
 }
 function show(id,divId){
     var div= document.getElementById(divId);
@@ -363,10 +359,6 @@ function show(id,divId){
     if(!document.getElementById(id).checked){
         div.style.display="none";
     }
-}
-
-function test(num){
-    document.querySelector(`#console${num}`).innerHTML="CHANGED";
 }
 
 function copyOver(from,to){//think it works?
@@ -382,11 +374,7 @@ function copyOver(from,to){//think it works?
     var element=document.querySelector(`.${from} > #DmgELE`).value;
     document.querySelector(`.${to} > #DmgELE`).value=element;
     changeBG(document.querySelector(`.${to} > #DmgELE`).value,document.querySelector(`.${to}`).id);
-    
-    ChangeFontColor(element,String(to)[9])
-
-
-
+    ChangeFontColor(element,String(to)[9]);
     document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
     document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;
     document.querySelector(`.${to} > #otherx`).value=document.querySelector(`.${from} > #otherx`).value;

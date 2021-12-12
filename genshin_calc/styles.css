@@ -63,6 +63,7 @@ input{
     
 
 }
+
 .subtitle{
     font-size:23px;
     text-align: center;
@@ -80,7 +81,9 @@ input{
     top:80px;
     overflow:hidden;
 }
-
+.elements{
+    background-color: black;
+}
 .copyOver{
     font-family: genshinFont;
     font-size: 20px;
@@ -267,7 +270,7 @@ select{
     color:'#dd9dfd';
 }
 .Anemo{
-    color:'#5dffd9';
+    color:'#00ffc3';
 }
 .Geo{
     color:'#ffca64';
