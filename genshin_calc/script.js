@@ -15,16 +15,15 @@ function calculate(ID,num){
 
 
 //dmg bonuses
-var DmgBonus=parseFloat(document.querySelector(`.${ID} > #DMGBonus`).value)*.01;//damage bonus
-var SkillScaling=parseFloat(document.querySelector(`.${ID} > #SkillScaling`).value)/100;//skill scaling
-var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).value)/100;//burst scaling
+    var DmgBonus=parseFloat(document.querySelector(`.${ID} > #DMGBonus`).value)*.01;//damage bonus
+    var SkillScaling=parseFloat(document.querySelector(`.${ID} > #SkillScaling`).value)/100;//skill scaling
+    var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).value)/100;//burst scaling
 
 
-// var AddBonus=parseFloat(document.querySelector(`.${ID} > #otherAdd`).value);
-// var AddPercent=parseFloat(document.querySelector(`.${ID} > #AddPercent`).value)/100;
 
-// problem here^^
-//identified problem: melt undercalculates dmg, needs boost
+//---<FIXED>---identified problem: melt undercalculates dmg, needs boost
+//reaction
+    var reaction= "";
     
 //enemy stats
     
@@ -105,13 +104,16 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         }
         
     }
-
-
     //character buffs
     var bennetBase=parseFloat(document.getElementById('bennettBase').value);
     var bennetBonus=parseFloat(document.getElementById('%bonus').value)*.01;
     if(document.getElementById('bennett').checked){
         TotalAttack+=bennetBase*bennetBonus;
+        if(document.getElementById('BennettC6').checked){
+            if(SkillElement=='Pyro'){
+                DmgBonus+=.15;
+            }
+        }
     }
     if(document.getElementById('noblesse').checked){
         BurstBonus+=.2;
@@ -179,8 +181,20 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
         }
     }
 
+    
+    
+    
+    //final em calculation
+    VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
+    var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
+
     if(document.getElementById('Mona').checked){
         DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
+        if(document.getElementById('MonaC1').checked){
+            if(reaction==="Vaporize"){
+                VapMelt+=.15;
+            }
+        }
     }
     if(document.getElementById('Sara').checked){
         TotalAttack+=parseFloat(document.getElementById('SaraBase').value)*
@@ -191,11 +205,6 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
             }
         }
     }
-    
-    
-    //final em calculation
-    VapMelt+= parseFloat((2.78*EM)/(EM+1400));//Melt/ Vaporize bonus
-    var ReactionBonus=ElementalReaction(SkillElement,ElementTarget,VapMelt);
 
 
     var ResPercent=Resistance-ResShred;//final resistance
@@ -285,15 +294,19 @@ function unCheck(checkbox){
 
 function ElementalReaction(skill, target, VapMelt){
     if (skill==='Pyro'&&target==='Cryo'){
+        reaction="Melt";
         return 2*(1+VapMelt);
     }
     else if(skill==='Cryo'&&target==='Pyro'){
+        reaction="Melt";
         return 1.5*(1+VapMelt);
     }
     else if(skill==='Pyro'&&target==='Hydro'){
+        reaction="Vaporize";
         return 1.5*(1+VapMelt);
     }
     else if(skill==='Hydro'&&target==='Pyro'){
+        reaction="Vaporize";
         return 2*(1+VapMelt);
     }
     else{

@@ -41,7 +41,7 @@
             <label for="DmgELE">Damage Element</label>
             <select class= "elements" name="DmgELE" id="DmgELE" style= "color:white"onchange="calculate('character1',1);changeBG(value,'charac');ChangeFontColor(value,1);">
                 <option value="Physical"style="color:#999999;">Physical</option>
-                <option value="Pyro"style="color:#ff4848;">Pyro</option>
+                <option value="Pyro"style="color:#fd9a00;">Pyro</option>
                 <option value="Cryo"style="color:#9bfdfe;">Cryo</option>
                 <option value="Hydro"style="color: #36cdff;">Hydro</option>
                 <option value="Electro"style="color:#dd9dfd;">Electro</option>
@@ -89,8 +89,8 @@
             <label for="DmgELE">Damage Element</label>
             <select class="elements" name="DmgELE" id="DmgELE" style= "color:white"oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
                 <option value="Physical"style="color:#999999;">Physical</option>
-                <option value="Pyro"style="color:Pyro;">Pyro</option>
-                <option value="Cryo"style="color:;">Cryo</option>
+                <option value="Pyro"style="color:#fd9a00;">Pyro</option>
+                <option value="Cryo"style="color:#9bfdfe;">Cryo</option>
                 <option value="Hydro"style="color: #36cdff;">Hydro</option>
                 <option value="Electro"style="color:#dd9dfd;">Electro</option>
                 <option value="Geo"style="color: #ffca64;">Geo</option>
@@ -273,6 +273,9 @@
                             <input type="number" id= "bennettBase" value= 865 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             <label for="%bonus">Attack Bonus%</label>
                             <input type="number" id= "%bonus" value= 139 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                            <br><br><br><br>
+                            <label for="BennettC6"> Fire Ventures with Me(C6) </label>
+                            <input type="checkbox" class= box id="BennettC6" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                         </div>
                     </div>
                 </div>
@@ -287,12 +290,13 @@
                             <!-- put this into 1 box under Fantastic voyayage -->
                             <label for="SaraBase">Sara's Base ATK</label>
                             <input type="number" id= "SaraBase" value= 803 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-                            <label for="sara%bonus">Attack Bonus%</label>
+                            <label for="sara%bonus">ATK Bonus%</label>
                             <input type="number" id= "sara%bonus" value=91.29 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                            <br><br><br><br>
                             <label for="SaraC6"> Sin of Pride (C6) </label>
                             <input type="checkbox" class= box id="SaraC6" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                         </div>
-                    </div><br>
+                    </div>
                 </div>
                 <br>
                 <br>
@@ -344,6 +348,7 @@
                                 <input type="checkbox" class= box id="PoF" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <label for="KazEM">Kazuha's EM</label>
                                 <input type="number" id=KazEM value=953 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                                <br><br><br><br>
                                 <label for="C2"> Yamaarashi Tailwind (C2)</label>
                                 <input type="checkbox" class=box id='C2' oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 
@@ -360,6 +365,9 @@
                                 <br>
                                 <label for="omen%"> Omen Debuff% </label>
                                 <input type="number" id="omen%" value= 56 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                                <br><br><br><br>
+                                <label for="MonaC1"> Prophecy of Submersion(C1) </label>
+                                <input type="checkbox" class= box id="MonaC1" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             </div>
                         </div>
                     </div><br>
