@@ -1,4 +1,4 @@
-function calculate(ID,num){
+function calculate(ID,num){//num is div id
     // alert("Character level is: "+document.getElementById("BATK").value);
     // all variables needed for calculation
 //front stats
@@ -72,7 +72,7 @@ var BurstScaling=parseFloat(document.querySelector(`.${ID} > #BurstScaling`).val
     //changeBG(SkillElement,document.querySelector(`.${ID}`).id);
 
     //element of skill and target
-    var SkillElement=document.querySelector(`.${ID}> #DmgELE`).value;//element of the skill
+    var SkillElement=document.querySelector(`.${ID}> #DmgELE${num}`).value;//element of the skill
     var ElementTarget=document.getElementById("AELE").value;//element on target
 
     var EM= parseFloat(document.querySelector(`.${ID} > #EM`).value)+EMBonus;//Elemental Mastery
@@ -313,31 +313,61 @@ function ResistanceCalc(res){
 }
 function ChangeFontColor(Element,cons){
     var fontColor=document.querySelector(`#char${cons}DMG`);
-    
+    var ElementText=document.querySelector(`#DmgELE${cons}`);
     if(Element=='Pyro'){
         fontColor.style.color='#fd9a00';
+        ElementText.style.color='#fd9a00';
     }
-    if(Element=='Cryo'){
+    else if(Element=='Cryo'){
         fontColor.style.color='#9bfdfe';
+        ElementText.style.color='#9bfdfe';
     }
-    if(Element=='Hydro'){
+    else if(Element=='Hydro'){
         fontColor.style.color='#36cdff';
+        ElementText.style.color='#36cdff';
     }
-    if(Element=='Electro'){
+    else if(Element=='Electro'){
         fontColor.style.color='#dd9dfd';
+        ElementText.style.color='#dd9dfd';
     }
-    if(Element=='Anemo'){
+    else if(Element=='Anemo'){
         fontColor.style.color='#5dffd9';
+        ElementText.style.color='#5dffd9';
     }
-    if(Element=='Geo'){
+    else if(Element=='Geo'){
         fontColor.style.color='#ffca64';
+        ElementText.style.color='#ffca64';
     }
-    if(Element=='Physical'){
+    else if(Element=='Physical'){
         fontColor.style.color='#ffffff';
+        ElementText.style.color='#ffffff';
     }
-    // else{
-    //     fontColor.style.color="white";
-    // }//why is that this is the first priority??
+
+}
+
+function ChangeEnemyFontColor(Element,cons){
+    var ElementText=document.getElementById(cons);
+    if(Element=='Pyro'){
+        ElementText.style.color='#fd9a00';
+    }
+    else if(Element=='Cryo'){
+        ElementText.style.color='#9bfdfe';
+    }
+    else if(Element=='Hydro'){
+        ElementText.style.color='#36cdff';
+    }
+    else if(Element=='Electro'){
+        ElementText.style.color='#dd9dfd';
+    }
+    else if(Element=='Anemo'){
+        ElementText.style.color='#5dffd9';
+    }
+    else if(Element=='Geo'){
+        ElementText.style.color='#ffca64';
+    }
+    else if(Element=='None'){
+        ElementText.style.color='#ffffff';
+    }
 
 }
 
@@ -371,9 +401,9 @@ function copyOver(from,to){//think it works?
     document.querySelector(`.${to} > #CD`).value=document.querySelector(`.${from} > #CD`).value;
     document.querySelector(`.${to} > #DMGBonus`).value=document.querySelector(`.${from} > #DMGBonus`).value;
 
-    var element=document.querySelector(`.${from} > #DmgELE`).value;
-    document.querySelector(`.${to} > #DmgELE`).value=element;
-    changeBG(document.querySelector(`.${to} > #DmgELE`).value,document.querySelector(`.${to}`).id);
+    var element=document.querySelector(`.${from} > #DmgELE${num}`).value;
+    document.querySelector(`.${to} > #DmgELE${num}`).value=element;
+    changeBG(document.querySelector(`.${to} > #DmgELE${num}`).value,document.querySelector(`.${to}`).id);
     ChangeFontColor(element,String(to)[9]);
     document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
     document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;

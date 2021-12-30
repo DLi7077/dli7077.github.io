@@ -39,7 +39,7 @@
             <label style="color:#ff4848;"for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" value=100 oninput="calculate('character1',1);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select class= "elements" name="DmgELE" id="DmgELE" style= "color:white"onchange="calculate('character1',1);changeBG(value,'charac');ChangeFontColor(value,1);">
+            <select name="DmgELE" id="DmgELE1" onchange="calculate('character1',1);changeBG(value,'charac');ChangeFontColor(value,1);">
                 <option value="Physical"style="color:#999999;">Physical</option>
                 <option value="Pyro"style="color:#ff4848;">Pyro</option>
                 <option value="Cryo"style="color:#9bfdfe;">Cryo</option>
@@ -87,10 +87,10 @@
             <label style="color:#ff4848;"for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" value=100 oninput="calculate('character2',2);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select class="elements" name="DmgELE" id="DmgELE" style= "color:white"oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
+            <select name="DmgELE" id="DmgELE2" oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
                 <option value="Physical"style="color:#999999;">Physical</option>
-                <option value="Pyro"style="color:Pyro;">Pyro</option>
-                <option value="Cryo"style="color:;">Cryo</option>
+                <option value="Pyro"style="color:#ff4848;">Pyro</option>
+                <option value="Cryo"style="color:#9bfdfe;">Cryo</option>
                 <option value="Hydro"style="color: #36cdff;">Hydro</option>
                 <option value="Electro"style="color:#dd9dfd;">Electro</option>
                 <option value="Geo"style="color: #ffca64;">Geo</option>
@@ -376,12 +376,12 @@
             <label for="eLv">Enemy Level</label>
             <input type="number" id="eLv" value=90 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="AELE">Element Affected:</label>
-            <select name="AELE" id="AELE" oninput="calculate('character1',1); calculate('character2',2); changeBG(value,'enemy');">
-                <option value="None">None </option>
-                <option value="Pyro">Pyro</option>
-                <option value="Cryo">Cryo</option>
-                <option value="Hydro">Hydro</option>
-                <option value="Electro">Electro</option>
+            <select name="AELE" id="AELE" oninput="calculate('character1',1); calculate('character2',2); changeBG(value,'enemy');ChangeEnemyFontColor(value,'AELE')">
+                <option value="None"style="color:#999999;">None</option>
+                <option value="Pyro"style="color:Pyro;">Pyro</option>
+                <option value="Cryo"style="color:#9bfdfe;">Cryo</option>
+                <option value="Hydro"style="color: #36cdff;">Hydro</option>
+                <option value="Electro"style="color:#dd9dfd;">Electro</option>
             </select><br><br>
             <label for="resist">Resistance %</label>
             <input type="number" id="resist" value=10 oninput="calculate('character1',1); calculate('character2',2);">
