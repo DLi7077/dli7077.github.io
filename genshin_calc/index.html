@@ -18,11 +18,11 @@
     </div>
     <div>
 
-        <div class="character1 stats" id= 'charac'>
+        <div class="character1 stats" id= 'charac1'>
             <div class="subtitle">
                 Character 1:
                 
-            <button class='copyOver' onclick="copyOver('character1','character2');calculate('character2','2');">&rarr;</button>
+            <button class='copyOver' onclick="copyOver('1','2');calculate('character2','2');">&rarr;</button>
             </div><br>
             <label for="lv">Character Level</label>
             <input type="number" id="lv" value=90 onchange="calculate('character1',1);"/><br><br>
@@ -39,7 +39,7 @@
             <label style="color:#ff4848;"for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" value=100 oninput="calculate('character1',1);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select name="DmgELE" id="DmgELE1" onchange="calculate('character1',1);changeBG(value,'charac');ChangeFontColor(value,1);">
+            <select name="DmgELE" id="DmgELE" onchange="calculate('character1',1);changeBG(value,'charac1');ChangeFontColor(value,1);">
                 <option value="Physical"style="color:#999999;">Physical</option>
                 <option value="Pyro"style="color:#fd9a00;">Pyro</option>
                 <option value="Cryo"style="color:#9bfdfe;">Cryo</option>
@@ -70,7 +70,7 @@
         
         <div class="character2 stats" id= "charac2">
             <div class="subtitle">
-                <button class='copyOver' onclick="copyOver('character2','character1');calculate('character1','1');"> &larr;</button>
+                <button class='copyOver' onclick="copyOver('2','1');calculate('character1','1');"> &larr;</button>
                 Character 2:
             </div><br>
             <label for="lv">Character Level</label>
@@ -88,7 +88,7 @@
             <label style="color:#ff4848;"for="CD"> Crit Damage %</label>
             <input type="number" id= "CD" value=100 oninput="calculate('character2',2);"><br><br>
             <label for="DmgELE">Damage Element</label>
-            <select name="DmgELE" id="DmgELE2" oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
+            <select name="DmgELE" id="DmgELE" oninput="calculate('character2',2); changeBG(value,'charac2');ChangeFontColor(value,2);">
                 <option value="Physical"style="color:#999999;">Physical</option>
                 <option value="Pyro"style="color:#ff4848;">Pyro</option>
                 <option value="Cryo"style="color:#9bfdfe;">Cryo</option>

@@ -71,7 +71,8 @@ function calculate(ID,num){//num is div id
     //changeBG(SkillElement,document.querySelector(`.${ID}`).id);
 
     //element of skill and target
-    var SkillElement=document.querySelector(`.${ID}> #DmgELE${num}`).value;//element of the skill
+    var SkillElement=document.querySelector(`.${ID}> #DmgELE`).value;//element of the skill
+    
     var ElementTarget=document.getElementById("AELE").value;//element on target
 
     var EM= parseFloat(document.querySelector(`.${ID} > #EM`).value)+EMBonus;//Elemental Mastery
@@ -331,7 +332,7 @@ function ResistanceCalc(res){
 }
 function ChangeFontColor(Element,cons){
     var fontColor=document.querySelector(`#char${cons}DMG`);
-    var ElementText=document.querySelector(`#DmgELE${cons}`);
+    var ElementText=document.querySelector(`.character${cons}> #DmgELE`);
     if(Element=='Pyro'){
         fontColor.style.color='#fd9a00';
         ElementText.style.color='#fd9a00';
@@ -410,22 +411,21 @@ function show(id,divId){
 }
 
 function copyOver(from,to){//think it works?
-    document.querySelector(`.${to} > #lv`).value=document.querySelector(`.${from} > #lv`).value;
-    document.querySelector(`.${to} > #BATK`).value=document.querySelector(`.${from} > #BATK`).value;
-    document.querySelector(`.${to} > #FATK`).value=document.querySelector(`.${from} > #FATK`).value;
-    document.querySelector(`.${to} > #EM`).value=document.querySelector(`.${from} > #EM`).value;
-    document.querySelector(`.${to} > #ER`).value=document.querySelector(`.${from} > #ER`).value;
-    document.querySelector(`.${to} > #CR`).value=document.querySelector(`.${from} > #CR`).value;
-    document.querySelector(`.${to} > #CD`).value=document.querySelector(`.${from} > #CD`).value;
-    document.querySelector(`.${to} > #DMGBonus`).value=document.querySelector(`.${from} > #DMGBonus`).value;
-
-    var element=document.querySelector(`.${from} > #DmgELE${num}`).value;
-    document.querySelector(`.${to} > #DmgELE${num}`).value=element;
-    changeBG(document.querySelector(`.${to} > #DmgELE${num}`).value,document.querySelector(`.${to}`).id);
-    ChangeFontColor(element,String(to)[9]);
-    document.querySelector(`.${to} > #SkillScaling`).value=document.querySelector(`.${from} > #SkillScaling`).value;
-    document.querySelector(`.${to} > #BurstScaling`).value=document.querySelector(`.${from} > #BurstScaling`).value;
-    document.querySelector(`.${to} > #otherx`).value=document.querySelector(`.${from} > #otherx`).value;
-    document.querySelector(`.${to} > #otherxS`).value=document.querySelector(`.${from} > #otherxS`).value;
-    document.querySelector(`.${to} > #otherxB`).value=document.querySelector(`.${from} > #otherxB`).value;
+    document.querySelector(`.character${to} > #lv`).value=document.querySelector(`.character${from} > #lv`).value;
+    document.querySelector(`.character${to} > #BATK`).value=document.querySelector(`.character${from} > #BATK`).value;
+    document.querySelector(`.character${to} > #FATK`).value=document.querySelector(`.character${from} > #FATK`).value;
+    document.querySelector(`.character${to} > #EM`).value=document.querySelector(`.character${from} > #EM`).value;
+    document.querySelector(`.character${to} > #ER`).value=document.querySelector(`.character${from} > #ER`).value;
+    document.querySelector(`.character${to} > #CR`).value=document.querySelector(`.character${from} > #CR`).value;
+    document.querySelector(`.character${to} > #CD`).value=document.querySelector(`.character${from} > #CD`).value;
+    document.querySelector(`.character${to} > #DMGBonus`).value=document.querySelector(`.character${from} > #DMGBonus`).value;
+    var element=document.querySelector(`.character${from} > #DmgELE`).value
+    document.querySelector(`.character${to} >#DmgELE`).value=document.querySelector(`.character${from} > #DmgELE`).value;
+    changeBG(element,document.querySelector(`#charac${to}`).id);
+    ChangeFontColor(element,to);
+    document.querySelector(`.character${to} > #SkillScaling`).value=document.querySelector(`.character${from} > #SkillScaling`).value;
+    document.querySelector(`.character${to} > #BurstScaling`).value=document.querySelector(`.character${from} > #BurstScaling`).value;
+    document.querySelector(`.character${to} > #otherx`).value=document.querySelector(`.character${from} > #otherx`).value;
+    document.querySelector(`.character${to} > #otherxS`).value=document.querySelector(`.character${from} > #otherxS`).value;
+    document.querySelector(`.character${to} > #otherxB`).value=document.querySelector(`.character${from} > #otherxB`).value;
 }
