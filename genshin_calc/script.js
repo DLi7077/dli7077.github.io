@@ -223,7 +223,10 @@ function calculate(ID,num){//num is div id
     TotalAttack+=AtkBonus*BaseAttack;
     var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
     
-    var SkillTotal=TotalAttack*SkillScaling;
+//bonus scaling
+    var BonusScale=parseFloat(document.getElementById('otherScaling').value);
+
+    var SkillTotal=TotalAttack*SkillScaling+BonusScale;
     var BurstTotal=TotalAttack*BurstScaling;
     if(document.getElementById('ShenHe').checked){
         if(SkillElement==='Cryo'){
@@ -261,6 +264,7 @@ function calculate(ID,num){//num is div id
     +'\nEnergyRecharge%:\t'+(EnergyRecharge).toFixed(1)+'%\nDamage Bonus:\t\t'+(DmgBonus*100).toFixed(1)+'%'
     +'\nReactionBonus:\t\t'+ReactionBonus.toFixed(2)
     +'\nEnemy Level:\t\t\t'+EnemyLevel+'\nEnemy Defense:\t\t'+EnemyDefense.toFixed(2)+'\nResistance Multiplier:'+ResMultiplier.toFixed(2)
+    +'\nBonus FlatDamage\t\t'+BonusScale
     +'\nSkill Out:\t\t\t'+SkillOut.toFixed(1)+"\nDMG Reduction:\t\t"+DMGReduction.toFixed(3)
     +'\nDEF Multiplier:\t\t'+DefMultiplier.toFixed(3);
 
