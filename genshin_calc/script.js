@@ -220,8 +220,9 @@ function calculate(ID,num){//num is div id
 // diluc w/ 15% is .18% off
 //chongyun w/ 60% is 9.6%
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
-    var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
     TotalAttack+=AtkBonus*BaseAttack;
+    var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
+    
     var SkillTotal=TotalAttack*SkillScaling;
     var BurstTotal=TotalAttack*BurstScaling;
     if(document.getElementById('ShenHe').checked){
