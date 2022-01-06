@@ -24,6 +24,7 @@ body {
   padding-right: 20px;
   color: white;
 }
+<<<<<<< HEAD
 .title {
   display: inline-flex;
   margin-left: 11px;
@@ -31,6 +32,15 @@ body {
   color: skyblue;
   background-color: rgb(0, 0, 0, 0.5);
   height: 80px;
+=======
+.title{
+    display: inline-flex;
+    margin-left:11px;
+    font-size: 55px;
+    color:var(--c-cryo);
+    background-color: rgb(0, 0, 0,.5);
+    height:80px;
+>>>>>>> master
 
   /* position: static;
     display:inline; */
@@ -64,12 +74,21 @@ input {
   width: 80px;
 }
 
+<<<<<<< HEAD
 .subtitle {
   font-size: 23px;
   text-align: center;
   color: white;
   background-color: rgb(0, 145, 145);
   padding: 8px;
+=======
+.subtitle{
+    font-size:23px;
+    text-align: center;
+    background-color: rgba(69, 69, 69, 0.75);
+    color: var(--c-cryo);
+    padding:5px;
+>>>>>>> master
 }
 .stats {
   font-size: 11px;
@@ -231,11 +250,22 @@ select {
   background-repeat: no-repeat;
   height: 280px;
 }
+<<<<<<< HEAD
 .sucrose {
   border-color: chartreuse;
   background-image: url("images/sucrose_gacha_splash.png");
   background-position-x: 30%;
   background-position-y: 70%;
+=======
+#showOnSelect{
+    display: none;
+}
+.sucrose{
+    border-color:chartreuse;
+    background-image: url('images/sucrose_gacha_splash.png');
+    background-position-x:30%;
+    background-position-y:70%;
+>>>>>>> master
 }
 .bennet {
   border-color: crimson;
@@ -261,8 +291,21 @@ select {
   background-position-x: 70%;
   background-position-y: 50%;
 }
+<<<<<<< HEAD
 .Pyro {
   color: "#fd9a00";
+=======
+:root{
+    --c-pyro:#fd9a00;
+    --c-cryo:#9bfdfe;
+    --c-hydro:#36cdff;
+    --c-electro:#dd9dfd;
+    --c-anemo:#00ffc3;
+    --c-geo:#ffca64;
+}
+.Pyro{
+    color:'#fd9a00';
+>>>>>>> master
 }
 .Cyro {
   color: "#9bfdfe";

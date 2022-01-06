@@ -260,12 +260,83 @@ function calculate(ID, num) {
   // + IncomingDmg.toFixed(0)
   // +'\nCrit Hit:\t'+IncomingCrit.toFixed(0);
 
-  // //detailed console calculation
-  document.querySelector(`#console${num}`).innerHTML =
-    "Character level:\t\t" +
-    CharacterLevel +
-    "\nAttack:\t\t\t\t" +
-    (TotalAttack.toFixed(1) || 0) +
+    if(document.getElementById('Mona').checked){
+        DmgBonus+=parseFloat(document.getElementById('omen%').value)*.01;
+        if(document.getElementById('MonaC1').checked){
+            if(reaction==="Vaporize"){
+                VapMelt+=.15;
+            }
+        }
+    }
+    if(document.getElementById('Sara').checked){
+        TotalAttack+=parseFloat(document.getElementById('SaraBase').value)*
+        parseFloat(document.getElementById('sara%bonus').value)*.01;
+        if(document.getElementById('SaraC6').checked){
+            if(SkillElement=='Electro'){
+                CritDamage+=.6;
+            }
+        }
+    }
+
+//final calculation
+    
+    DmgBonus+=OtherBonus+CharOther;
+//bug w/ other dmg bonuses, hutao w/ 0 is good
+// diluc w/ 15% is .18% off
+//chongyun w/ 60% is 9.6%
+//found out why: noblesse is meant to be in dmg bonus, not dmg scaling
+    TotalAttack+=AtkBonus*BaseAttack;
+    
+    
+//bonus scaling
+    var BonusScale=0;
+    BonusScale+=parseFloat(document.getElementById('bonusFlatScaling').value);
+
+    var SkillTotal=TotalAttack*SkillScaling+BonusScale;
+    var BurstTotal=TotalAttack*BurstScaling+BonusScale;
+    if(document.getElementById('ShenHe').checked){
+        if(SkillElement==='Cryo'){
+            var ShenHeATK=parseFloat(document.getElementById('ShenHeATK').value);
+            var ShenHeScale=parseFloat(document.getElementById('ShenHe%Bonus').value)*.01;
+            SkillTotal+=ShenHeATK*ShenHeScale;
+            BurstTotal+=ShenHeATK*ShenHeScale;
+        }
+        if(document.getElementById('ShenHeBurst').checked){
+            ResShred+=parseFloat(document.getElementById('ShenHeResShred').value*.01);
+        }
+        if(document.getElementById("ShenHeA1").checked&&SkillElement==='Cryo'){
+            DmgBonus+=.15;
+        }
+        if(document.getElementById("ShenHeA4").checked){
+            DmgBonus+=.15;
+        }
+
+    }
+    
+
+    var ResPercent=Resistance-ResShred;//final resistance
+    var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
+    var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
+
+    var SkillOut=SkillTotal*DMGreduced*(1+DmgBonus+SkillBonus+CharSkill);
+    var SkillCrit=SkillOut*(CritDamage);
+    var Skillavg=SkillOut*(1-CritRate)+SkillCrit*CritRate;
+
+    var BurstOut=BurstTotal*DMGreduced*(1+DmgBonus+BurstBonus+CharBurst);
+    var BurstCrit=BurstOut*(CritDamage);
+    var Burstavg=BurstOut*(1-CritRate)+BurstCrit*CritRate;
+
+
+
+    // document.getElementById("output").textContent='non-crit hit:\t'
+    // + IncomingDmg.toFixed(0)
+    // +'\nCrit Hit:\t'+IncomingCrit.toFixed(0);
+
+
+    // //detailed console calculation
+    document.querySelector(`#console${num}`).innerHTML=
+    'Character level:\t\t'+CharacterLevel+
+    '\nAttack:\t\t\t\t'+(TotalAttack.toFixed(1)||0)+
     //'\nAdditive Damage:\t\t'+AddBonus*AddPercent+
     "\nElemental Mastery:\t" +
     EM +
