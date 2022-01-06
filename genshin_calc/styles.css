@@ -169,11 +169,19 @@ select{
 }
 .uploadB {
     position: absolute;
-    top: 1050px;
-    background-color: black;
+    top: 30px;
+    left:966px;
+    position:absolute;
+    background-color: rgba(179, 179, 179, 0.192);
     color: rgb(0, 225, 255);
-    width: auto;
-  }
+    width: 270px;
+    padding:8px;
+}
+.import{
+    background-color: #000000;
+    font-family: genshinFont;
+    color:white;
+}
 .header{
     cursor:move;
 }
@@ -297,3 +305,4 @@ select{
 .Geo{
     color:'#ffca64';
 }
+

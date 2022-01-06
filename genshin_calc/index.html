@@ -52,7 +52,7 @@
             <label style="color:#9bfdfe;"for="DMGBonus">Damage Bonus%</label>
             <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character1',1);"><br><br>
             <label style="color:#fb88ff; width:40px;" for="SkillScaling">Skill Damage %</label>
-            <input type="number" id="SkillScaling" value=326 oninput="calculate('character1',1);"><br><br>
+            <input type="number" id="SkillScaling" value=365.59 oninput="calculate('character1',1);"><br><br>
             <label style="color:#ff0000; width:40px;" for="BurstScaling">Burst Damage %</label>
             <input type="number" id="BurstScaling" value=302.6 oninput="calculate('character1',1);"><br><br>
             <label for="otherx">O .DMGBonus%:</label>
@@ -101,7 +101,7 @@
             <label style="color:#9bfdfe;"for="DMGBonus">Damage Bonus%</label>
             <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character2',2);"><br><br>
             <label style="color:#fb88ff;"for="Scaling">Skill Damage %</label>
-            <input type="number" id="SkillScaling" value=326 oninput="calculate('character2',2);"><br><br>
+            <input type="number" id="SkillScaling" value=365.59 oninput="calculate('character2',2);"><br><br>
             <label style="color:#ff0000;"for="Scaling">Burst Damage %</label>
             <input type="number" id="BurstScaling" value=302.6 oninput="calculate('character2',2);"><br><br>
             <label for="other"> O. DMGBonus%:</label>
@@ -459,8 +459,8 @@
         </div>
         <br/>
         <div class="uploadB">
-            <input type="file" id="imported" style="display: none">Import</input>
-            <button onclick=uploadConfig()>Upload</button>
+            <input type="file" id="imported" style="display: none">Import character stats</input>
+            <button class= "import"onclick=uploadConfig()>Upload</button>
             <!--<button>Export</button>-->
         </div>        
 <!-- 
