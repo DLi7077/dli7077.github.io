@@ -170,7 +170,6 @@ select{
 .uploadB {
     top: 30px;
     left:966px;
-    position:absolute;
     background-color: rgba(179, 179, 179, 0.192);
     color: rgb(0, 225, 255);
     width: 270px;
