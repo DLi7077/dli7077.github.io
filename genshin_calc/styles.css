@@ -167,6 +167,13 @@ select{
     width:auto;
 
 }
+.uploadB {
+    position: absolute;
+    top: 1050px;
+    background-color: black;
+    color: rgb(0, 225, 255);
+    width: auto;
+  }
 .header{
     cursor:move;
 }
