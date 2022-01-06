@@ -438,3 +438,57 @@ function copyOver(from,to){//think it works?
     document.querySelector(`.character${to} > #otherxS`).value=document.querySelector(`.character${from} > #otherxS`).value;
     document.querySelector(`.character${to} > #otherxB`).value=document.querySelector(`.character${from} > #otherxB`).value;
 }
+
+function loadBody() {
+    //If detects a change, runs the process file function
+    document
+      .getElementById("imported")
+      .addEventListener("change", processFile, false);
+  }
+  
+  function processFile() {
+    try {
+      const uploadedFile = document.getElementById("imported").files[0];
+      //console.log(uploadedFile);
+      const fileReader = new FileReader();
+      fileReader.readAsBinaryString(uploadedFile); //Read as string
+      fileReader.onloadend = () => {
+        //When done reading
+        const configArr = fileReader.result.split(",").map((e) => parseFloat(e));
+        //console.log(configArr);
+        updateHtmlImport(configArr);
+      };
+    } catch (err) {
+      console.log("No file selected!");
+    }
+  }
+  
+  function uploadConfig() {
+    document.getElementById("imported").click();
+  }
+  
+  function updateHtmlImport(configArr) {
+    CharacterLevel = configArr[0];
+    BaseAttack = configArr[1];
+    TotalAttack = configArr[2];
+    EM = configArr[3];
+    EnergyRecharge = configArr[4];
+    CritRate = configArr[5];
+    CritDamage = configArr[6];
+    DmgBonus = configArr[7];
+    SkillScaling = configArr[8];
+    BurstScaling = configArr[9];
+  
+    document.getElementById("lv").value = CharacterLevel;
+    document.getElementById("BATK").value = BaseAttack;
+    document.getElementById("FATK").value = TotalAttack;
+    document.getElementById("EM").value = EM;
+    document.getElementById("ER").value = EnergyRecharge;
+    document.getElementById("CR").value = CritRate;
+    document.getElementById("CD").value = CritDamage;
+    document.getElementById("DMGBonus").value = DmgBonus;
+    document.getElementById("SkillScaling").value = SkillScaling;
+    document.getElementById("BurstScaling").value = BurstScaling;
+    calculate("character1", 1);
+    //console.log("File uploaded!");
+  }

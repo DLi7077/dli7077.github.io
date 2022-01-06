@@ -5,7 +5,8 @@
         <link rel="stylesheet" href="styles.css">
         <title>Genshin Calculator</title>
     </head>
-    
+
+<body onload=loadBody()> 
 <div class= "space" id= 'space'>
     <div class='title'>
         <div class="dividers">
@@ -456,6 +457,12 @@
             </div>
             
         </div>
+        <br/>
+        <div class="uploadB">
+            <input type="file" id="imported" style="display: none">Import</input>
+            <button onclick=uploadConfig()>Upload</button>
+            <!--<button>Export</button>-->
+        </div>        
 <!-- 
         <script>
             //Make the DIV element draggagle:
@@ -504,5 +511,6 @@
 
     </div>
 </div>
+</body> 
     <script src="script.js"></script>
 </html>
