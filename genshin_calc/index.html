@@ -222,8 +222,8 @@
             <input type="number" id="otherAtk" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
             <label for="otherEM">Bonus EM:</label>
             <input type="number" id="otherEM" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-            <label for="otherScaling"> BONUS SCALING:</label>
-            <input type="number" id= "otherScaling" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+            <label for="bonusFlatScaling"> Bonus FLAT Scaling:</label>
+            <input type="number" id= "bonusFlatScaling" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
 
             <div class="subtitle">
                 Food
@@ -303,17 +303,32 @@
                 </div>
                 <br>
                 <br>
-                <label for="ShenHe">Shen He<img src='images/Element_Cryo.png' width=18px></label>
+                <label for="ShenHe">Shenhe<img src='images/Element_Cryo.png' width=18px></label>
                 <input type="checkbox" class= box id="ShenHe" oninput="show('ShenHe','ShenHeb');calculate('character1',1); calculate('character2',2);">
                 <div class='cbuffs stats' id=ShenHeb>
                     <div class='ShenHe bg'>
                         <div class='contents'>
                             <br>
                             <!-- put this into 1 box under Fantastic voyayage -->
-                            <label for="ShenHeATK">ShenHe's Total ATK</label>
+                            <label for="ShenHeATK">Shenhe's Total ATK</label>
                             <input type="number" id= "ShenHeATK" value= 0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             <label for="ShenHe%bonus">DMG Bonus</label>
-                            <input type="number" id= "ShenHe%Bonus" value=91.29 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                            <input type="number" id= "ShenHe%Bonus" value=91.29 oninput="calculate('character1',1); calculate('character2',2);"><br><br><br><br>
+
+                            <label for="ShenHeBurst">ShenHe Burst</label>
+                            <input type="checkbox" class=box id="ShenHeBurst" oninput="show('ShenHeBurst','showOnSelect'), calculate('character1',1); calculate('character2',2);"><br><br>
+                            <div id= "showOnSelect">
+                                <label for="ShenHeResShred">Res Shred%</label>
+                                <input type="number" id= "ShenHeResShred" value= 13 oninput="calculate('character1',1); calculate('character2',2);"><br><br><br>
+                            </div>
+                            
+                            
+                            <label for="ShenHeA1">Deific Embrace (A1)</label>
+                            <input type="checkbox" class=box id="ShenHeA1" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                            <label for="ShenHeA4">Spirit Commu Seal (A4)</label>
+                            <input type="checkbox" class=box id="ShenHeA4" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                            
+
                         </div>
                     </div><br>
                 </div>
@@ -330,13 +345,15 @@
                             <div class= 'contents'>
                                 <br>
                                 <label for="CatalystConversion">Catalyst Conversion</label>
-                                <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                                <input type="checkbox" class=box id= "CatalystConversion" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <br><br><br><br><br><br>
                                 <label for="MollisFavonius"> Mollis Favonius</label>
                                 <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);">
                                 <br><br>
                                 <label for="SucroseEM">Elemental Mastery</label>
                                 <input type="number" id="SucroseEM" value=922 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                                <label for="SucroseC6">Chaotic Entropy (C6)</label>
+                                <input type="checkbox" class=box id= "SucroseC6" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                             </div>
                         </div>
                     </div>
@@ -350,7 +367,7 @@
                                 <label for="PoF">Poetics of Fuubutsu</label>
                                 <input type="checkbox" class= box id="PoF" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <label for="KazEM">Kazuha's EM</label>
-                                <input type="number" id=KazEM value=953 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
+                                <input type="number" id=KazEM value=968 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
                                 <br><br><br><br>
                                 <label for="C2"> Yamaarashi Tailwind (C2)</label>
                                 <input type="checkbox" class=box id='C2' oninput="calculate('character1',1); calculate('character2',2);"><br><br>

@@ -207,13 +207,6 @@ function calculate(ID,num){//num is div id
         }
     }
 
-
-    var ResPercent=Resistance-ResShred;//final resistance
-    var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
-    
-    
-    
-
 //final calculation
     
     DmgBonus+=OtherBonus+CharOther;
@@ -222,13 +215,14 @@ function calculate(ID,num){//num is div id
 //chongyun w/ 60% is 9.6%
 //found out why: noblesse is meant to be in dmg bonus, not dmg scaling
     TotalAttack+=AtkBonus*BaseAttack;
-    var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
+    
     
 //bonus scaling
-    var BonusScale=parseFloat(document.getElementById('otherScaling').value);
+    var BonusScale=0;
+    BonusScale+=parseFloat(document.getElementById('bonusFlatScaling').value);
 
     var SkillTotal=TotalAttack*SkillScaling+BonusScale;
-    var BurstTotal=TotalAttack*BurstScaling;
+    var BurstTotal=TotalAttack*BurstScaling+BonusScale;
     if(document.getElementById('ShenHe').checked){
         if(SkillElement==='Cryo'){
             var ShenHeATK=parseFloat(document.getElementById('ShenHeATK').value);
@@ -236,7 +230,22 @@ function calculate(ID,num){//num is div id
             SkillTotal+=ShenHeATK*ShenHeScale;
             BurstTotal+=ShenHeATK*ShenHeScale;
         }
+        if(document.getElementById('ShenHeBurst').checked){
+            ResShred+=parseFloat(document.getElementById('ShenHeResShred').value*.01);
+        }
+        if(document.getElementById("ShenHeA1").checked&&SkillElement==='Cryo'){
+            DmgBonus+=.15;
+        }
+        if(document.getElementById("ShenHeA4").checked){
+            DmgBonus+=.15;
+        }
+
     }
+    
+
+    var ResPercent=Resistance-ResShred;//final resistance
+    var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
+    var DMGreduced=DefMultiplier*ResMultiplier*ReactionBonus;//excluding dmg scaling
 
     var SkillOut=SkillTotal*DMGreduced*(1+DmgBonus+SkillBonus+CharSkill);
     var SkillCrit=SkillOut*(CritDamage);
