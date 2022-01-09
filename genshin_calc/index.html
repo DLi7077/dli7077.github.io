@@ -10,7 +10,7 @@
 <div class= "space" id= 'space'>
     <div class='title'>
         <div class="dividers">
-            Damage Calculator (v1.9)
+            Damage Calculator (v2.0)
         </div>
         
         <div class="dividers">
@@ -246,17 +246,6 @@
             </label>
             <input type="checkbox" class=box id="NoTomorrow"onchange="unCheck('adeptus');calculate('character1',1); calculate('character2',2);"><br><br>
         </div>
-
-        <!-- <label for="SucroseEM"> Sucrose's Elemental Mastery</label>
-        <input type="number" id="SucroseEM" value=0 oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-        <label for="CatalystConversion">Catalyst Conversion</label>
-        <input type="checkbox" class=box id= "CatalystConversion" value="CatalystConversion" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-        <label for="MollisFavonius"> Mollis Favonius</label>
-        <input type="checkbox" class=box id="MollisFavonius" checked oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-        <label for="4VV">4pc Viridescent Venerer </label>
-        <input type="checkbox" class= box id="4VV" oninput="calculate('character1',1); calculate('character2',2);"><br><br> -->
-        
-            
             
             <!-- implement all this -->    
         <div class="buff stats">
@@ -416,14 +405,6 @@
             <input type="number" id="resist" value=10 oninput="calculate('character1',1); calculate('character2',2);">
         </div>
 
-
-        <!-- <label for="Btest">B Test</label>
-        <input type="number" id="Btest" oninput="calculate('character1',1); calculate('character2',2);"><br><br>
-        <label for="Atest">A Test</label>
-        <input type="number" id="Atest" oninput="calculate('character1',1); calculate('character2',2);"> -->
-
-
-
         <div class="c stats" id= "console"> 
             <div class= "subtitle">
                 Console: 
@@ -452,6 +433,17 @@
                     <div class="separate" id= 'sep'>
                     <div class="output_log" id='skill2'> Skill2<br></div><br>
                     <div class="output_log" id='burst2'>Burst2</div>
+                </div>
+                </div>
+            </div>
+            
+            <div class="split" id="charDiff">
+                <div class="consTitle"> DIFF (2-1)</div>
+                
+                <div>
+                    <div class="separate" id= 'sep'>
+                    <div class="output_log" id='diffS'>Skill diff<br></div><br>
+                    <div class="output_log" id='diffB'>Burst diff</div>
                 </div>
                 </div>
             </div>

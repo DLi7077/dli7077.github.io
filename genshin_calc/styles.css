@@ -98,14 +98,14 @@ input{
     background-repeat:no-repeat;
     background-size:100%;
     background-image: url('images/Element_Physical.png');
-    background-position: 75%;
+    background-position: 45%;
 }
 .character2{
     left:320px;
     /* background-image:url('images/Element_Pyro.png'); */
     background-repeat:no-repeat;
     background-size:100%;
-    background-position: 40%;
+    background-position: 45%;
     background-image: url('images/Element_Physical.png');
 }
 
@@ -146,8 +146,8 @@ input.box{
     background-size:80%;
     background-position-y: 60px;
     background-position-x: 20px;
-    width:300px;
-    height:300px;
+    width:280px;
+    height:280px;
 }
 select{
     float:right;
@@ -157,13 +157,14 @@ select{
 .c{
     position: absolute;
     top: 680px;
-    left: 340px;
+    left: 320px;
     /* 
     this keeps div at position even after dimension change
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%); */
     background-color: black;
     color:rgb(0, 225, 255);
+    height: 270px;
     width:auto;
 
 }
@@ -186,6 +187,7 @@ select{
 }
 .split{
     float:left;
+    clear:none;
     border-style: solid;
     color:white;
 }
@@ -221,7 +223,7 @@ select{
 }
 .console{
     font-size:9px;
-    width:160px;
+    width:120px;
     height:100px;
 }
 
