@@ -26,7 +26,7 @@
             <button class='copyOver' onclick="copyOver('1','2');calculate('character2','2');">&rarr;</button>
             </div><br>
             <label for="lv">Character Level</label>
-            <input type="number" id="lv" value=90 onchange="calculate('character1',1);"/><br><br>
+            <input type="number" id="lv" value=90 oninput="calculate('character1',1);"/><br><br>
             <label style="color:#ffca64; width:40px;" for="BATK">Base Attack</label>
             <input type="number" id="BATK" oninput="calculate('character1',1);"><br><br>
             <label style="color:#fd9a00;"for="FATK">Total Attack</label>
@@ -51,9 +51,12 @@
             </select><br><br>
             <label style="color:#9bfdfe;"for="DMGBonus">Damage Bonus%</label>
             <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character1',1);"><br><br>
-            <label style="color:#fb88ff; width:40px;" for="SkillScaling">Skill Damage %</label>
+
+            <!-- <label style="color:var(--c-geo); width:40px;" for="NormalScaling">Normal ATK DMG %</label>
+            <input type="number" id="NormalScaling" value=119.66 oninput="calculate('character1',1);"><br><br> -->
+            <label style="color:#fb88ff; width:40px;" for="SkillScaling">Skill DMG %</label>
             <input type="number" id="SkillScaling" value=365.59 oninput="calculate('character1',1);"><br><br>
-            <label style="color:#ff0000; width:40px;" for="BurstScaling">Burst Damage %</label>
+            <label style="color:#ff0000; width:40px;" for="BurstScaling">Burst DMG %</label>
             <input type="number" id="BurstScaling" value=302.6 oninput="calculate('character1',1);"><br><br>
             <label for="otherx">O .DMGBonus%:</label>
             <input type="number" id="otherx" value=0 oninput="calculate('character1',1);"><br><br>
@@ -75,7 +78,7 @@
                 Character 2:
             </div><br>
             <label for="lv">Character Level</label>
-            <input type="number" id="lv" value=90 onchange="calculate('character2',2);"/><br><br>
+            <input type="number" id="lv" value=90 oninput="calculate('character2',2);"/><br><br>
             <label style="color:#ffca64;" for="BATK">Base Attack</label>
             <input type="number" id="BATK" oninput="calculate('character2',2);"><br><br>
             <label style="color:#fd9a00;"for="FATK">Total Attack</label>
@@ -100,6 +103,10 @@
             </select><br><br>
             <label style="color:#9bfdfe;"for="DMGBonus">Damage Bonus%</label>
             <input type="number" id="DMGBonus" value=46.6 oninput="calculate('character2',2);"><br><br>
+
+
+            <!-- <label style="color:var(--c-geo); width:40px;" for="NormalScaling">Normal ATK DMG %</label>
+            <input type="number" id="NormalScaling" value=119.66 oninput="calculate('character2',2);"><br><br> -->
             <label style="color:#fb88ff;"for="Scaling">Skill Damage %</label>
             <input type="number" id="SkillScaling" value=365.59 oninput="calculate('character2',2);"><br><br>
             <label style="color:#ff0000;"for="Scaling">Burst Damage %</label>

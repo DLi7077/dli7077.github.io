@@ -26,6 +26,12 @@ let stat1={};
 let stat2={};
 let stats=[stat1,stat2];
 stats[0][0]=100;
+
+let DamageOutput={};
+
+let ChongyunNormalATK=[70,75.7,81.4,89.54,95.24,101.75,110.7,119.66,128.61,138.38,148.15,157.92,167.68,177.45,187.22];
+let ChongyunSkill=[172.04,184.94,197.85,215.05,227.95,240.86,258.06,275.26,292.47,309.67,326.88,344.08,365.59,387.09,408.6];
+let ChongyunBurst=[142.4,153.08,163.76,178,188.68,199.36,213.6,227.84,242.08,256.32,270.56,284.8,302.6,320.4,338.2];
 function calculate(ID,num){//num is div id
     // alert("Character level is: "+document.getElementById("BATK").value);
     // all variables needed for calculation
@@ -115,6 +121,13 @@ var build=num-1;
         }
         if(document.getElementById('CatalystConversion').checked){
             stats[build][EM]+=50;
+        }
+        if(document.getElementById('SucroseC6').checked){
+            if(stats[build][SkillElement]==='Anemo'||stats[build][SkillElement]==='Geo'||stats[build][SkillElement]==='Physical'){
+            }
+            else{
+                OtherBonus+=.2; 
+            }
         }
     }
     var KazuEM=parseFloat(document.getElementById('KazEM').value);
@@ -527,7 +540,7 @@ function loadBody() {
     DmgBonus = configArr[7];
     SkillScaling = configArr[8];
     BurstScaling = configArr[9];
-  
+    
     document.getElementById("lv").value = CharacterLevel;
     document.getElementById("BATK").value = BaseAttack;
     document.getElementById("FATK").value = TotalAttack;
