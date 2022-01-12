@@ -507,6 +507,7 @@ function loadBody() {
       .addEventListener("change", processFile, false);
   }
   
+  /*
   function processFile() {
     try {
       const uploadedFile = document.getElementById("imported").files[0];
@@ -523,11 +524,34 @@ function loadBody() {
       console.log("No file selected!");
     }
   }
+  */
   
   function uploadConfig() {
     document.getElementById("imported").click();
   }
+
+  function processFile() {
+    try {
+        const uploadedFile = document.getElementById("imported").files[0];
+        //console.log(uploadedFile);
+        const fileReader = new FileReader();
+        fileReader.readAsBinaryString(uploadedFile); //Read as string
+        fileReader.onloadend = () => {
+          //When done reading, skips first row then separates using new line char, creates subarray of each, then filters out results that do not use Chongyun
+          const userInputs = fileReader.result.split("(IN MONTHS)\r\n")[1].split("\r\n").map(e => e.split(",")).filter(e => e[1] == 'Yes');
+          console.log(userInputs);
+        };
+      } catch (err) {
+        console.log("No file selected!");
+      }     
+  }
+
+  //The indexes of 'configArr' are the columns of the excel sheet WIP--
+  //function processFileCalculate(configArr) {
+    
+  //}
   
+  /*
   function updateHtmlImport(configArr) {
       //update this for 
     CharacterLevel = configArr[0];
@@ -553,4 +577,4 @@ function loadBody() {
     document.getElementById("BurstScaling").value = BurstScaling;
     calculate("character1", 1);
     //console.log("File uploaded!");
-  }
+  } */
