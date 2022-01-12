@@ -26,6 +26,12 @@ let stat1={};
 let stat2={};
 let stats=[stat1,stat2];
 stats[0][0]=100;
+
+let DamageOutput={};
+
+let ChongyunNormalATK=[70,75.7,81.4,89.54,95.24,101.75,110.7,119.66,128.61,138.38,148.15,157.92,167.68,177.45,187.22];
+let ChongyunSkill=[172.04,184.94,197.85,215.05,227.95,240.86,258.06,275.26,292.47,309.67,326.88,344.08,365.59,387.09,408.6];
+let ChongyunBurst=[142.4,153.08,163.76,178,188.68,199.36,213.6,227.84,242.08,256.32,270.56,284.8,302.6,320.4,338.2];
 function calculate(ID,num){//num is div id
     // alert("Character level is: "+document.getElementById("BATK").value);
     // all variables needed for calculation
@@ -115,6 +121,13 @@ var build=num-1;
         }
         if(document.getElementById('CatalystConversion').checked){
             stats[build][EM]+=50;
+        }
+        if(document.getElementById('SucroseC6').checked){
+            if(stats[build][SkillElement]==='Anemo'||stats[build][SkillElement]==='Geo'||stats[build][SkillElement]==='Physical'){
+            }
+            else{
+                OtherBonus+=.2; 
+            }
         }
     }
     var KazuEM=parseFloat(document.getElementById('KazEM').value);
@@ -494,6 +507,7 @@ function loadBody() {
       .addEventListener("change", processFile, false);
   }
   
+  /*
   function processFile() {
     try {
       const uploadedFile = document.getElementById("imported").files[0];
@@ -510,11 +524,34 @@ function loadBody() {
       console.log("No file selected!");
     }
   }
+  */
   
   function uploadConfig() {
     document.getElementById("imported").click();
   }
+
+  function processFile() {
+    try {
+        const uploadedFile = document.getElementById("imported").files[0];
+        //console.log(uploadedFile);
+        const fileReader = new FileReader();
+        fileReader.readAsBinaryString(uploadedFile); //Read as string
+        fileReader.onloadend = () => {
+          //When done reading, skips first row then separates using new line char, creates subarray of each, then filters out results that do not use Chongyun
+          const userInputs = fileReader.result.split("(IN MONTHS)\r\n")[1].split("\r\n").map(e => e.split(",")).filter(e => e[1] == 'Yes');
+          console.log(userInputs);
+        };
+      } catch (err) {
+        console.log("No file selected!");
+      }     
+  }
+
+  //The indexes of 'configArr' are the columns of the excel sheet WIP--
+  //function processFileCalculate(configArr) {
+    
+  //}
   
+  /*
   function updateHtmlImport(configArr) {
       //update this for 
     CharacterLevel = configArr[0];
@@ -527,7 +564,7 @@ function loadBody() {
     DmgBonus = configArr[7];
     SkillScaling = configArr[8];
     BurstScaling = configArr[9];
-  
+    
     document.getElementById("lv").value = CharacterLevel;
     document.getElementById("BATK").value = BaseAttack;
     document.getElementById("FATK").value = TotalAttack;
@@ -540,4 +577,4 @@ function loadBody() {
     document.getElementById("BurstScaling").value = BurstScaling;
     calculate("character1", 1);
     //console.log("File uploaded!");
-  }
+  } */
