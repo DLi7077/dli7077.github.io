@@ -27,11 +27,14 @@ let stat2={};
 let stats=[stat1,stat2];
 stats[0][0]=100;
 
-let DamageOutput={};
+var ElementTarget=document.getElementById("AELE").value;//element on target
+
+
 
 let ChongyunNormalATK=[70,75.7,81.4,89.54,95.24,101.75,110.7,119.66,128.61,138.38,148.15,157.92,167.68,177.45,187.22];
 let ChongyunSkill=[172.04,184.94,197.85,215.05,227.95,240.86,258.06,275.26,292.47,309.67,326.88,344.08,365.59,387.09,408.6];
 let ChongyunBurst=[142.4,153.08,163.76,178,188.68,199.36,213.6,227.84,242.08,256.32,270.56,284.8,302.6,320.4,338.2];
+
 function calculate(ID,num){//num is div id
     // alert("Character level is: "+document.getElementById("BATK").value);
     // all variables needed for calculation
@@ -96,19 +99,11 @@ var build=num-1;
             ResShred+=.4;
         }
     }
-    
-
-    //change background
-    //change class name to div id somehow
-
-    //done
-    //changeBG(stats[build][SkillElement],document.querySelector(`.${ID}`).id);
 
     //element of skill and target
     stats[build][SkillElement]=document.querySelector(`.${ID}> #DmgELE`).value;//element of the skill
     
-    var ElementTarget=document.getElementById("AELE").value;//element on target
-
+    ElementTarget=document.getElementById("AELE").value;//element on target
     stats[build][EM]= parseFloat(document.querySelector(`.${ID} > #EM`).value)+EMBonus;//Elemental Mastery
     var VapMelt=0;
     if(document.getElementById("4witch").checked){
@@ -251,13 +246,7 @@ var build=num-1;
 //final calculation
     
 stats[build][DmgBonus]+=OtherBonus+stats[build][CharOther];
-//bug w/ other dmg bonuses, hutao w/ 0 is good
-// diluc w/ 15% is .18% off
-//chongyun w/ 60% is 9.6%
-//found out why: noblesse is meant to be in dmg bonus, not dmg scaling
 stats[build][TotalAttack]+=AtkBonus*stats[build][BaseAttack];
-    
-    
 //bonus scaling
     var BonusScale=0;
     BonusScale+=parseFloat(document.getElementById('bonusFlatScaling').value);
@@ -282,7 +271,7 @@ stats[build][TotalAttack]+=AtkBonus*stats[build][BaseAttack];
         }
 
     }
-    
+//make this a separate function for exclusively calculating damage
 
     var ResPercent=Resistance-ResShred;//final resistance
     var ResMultiplier= ResistanceCalc(ResPercent);//get actual multiplier
@@ -310,6 +299,8 @@ stats[build][TotalAttack]+=AtkBonus*stats[build][BaseAttack];
 
 
     // //detailed console calculation
+
+
     document.querySelector(`#console${num}`).innerHTML=
     'Level:\t\t'+stats[build][CharacterLevel]+
     '\nAttack:\t\t'+(stats[build][TotalAttack].toFixed(1)||0)+
@@ -367,6 +358,10 @@ stats[build][TotalAttack]+=AtkBonus*stats[build][BaseAttack];
 function unCheck(checkbox){
     document.getElementById(checkbox).checked=false;
 }
+function check(checkbox){
+    document.getElementById(checkbox).checked=true;
+}
+
 
 function ElementalReaction(build,skill, target, VapMelt){
     if (skill==='Pyro'&&target==='Cryo'){
@@ -465,9 +460,14 @@ function ChangeEnemyFontColor(Element,cons){
 //sets div image based on what element is selected
 
 function changeBG(ElementName,divId){
-    var url=`images/Element_${ElementName}.png`;
-    var div= document.getElementById(divId);
-    div.style.backgroundImage=`url(${url})`;
+    if(ElementName!="None"){
+        var url=`images/Element_${ElementName}.png`;
+        var div= document.getElementById(divId);
+        div.style.backgroundImage=`url(${url})`;
+    }
+    else{
+        document.getElementById(divId).style.backgroundImage='none';
+    }
     
 }
 function show(id,divId){
@@ -526,31 +526,192 @@ function loadBody() {
   }
   */
   
-  function uploadConfig() {
+function uploadConfig() {
     document.getElementById("imported").click();
-  }
+}
+let inValues={};
 
-  function processFile() {
+
+let SNoCrit={};
+let SCrit={};
+let SAverage={};
+let BNoCrit={};
+let BCrit={};
+let BAverage={};
+let Base=[SNoCrit,SCrit,SAverage,BNoCrit,BCrit,BAverage];//basic structure;
+
+
+
+let DamageWKazuha={};
+
+function processFile() {
     try {
         const uploadedFile = document.getElementById("imported").files[0];
         //console.log(uploadedFile);
         const fileReader = new FileReader();
         fileReader.readAsBinaryString(uploadedFile); //Read as string
         fileReader.onloadend = () => {
-          //When done reading, skips first row then separates using new line char, creates subarray of each, then filters out results that do not use Chongyun
-          const userInputs = fileReader.result.split("(IN MONTHS)\r\n")[1].split("\r\n").map(e => e.split(",")).filter(e => e[1] == 'Yes');
-          console.log(userInputs);
+            //When done reading, skips first row then separates using new line char, creates subarray of each, then filters out results that do not use Chongyun
+            const userInputs = fileReader.result.split("(IN MONTHS)\r\n")[1].split("\r\n").map(e => e.split(",")).filter(e => e[1] == 'Yes');
+            inValues=userInputs;
+            console.log(inValues);
+            document.getElementById('DmgELE').value = "Cryo";
+            changeBG("Cryo",'charac1');ChangeFontColor("Cryo",1);
+
+            let nonMelt=[inValues.length];//initialize array for no Melt
+            for(let i=0;i<inValues.length;i++){
+                nonMelt[i]={};
+            }
+            calcImported(nonMelt,inValues);
+            console.log('no Melt\n');
+            console.log(nonMelt);
+
+            let Melt=[inValues.length];//initialize array for no Melt
+            for(let i=0;i<inValues.length;i++){
+                Melt[i]={};
+            }
+            document.getElementById('AELE').value="Pyro";
+
+            calcImported(Melt,inValues);
+            console.log('Melt\n');
+            console.log(Melt);
+
         };
-      } catch (err) {
+    }
+    catch (err) {
         console.log("No file selected!");
-      }     
-  }
+    }     
+}
 
   //The indexes of 'configArr' are the columns of the excel sheet WIP--
   //function processFileCalculate(configArr) {
-    
   //}
   
+
+  //reads file and pushes damageoutput to list **(MODIFIER)**
+  function calcImported(list,inValues){
+    // ElementTarget="None";
+    // changeBG(ElementTarget,'enemy');ChangeEnemyFontColor(ElementTarget,'AELE');
+    let lv=3;
+    let batk=6;
+    let fatk=7;
+    let em=8;
+    let er=11;
+    let cr=9;
+    let cd=10;
+    let dmgb=12;
+    let skilltal=16
+    let bursttal=17
+    let weap=4;
+    let weapref=5;
+    let inochi=14;
+    for(let i=0;i<inValues.length;i++){
+        document.getElementById("lv").value = inValues[i][lv];
+        document.getElementById("BATK").value = inValues[i][batk];
+        document.getElementById("FATK").value = inValues[i][fatk];
+        document.getElementById("EM").value = inValues[i][em];
+        document.getElementById("ER").value = inValues[i][er];
+        document.getElementById("CR").value = inValues[i][cr];
+        document.getElementById("CD").value = inValues[i][cd];
+        document.getElementById("DMGBonus").value = inValues[i][dmgb];
+        let skilltalent=(inValues[i][skilltal]-1)+(inValues[i][inochi]>=5)*3;
+        let bursttalent=(inValues[i][bursttal]-1)+(inValues[i][inochi]>=3)*3;
+        document.getElementById("SkillScaling").value = ChongyunSkill [skilltalent];
+        document.getElementById("BurstScaling").value = ChongyunBurst [bursttalent];
+        
+        let OtherB=0;
+        let OtherS=0;
+        let BurstBur=0;
+        //conditional buffs based on weapons
+        if(inValues[i][weap]==="Serpent Spine"){
+            OtherB=25+inValues[i][weapref]*5;
+        }
+        if(inValues[i][weap]==="Bloodtainted Greatsword"){
+            if(ElementTarget==="Pyro"){
+                document.getElementById("otherx").value=9+3*inValues[i][weapref];
+            }
+        }
+        if(inValues[i][weap]==="Luxurious Sea-Lord"){
+            BurstBur+=9+3*inValues[i][weapref];
+        }
+        if(inValues[i][weap]==="Skyward Pride"){
+            OtherB+=6+2*inValues[i][weapref];
+        }
+        if(inValues[i][weap]==="The Unforged"){
+            document.getElementById("otherAtk").value = (15+inValues[i][weapref]*5);
+        }
+        if(inValues[i][weap]==="Wolf's Gravestone"){
+            document.getElementById("otherAtk").value = (30+inValues[i][weapref]*1);
+        }
+        if(inValues[i][inochi]==6){
+            BurstBur+=15;
+        }
+        //will be reset to 0
+        document.getElementById('otherx').value=OtherB;
+        document.getElementById('otherxS').value=OtherS;
+        document.getElementById('otherxB').value=BurstBur;
+
+        let artifacts=toString(inValues[i][15]);
+        if(artifacts.includes('obl')){
+            check('noblesse');
+        }
+        //base damage no melt
+        calculate('character1',1);
+        //pushing output dmg into array
+        fillOutput(list,i,0);
+
+        //with bennett (c5, 865 atk)
+        check('4noblesse');
+        check('bennett');
+        calculate('character1',1);
+        fillOutput(list,i,6);
+        unCheck('4noblesse');
+        unCheck('bennett');
+        // //with shenhe
+        check('ShenHe');
+        check('ShenHeBurst');
+        check('ShenHeA1');
+        check('ShenHeA4');
+        calculate('character1',1);
+        fillOutput(list,i,12);
+        unCheck('ShenHe');
+        unCheck('ShenHeBurst');
+        unCheck('ShenHeA1');
+        unCheck('ShenHeA4');
+
+        //with kazuha c2(968em)
+        check('Kazuha');
+        check('C2');
+        calculate('character1',1);
+        fillOutput(list,i,18);
+        unCheck('C2');
+        unCheck('Kazuha');
+
+        //with sucrose (922em)
+        check('Sucrose');
+        calculate('character1',1);
+        fillOutput(list,i,24);
+        unCheck('Sucrose');
+        calculate('character1',1);
+
+        //reset other atk, artifact buffs
+        document.getElementById("otherAtk").value = 0;
+    }
+    //only for filling array with data
+    /**
+     * 
+     * @param {*array,int}
+     * starting from int, sets the next 6 values as dmg outputs using calculate() 
+     */
+    function fillOutput(list, index1,index2){
+        list[index1][index2]=stat1[SkillNoCrit];
+        list[index1][index2+1]=stat1[SkillCritHit];
+        list[index1][index2+2]=stat1[SkillAverage];
+        list[index1][index2+3]=stat1[BurstNoCrit];
+        list[index1][index2+4]=stat1[BurstCritHit]
+        list[index1][index2+5]=stat1[BurstAverage];
+    }
+  }
   /*
   function updateHtmlImport(configArr) {
       //update this for 
