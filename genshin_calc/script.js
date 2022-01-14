@@ -560,7 +560,7 @@ function processFile() {
 
             let nonMelt=[inValues.length];//initialize array for no Melt
             for(let i=0;i<inValues.length;i++){
-                nonMelt[i]={};
+                nonMelt[i]=[];
             }
             calcImported(nonMelt,inValues);
             console.log('no Melt\n');
@@ -568,13 +568,16 @@ function processFile() {
 
             let Melt=[inValues.length];//initialize array for no Melt
             for(let i=0;i<inValues.length;i++){
-                Melt[i]={};
+                Melt[i]=[];
             }
             document.getElementById('AELE').value="Pyro";
 
             calcImported(Melt,inValues);
             console.log('Melt\n');
             console.log(Melt);
+            downloadBlob(arrayToCsv(nonMelt), 'noMelt.csv', 'text/csv;charset=utf-8;');
+            downloadBlob(arrayToCsv(Melt), 'Melt.csv', 'text/csv;charset=utf-8;');
+            
 
         };
     }
@@ -582,6 +585,30 @@ function processFile() {
         console.log("No file selected!");
     }     
 }
+
+
+//https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side?answertab=active#tab-top
+function arrayToCsv(data){
+    return data.map(row =>
+      row
+      .map(String)  // convert every value to String
+      .map(v => v.replaceAll('"', '""'))  // escape double colons
+      .map(v => `"${v}"`)  // quote it
+      .join(',')  // comma-separated
+    ).join('\r\n');  // rows starting on new lines
+}
+function downloadBlob(content, filename, contentType) {
+    // Create a blob
+    var blob = new Blob([content], { type: contentType });
+    var url = URL.createObjectURL(blob);
+  
+    // Create a link to download it
+    var pom = document.createElement('a');
+    pom.href = url;
+    pom.setAttribute('download', filename);
+    pom.click();
+}
+
 
   //The indexes of 'configArr' are the columns of the excel sheet WIP--
   //function processFileCalculate(configArr) {
@@ -604,7 +631,9 @@ function processFile() {
     let bursttal=17
     let weap=4;
     let weapref=5;
+    let art=13;
     let inochi=14;
+    // let i=0;
     for(let i=0;i<inValues.length;i++){
         document.getElementById("lv").value = inValues[i][lv];
         document.getElementById("BATK").value = inValues[i][batk];
@@ -631,6 +660,9 @@ function processFile() {
                 document.getElementById("otherx").value=9+3*inValues[i][weapref];
             }
         }
+        if(inValues[i][weap]==="Akuoumaru"){
+            BurstBur=(.09+inValues[i][weapref]*.01)*240;
+        }
         if(inValues[i][weap]==="Luxurious Sea-Lord"){
             BurstBur+=9+3*inValues[i][weapref];
         }
@@ -651,9 +683,15 @@ function processFile() {
         document.getElementById('otherxS').value=OtherS;
         document.getElementById('otherxB').value=BurstBur;
 
-        let artifacts=toString(inValues[i][15]);
-        if(artifacts.includes('obl')){
+        let artifacts=inValues[i][art];
+        if(artifacts.includes('2 Noblesse')){
             check('noblesse');
+        }
+        if(artifacts.includes('4 Noblesse')){
+            check('4noblesse');
+        }
+        if(artifacts.includes('4 Emblem')){
+            check('emblem');
         }
         //base damage no melt
         calculate('character1',1);
@@ -680,6 +718,7 @@ function processFile() {
         unCheck('ShenHeA4');
 
         //with kazuha c2(968em)
+        check('4VV');
         check('Kazuha');
         check('C2');
         calculate('character1',1);
@@ -695,6 +734,10 @@ function processFile() {
         calculate('character1',1);
 
         //reset other atk, artifact buffs
+        unCheck('4VV');
+        unCheck('noblesse');
+        unCheck('4noblesse');
+        unCheck('emblem');
         document.getElementById("otherAtk").value = 0;
     }
     //only for filling array with data
@@ -704,12 +747,12 @@ function processFile() {
      * starting from int, sets the next 6 values as dmg outputs using calculate() 
      */
     function fillOutput(list, index1,index2){
-        list[index1][index2]=stat1[SkillNoCrit];
-        list[index1][index2+1]=stat1[SkillCritHit];
-        list[index1][index2+2]=stat1[SkillAverage];
-        list[index1][index2+3]=stat1[BurstNoCrit];
-        list[index1][index2+4]=stat1[BurstCritHit]
-        list[index1][index2+5]=stat1[BurstAverage];
+        list[index1][index2]=stat1[SkillNoCrit].toFixed(0);
+        list[index1][index2+1]=stat1[SkillCritHit].toFixed(0);
+        list[index1][index2+2]=stat1[SkillAverage].toFixed(0);
+        list[index1][index2+3]=stat1[BurstNoCrit].toFixed(0);
+        list[index1][index2+4]=stat1[BurstCritHit].toFixed(0)
+        list[index1][index2+5]=stat1[BurstAverage].toFixed(0);
     }
   }
   /*
