@@ -575,8 +575,8 @@ function processFile() {
             calcImported(Melt,inValues);
             console.log('Melt\n');
             console.log(Melt);
-            downloadBlob(arrayToCsv(nonMelt), 'noMelt.csv', 'text/csv;charset=utf-8;');
-            downloadBlob(arrayToCsv(Melt), 'Melt.csv', 'text/csv;charset=utf-8;');
+            // downloadBlob(arrayToCsv(nonMelt), 'noMelt.csv', 'text/csv;charset=utf-8;');
+            // downloadBlob(arrayToCsv(Melt), 'Melt.csv', 'text/csv;charset=utf-8;');
             
 
         };
