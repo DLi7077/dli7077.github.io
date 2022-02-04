@@ -554,29 +554,8 @@ function processFile() {
             //When done reading, skips first row then separates using new line char, creates subarray of each, then filters out results that do not use Chongyun
             const userInputs = fileReader.result.split("\r\n").map(e => e.split(","));
             inValues=userInputs;
-            // console.log(inValues);
-            document.getElementById('DmgELE').value = "Cryo";
-            changeBG("Cryo",'charac1');ChangeFontColor("Cryo",1);
-            document.getElementById('AELE').value="Pyro";
-            check('emblem');
-            check('bennett');
-            check('Sucrose');
-            check('SucroseC6');
-            document.getElementById('SucroseEM').value=1061.72;
-            check('ShenHe');
-            document.getElementById('ShenHeATK').value=6357.55;
-            check('4VV');
-            check('archaic');
-            // check('4instructor')
-            document.getElementById('resShred').value=10;
-
-
-            document.getElementById('otherxB').value= 15+57.6;
-
-
-            let damages= calcImported(inValues);
-            arr=[];
-            arr= getLargest(damages);
+            chongyunDMG=ChongyunMax(inValues);
+            arr= getLargest(chongyunDMG);
             console.log(arr)
             // downloadBlob(arrayToCsv(nonMelt), 'noMelt.csv', 'text/csv;charset=utf-8;');
             // downloadBlob(arrayToCsv(Melt), 'Melt.csv', 'text/csv;charset=utf-8;');
@@ -588,7 +567,28 @@ function processFile() {
         console.log("No file selected!");
     }     
 }
+function ChongyunMax(list){
+    // console.log(inValues);
+    document.getElementById('DmgELE').value = "Cryo";
+    changeBG("Cryo",'charac1');ChangeFontColor("Cryo",1);
+    document.getElementById('AELE').value="Pyro";
+    check('emblem');
+    check('bennett');
+    check('Sucrose');
+    check('SucroseC6');
+    document.getElementById('SucroseEM').value=1061.72+120;
+    check('ShenHe');
+    document.getElementById('ShenHeATK').value=5981.35;
+    check('4VV');
+    check('archaic');
+    check('4instructor')
+    document.getElementById('resShred').value=10;
+    document.getElementById('otherxB').value= 15+57.6;
 
+    //reset everything
+    
+    return calcImported(list);
+}
 
 //https://stackoverflow.com/questions/14964035/how-to-export-javascript-array-info-to-csv-on-client-side?answertab=active#tab-top
 function arrayToCsv(data){
