@@ -574,14 +574,20 @@ function ChongyunMax(list){
     document.getElementById('AELE').value="Pyro";
     check('emblem');
     check('bennett');
+
+    // check('4instructor');
+
+    check('ShenHe');
+    check('archaic');
+    // document.getElementById("bennettBase").value=799;//freedom sworn
+    // document.getElementById('otherAtk').value=20;//freedom sworn
+    
     check('Sucrose');
     check('SucroseC6');
-    document.getElementById('SucroseEM').value=1061.72+120;
-    check('ShenHe');
-    document.getElementById('ShenHeATK').value=5981.35;
+    document.getElementById('SucroseEM').value=1061.72;
+    document.getElementById('ShenHeATK').value=6347.1;
     check('4VV');
-    check('archaic');
-    check('4instructor')
+
     document.getElementById('resShred').value=10;
     document.getElementById('otherxB').value= 15+57.6;
 
