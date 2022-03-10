@@ -18,14 +18,14 @@ body{
     overflow: hidden;
 }*/
 .dividers{
-    font-size: 55px;
+    /* font-size: 55px; */ /* Don't need this already specified font-size in .title */ 
     margin-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
     color:white;
 }
 .title{
-    display: inline-flex;
+    display: flex;
     margin-left:11px;
     font-size: 55px;
     color:var(--c-cryo);
@@ -38,6 +38,9 @@ body{
     /* overflow: hidden; */
     float:left;
 
+    justify-content: center;
+    width: 100%;
+    align-items: center;
 }
 label{
     /* color:rgb(0, 255, 255); */
@@ -169,13 +172,11 @@ select{
 
 }
 .uploadB {
-    position: absolute;
-    top: 30px;
-    left:966px;
     background-color: rgba(179, 179, 179, 0.192);
     color: rgb(0, 225, 255);
     width: 270px;
     padding:8px;
+    font-size: 15px;
 }
 .import{
     background-color: #000000;
