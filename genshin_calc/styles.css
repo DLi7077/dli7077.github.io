@@ -168,7 +168,7 @@ select{
     transform: translate(-50%, -50%); */
     background-color: black;
     color:rgb(0, 225, 255);
-    height: 270px;
+    min-height: 270px;
     width:auto;
 
 }
