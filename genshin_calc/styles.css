@@ -158,7 +158,8 @@ select{
     font-family: genshinFont;
 }
 .c{
-    position: absolute;
+    position: fixed;
+    min-width: max-content; /* Prevents console from shrinking */
     top: 680px;
     left: 320px;
     /* 
