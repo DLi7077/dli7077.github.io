@@ -3,9 +3,7 @@
     src: url(ja-jp.ttf);
 }
 body{
-	background-image: url(images/00d5520f2e2e4e2c81e4f10d.jpg);
-	background-repeat:no-repeat;
-    background-size: cover;
+    background-color: black;
     background-attachment: fixed;
     height: auto;
     font-family: genshinFont;
