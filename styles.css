@@ -3,7 +3,7 @@
     src: url(ja-jp.ttf);
 }
 body{
-    background-color: black;
+    background-color: gray;
     background-attachment: fixed;
     height: auto;
     font-family: genshinFont;
